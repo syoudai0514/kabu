@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {demoData,parseCSV,calendar,newAccount,queueOrder,advance,equity,signal,backtest,monteCarlo,metrics} from '../src/engine.js';
+import {demoData,parseCSV,calendar,newAccount,queueOrder,advance,equity,signal,backtest,automaticStep,monteCarlo,metrics} from '../src/engine.js';
 const asset=(symbol='TEST',market='US',bars=[{date:'2024-01-01',open:10,close:10,fx:market==='US'?100:1},{date:'2024-01-02',open:12,close:14,fx:market==='US'?110:1},{date:'2024-01-03',open:11,close:13,fx:market==='US'?120:1}])=>({symbol,name:symbol,market,currency:market==='US'?'USD':'JPY',lot:market==='US'?1:100,bars});
 const costs={feeBps:0,slipBps:0,fxBps:0};
 test('buy and sell use next open, currency conversion, and exact fees',()=>{
@@ -57,4 +57,22 @@ test('Monte Carlo has reproducible probabilities, percentile order, deposits and
  const m=monteCarlo(),n=monteCarlo();assert.deepEqual(m,n);assert.equal(m.goal,100000000);assert.ok(Math.abs(m.requiredCagr-.58489319246)<1e-10);assert.equal(m.bands.length,121);
  assert.ok(m.bands.every(b=>b.low<=b.median&&b.median<=b.high));assert.ok(m.probability>=0&&m.probability<=1);assert.ok(m.lossProbability>0);
  const deposited=monteCarlo({monthly:10000});assert.equal(deposited.contributed,2200000);assert.ok(deposited.bands.at(-1).median>m.bands.at(-1).median);assert.throws(()=>monteCarlo({initial:-1}));assert.throws(()=>monteCarlo({vol:NaN}));
+});
+
+test('automatic replay matches the same strategy backtest exactly',()=>{
+ const data=demoData(),dates=calendar(data),account=newAccount(1000000,'high',dates[59]);
+ let steps=0;
+ while(automaticStep(account,data,{feeBps:10,slipBps:5,fxBps:10}))steps++;
+ assert.equal(steps,dates.length-60);
+ assert.deepEqual(account,backtest(data).account);
+ const snapshot=structuredClone(account);
+ assert.equal(automaticStep(account,data),null);
+ assert.deepEqual(account,snapshot);
+});
+test('automatic replay cannot use future prices or corrupt state on invalid inputs',()=>{
+ const data=demoData(),dates=calendar(data),a=newAccount(1000000,'high',dates[179]);
+ const b=structuredClone(a),changed=structuredClone(data);
+ changed.assets.forEach(s=>s.bars.filter(bar=>bar.date>dates[180]).forEach(bar=>{bar.open*=10;bar.close*=10;}));
+ automaticStep(a,data);automaticStep(b,changed);assert.deepEqual(a,b);
+ const before=structuredClone(a);assert.throws(()=>automaticStep(a,data,{feeBps:-1}));assert.deepEqual(a,before);
 });

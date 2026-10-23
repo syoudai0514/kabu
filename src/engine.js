@@ -109,6 +109,21 @@ export function strategyOrders(account,data,date){
     if(qty>0){queueOrder(account,data,asset.symbol,side,qty);account.orders.at(-1).reason='MA20/60 + モメンタム';}
   }
 }
+// One automatic session: inspect the previous close, then execute at the next open.
+export function automaticStep(account, data, costs = defaultCosts) {
+  const dates = calendar(data);
+  const index = dates.indexOf(account.date);
+  if (index < 0) throw new Error('口座の日付が価格データにありません。');
+  if (index === dates.length - 1) return null;
+  Object.values({...defaultCosts,...costs}).forEach(v => validNumber(v,0,1000,'コスト(bps)'));
+  if (!account.history.length) account.history.push({date:account.date,value:equity(account,data,account.date),cash:account.cash});
+  const before = account.trades.length;
+  strategyOrders(account, data, account.date);
+  advance(account, data, dates[index + 1], costs);
+  const trades = account.trades.slice(before);
+  return {date:account.date,filled:trades.filter(t=>t.status==='filled').length,rejected:trades.filter(t=>t.status==='rejected').length};
+}
+
 export function metrics(history,initial){
   if(!history.length)return {return:0,cagr:0,maxDD:0};let peak=initial,maxDD=0;
   for(const h of history){peak=Math.max(peak,h.value);maxDD=Math.min(maxDD,h.value/peak-1);}
