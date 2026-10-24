@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "frozen_at": "2026-10-24",
+  "seed": 2026102409,
+  "trials_per_family": 2500,
+  "candidate_constraints": [
+    "dual_momentum: short_window < long_window",
+    "donchian_breakout: exit_window < entry_window",
+    "spy_volatility_target: remove drawdown_window when risk_rule=none before deduplication",
+    "low_volatility: reject topk=5, weighting=equal, voltarget=0 because vol_window would be inactive"
+  ],
+  "partitions": {
+    "train": ["2016-10-24", "2020-12-31"],
+    "validation": ["2021-01-01", "2024-10-23"],
+    "audit": ["2024-10-24", "2026-10-23"]
+  },
+  "initial_jpy": 1000000,
+  "minimum_history": 252,
+  "cost_bps": {"fee": 10, "slippage": 5, "us_fx_proxy": 10},
+  "ranking": "positive_train_and_validation_excess_first; validation_excess_cagr - 0.25*abs(validation_max_drawdown) - 0.5*max(0,-train_excess_cagr); id_tiebreak",
+  "families": {
+    "trend_rotation": {
+      "name": "移動平均・順張りローテーション",
+      "definition": "円建て終値が移動平均を上回り、過去リターンが正のETFをリターン順位で配分。",
+      "dimensions": {"trend": [40,60,100,150,200,252], "momentum": [21,63,126,189,252], "rebalance": [5,21,63], "topk": [1,2,3,5], "gross": [0.5,0.75,1], "weighting": ["equal","inverse_vol"], "voltarget": [0,0.15,0.25], "entry_buffer": [0,0.01,0.02]}
+    },
+    "donchian_breakout": {
+      "name": "終値チャネル突破・保有状態管理",
+      "definition": "当日を除く過去終値の最高値を突破すると買い、過去終値の最安値割れまたは最大保有日数で退出。既存保有を優先し、空き枠に新規突破を採用。OHLC高安値は使わない。",
+      "dimensions": {"entry_window": [21,42,63,126,189,252], "exit_window": [5,10,21,42,63], "max_hold": [21,63,126,252], "rebalance": [1,5,10], "topk": [1,2,3,5], "gross": [0.5,0.75,1], "weighting": ["equal","inverse_vol"], "entry_buffer": [0,0.005,0.01]}
+    },
+    "rsi_mean_reversion": {
+      "name": "RSI短期逆張り・回復退出",
+      "definition": "円建て価格のCutler RSIが買い閾値を下回ると買い、RSI回復または最大保有日数で退出。任意の長期移動平均は新規買いだけに適用。",
+      "dimensions": {"rsi_window": [2,3,5,7,10,14], "entry_rsi": [10,20,30,40], "exit_rsi": [45,55,65,75], "max_hold": [3,5,10,21,42], "trend": [0,100,200], "rebalance": [1,2,5], "topk": [1,2,3,5], "gross": [0.5,0.75,1], "weighting": ["equal","inverse_vol"]}
+    },
+    "cross_sectional_reversal": {
+      "name": "短期下落順位・横断的逆張り",
+      "definition": "短期間の円建てリターンが弱いETFを順位で買い、定期的に入れ替える。弱さの上限閾値と任意の長期トレンド条件を適用。RSIの保有状態は使わない。",
+      "dimensions": {"short_window": [3,5,10,21], "weakness_threshold": [-0.03,0,0.03,0.1], "trend": [0,60,126,200], "rebalance": [1,3,5,10,21], "topk": [1,2,3,5], "gross": [0.5,0.75,1], "weighting": ["equal","inverse_vol"]}
+    },
+    "low_volatility": {
+      "name": "低ボラティリティ順位配分",
+      "definition": "過去の円建て日次変動が小さいETFを配分。上昇率・RSI・移動平均による採否は行わない。任意の対角分散によるボラティリティ縮小。",
+      "dimensions": {"vol_window": [10,21,42,63,126,252], "rebalance": [5,10,21,42,63], "topk": [1,2,3,5], "gross": [0.5,0.75,1], "weighting": ["equal","inverse_vol"], "voltarget": [0,0.1,0.15,0.2,0.25]}
+    },
+    "dual_momentum": {
+      "name": "二期間・絶対／相対モメンタム",
+      "definition": "短期と長期の円建てリターンが両方とも絶対閾値を超えるETFだけを採用し、二期間の加重リターンで順位付け。該当なしは現金。",
+      "dimensions": {"short_window": [21,42,63,126], "long_window": [126,189,252], "short_weight": [0.25,0.5,0.75], "absolute_threshold": [-0.02,0,0.02,0.05], "rebalance": [5,10,21,42,63], "topk": [1,2,3,5], "gross": [0.5,0.75,1], "weighting": ["equal","inverse_vol"]}
+    },
+    "spy_core_satellite": {
+      "name": "SPY固定コア＋相対強度サテライト",
+      "definition": "SPYを総投資比率の50/70/90%に固定し、残りだけをSPYより相対的に強い他ETFへ配分。サテライトの条件を満たさない資金は現金。",
+      "dimensions": {"core": [0.5,0.7,0.9], "relative_window": [21,42,63,126,189,252], "relative_threshold": [-0.02,0,0.02,0.05], "trend": [0,60,126,200], "rebalance": [5,10,21,42,63], "topk": [1,2,3,4], "gross": [0.5,0.75,1], "weighting": ["equal","inverse_vol"]}
+    },
+    "spy_volatility_target": {
+      "name": "SPY変動率連動の投資比率調整",
+      "definition": "SPYだけを対象に、目標変動率÷過去実現変動率で投資比率を設定し上限で制限。任意の過去終値ピークからの下落ルールで比率を縮小。",
+      "dimensions": {"vol_window": [10,21,42,63,126,189,252], "target_vol": [0.08,0.1,0.12,0.15,0.18,0.2,0.25,0.3], "cap": [0.5,0.75,1], "rebalance": [1,5,10,21,42,63], "risk_rule": ["none","half_10","half_15","cash_10","cash_20"], "drawdown_window": [21,63,126,252]}
+    },
+    "multi_strategy_ensemble": {
+      "name": "順張り・RSI逆張り・低変動の複合配分",
+      "definition": "移動平均順張り、保有状態付きRSI逆張り、低変動順位の三つを個別に計算し、明示した比率で合成する。RSI構成の入退出時には合成全体を再配分するため、他の構成も通常の周期外で変わり得る。各モデルの未投資分は現金。",
+      "dimensions": {"trend": [60,126,200,252], "momentum": [21,63,126,252], "rsi_window": [2,3,5,7], "entry_rsi": [15,25,35], "exit_rsi": [50,65], "max_hold": [5,10,21], "vol_window": [21,63,126], "topk": [1,2,3], "blend": [[0.5,0.25,0.25],[0.33,0.34,0.33],[0.25,0.5,0.25],[0.25,0.25,0.5]], "rebalance": [1,5,10,21], "gross": [0.5,0.75,1]}
+    }
+  }
+}

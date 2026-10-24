@@ -2,6 +2,29 @@
 
 主担当が仮説・採点式・期間を固定し、試行担当がCLIを実行し、主担当が全結果を分析する構成です。1試行ごとのLLM呼出しは不要。モデルが何であっても同じコード・データ・シードなら同じ結果になります。Sonnetや外部APIの接続は実装していません。
 
+## 最新：異なる9系統の比較
+
+初回の同系統パラメータ探索に加え、順張り・終値レンジ突破・RSI逆張り・短期下落順位・低変動率・二期間モメンタム・SPY基礎配分・SPY変動率管理・三戦略合成を別々に実装しました。各2,500設定、合計22,500通り。
+
+```sh
+OPENBLAS_NUM_THREADS=1 python scripts/run-families.py --output research/history-families-new --summary research/history-families-new/summary.json --batch-size 1024
+```
+
+`--shards`、`--shard-index`、`--resume`、`--aggregate`の分担と再開は下記と同様。設定は`research/family-space.json`、定義・採点・制約を結果を見る前に固定します。完全な一覧と出典ハッシュを保存し、入力・ソース変更後は新しい実験ディレクトリを使います。
+
+初回結果の独立照合は `python scripts/analyze-families.py`。画面の集計ファイルは `src/research-families-results.json` です。以前の `research-results.json` は第1実験の保存版として残します。[9系統の分析結果](../reports/algorithm-families-2026-10-24.md)も参照してください。
+
+9系統に対応する前向き観察：
+
+```sh
+python scripts/family-paper.py freeze --input research/history-v2-2026-10-24/reference-input.json
+python scripts/family-paper.py observe --input /path/to/updated-reference-input.json
+```
+
+今回08-02152を `research/history-family-forward/` に固定済みで、観測0日です。研究用で採用ではありません。別モデルは`--model`と`--state`で別パスを指定。固定日より後の最初の完了終値を代理の初期配分とし、次の評価日から損益を記録します。過去の修正・ソースや設定の変更・台帳の書き換えを拒否します。終端清算費用は観察中の台帳に含めず、履歴比較の各期間末清算とは区別します。
+
+次の節以降は、第1実験と共通する運用上の説明および初回の再現手順です。
+
 ## セットアップと一括探索
 
 Python 3.12、NumPy 2.3.5。設定は [search-space.json](../research/search-space.json)、研究方針は [固定プロトコル](research-protocol.md)。入力ETF履歴の取得方法は [研究用エンジン](../research/README.md) を参照。
