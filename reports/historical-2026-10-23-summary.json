@@ -1,0 +1,358 @@
+{
+  "asOf": "2026-10-23",
+  "end": "2026-10-22",
+  "initial": 1000000,
+  "costs": {
+    "feeBps": 10,
+    "slipBps": 5,
+    "fxBps": 10
+  },
+  "sourceRetrievedAt": "2026-10-23T02:24:10.585833+00:00",
+  "engineGitRevision": "acbe4f1",
+  "sources": [
+    {
+      "symbol": "7203.T",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/7203.T?period1=1619827200&period2=1792713600&interval=1d&events=div%2Csplits",
+      "sha256": "c80c50c848feb1ea50085d5b927fcef51647ea4a57a6ed5a627e0883ff2a458d",
+      "rows": 1337,
+      "first": "2021-05-06",
+      "last": "2026-10-22",
+      "splits": [
+        {
+          "date": "2021-09-29",
+          "ratio": 5
+        }
+      ]
+    },
+    {
+      "symbol": "6758.T",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/6758.T?period1=1619827200&period2=1792713600&interval=1d&events=div%2Csplits",
+      "sha256": "65d9c52ebb8b63d11ac4c3780d6c71b6b27e44ad01c3a161c1630a9ef8822411",
+      "rows": 1337,
+      "first": "2021-05-06",
+      "last": "2026-10-22",
+      "splits": [
+        {
+          "date": "2024-09-27",
+          "ratio": 5
+        }
+      ]
+    },
+    {
+      "symbol": "8306.T",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/8306.T?period1=1619827200&period2=1792713600&interval=1d&events=div%2Csplits",
+      "sha256": "5c206a6d0304bd6baf55dc061dc7bf1c17dc32c30bdc6c52f66bac037de35c64",
+      "rows": 1337,
+      "first": "2021-05-06",
+      "last": "2026-10-22",
+      "splits": []
+    },
+    {
+      "symbol": "AAPL",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/AAPL?period1=1619827200&period2=1792713600&interval=1d&events=div%2Csplits",
+      "sha256": "1c5c162232ce84cd187fa39107b93a1630fa23ac099af6ddb54453241bfe6d59",
+      "rows": 1376,
+      "first": "2021-05-03",
+      "last": "2026-10-22",
+      "splits": []
+    },
+    {
+      "symbol": "MSFT",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/MSFT?period1=1619827200&period2=1792713600&interval=1d&events=div%2Csplits",
+      "sha256": "a7000a9dac0dd431de5aca8b2a8f01dfc5118d87ced3018b040fd5b757794597",
+      "rows": 1376,
+      "first": "2021-05-03",
+      "last": "2026-10-22",
+      "splits": []
+    },
+    {
+      "symbol": "NVDA",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/NVDA?period1=1619827200&period2=1792713600&interval=1d&events=div%2Csplits",
+      "sha256": "9594c74dbe28cfb94cde3b5e5292db2a946d92adb3a10d0f0506c19b684874ff",
+      "rows": 1376,
+      "first": "2021-05-03",
+      "last": "2026-10-22",
+      "splits": [
+        {
+          "date": "2021-07-20",
+          "ratio": 4
+        },
+        {
+          "date": "2024-06-10",
+          "ratio": 10
+        }
+      ]
+    },
+    {
+      "symbol": "JPY=X",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/JPY%3DX?period1=1619827200&period2=1792713600&interval=1d&events=div%2Csplits",
+      "sha256": "7a2c3943208254be2add40666b208016eebfdc786de828dd7224356d41de86e4",
+      "rows": 1424,
+      "first": "2021-05-03",
+      "last": "2026-10-22",
+      "splits": []
+    }
+  ],
+  "runs": [
+    {
+      "summary": {
+        "label": "5年前",
+        "risk": "high",
+        "requestedStart": "2021-10-23",
+        "firstSession": "2021-10-25",
+        "firstFill": "2021-10-26",
+        "end": "2026-10-22",
+        "initial": 1000000,
+        "final": 1453336.3745261994,
+        "profit": 453336.3745261994,
+        "return": 0.45333637452619935,
+        "cagr": 0.0776498545048967,
+        "maxDD": -0.07347093340695499,
+        "cash": 1123343.3404052984,
+        "filled": 244,
+        "buys": 123,
+        "sells": 121,
+        "rejected": 0,
+        "fees": 63844.4926579397,
+        "halted": false,
+        "holdings": [
+          {
+            "symbol": "MSFT",
+            "qty": 2,
+            "cost": 161461.73175552092,
+            "value": 164798.85446862318
+          },
+          {
+            "symbol": "AAPL",
+            "qty": 3,
+            "cost": 164047.42035558488,
+            "value": 165194.17965227785
+          }
+        ],
+        "tradedSymbols": [
+          "MSFT",
+          "NVDA",
+          "8306",
+          "AAPL"
+        ],
+        "pendingOrders": 0
+      }
+    },
+    {
+      "summary": {
+        "label": "1年前",
+        "risk": "high",
+        "requestedStart": "2025-10-23",
+        "firstSession": "2025-10-23",
+        "firstFill": "2025-10-23",
+        "end": "2026-10-22",
+        "initial": 1000000,
+        "final": 970334.7544245572,
+        "profit": -29665.245575442794,
+        "return": -0.02966524557544281,
+        "cagr": -0.02968525962618207,
+        "maxDD": -0.06385221922624285,
+        "cash": 777805.874088727,
+        "filled": 52,
+        "buys": 27,
+        "sells": 25,
+        "rejected": 0,
+        "fees": 9918.381862325528,
+        "halted": false,
+        "holdings": [
+          {
+            "symbol": "MSFT",
+            "qty": 1,
+            "cost": 80730.86587776046,
+            "value": 82399.42723431159
+          },
+          {
+            "symbol": "AAPL",
+            "qty": 2,
+            "cost": 109364.94690372325,
+            "value": 110129.45310151856
+          }
+        ],
+        "tradedSymbols": [
+          "AAPL",
+          "MSFT",
+          "NVDA"
+        ],
+        "pendingOrders": 0
+      }
+    },
+    {
+      "summary": {
+        "label": "半年前",
+        "risk": "high",
+        "requestedStart": "2026-04-23",
+        "firstSession": "2026-04-23",
+        "firstFill": "2026-04-23",
+        "end": "2026-10-22",
+        "initial": 1000000,
+        "final": 993133.9947113249,
+        "profit": -6866.005288675078,
+        "return": -0.006866005288675092,
+        "cagr": -0.013657018154202727,
+        "maxDD": -0.043791546598320186,
+        "cash": 800605.1143754948,
+        "filled": 34,
+        "buys": 18,
+        "sells": 16,
+        "rejected": 0,
+        "fees": 6319.722253799755,
+        "halted": false,
+        "holdings": [
+          {
+            "symbol": "MSFT",
+            "qty": 1,
+            "cost": 80730.86587776046,
+            "value": 82399.42723431159
+          },
+          {
+            "symbol": "AAPL",
+            "qty": 2,
+            "cost": 109364.94690372325,
+            "value": 110129.45310151856
+          }
+        ],
+        "tradedSymbols": [
+          "NVDA",
+          "AAPL",
+          "MSFT"
+        ],
+        "pendingOrders": 0
+      }
+    },
+    {
+      "summary": {
+        "label": "5年前",
+        "risk": "medium",
+        "requestedStart": "2021-10-23",
+        "firstSession": "2021-10-25",
+        "firstFill": "2021-10-26",
+        "end": "2026-10-22",
+        "initial": 1000000,
+        "final": 1263290.9125650972,
+        "profit": 263290.9125650972,
+        "return": 0.2632909125650973,
+        "cagr": 0.047860461980334446,
+        "maxDD": -0.05320235891084324,
+        "cash": 1070762.032229267,
+        "filled": 220,
+        "buys": 111,
+        "sells": 109,
+        "rejected": 0,
+        "fees": 37126.35540390003,
+        "halted": false,
+        "holdings": [
+          {
+            "symbol": "MSFT",
+            "qty": 1,
+            "cost": 80730.86587776046,
+            "value": 82399.42723431159
+          },
+          {
+            "symbol": "AAPL",
+            "qty": 2,
+            "cost": 109364.94690372325,
+            "value": 110129.45310151856
+          }
+        ],
+        "tradedSymbols": [
+          "MSFT",
+          "NVDA",
+          "8306",
+          "AAPL"
+        ],
+        "pendingOrders": 0
+      }
+    },
+    {
+      "summary": {
+        "label": "1年前",
+        "risk": "medium",
+        "requestedStart": "2025-10-23",
+        "firstSession": "2025-10-23",
+        "firstFill": "2025-10-23",
+        "end": "2026-10-22",
+        "initial": 1000000,
+        "final": 976163.1962844952,
+        "profit": -23836.803715504822,
+        "return": -0.023836803715504784,
+        "cagr": -0.023852934008601112,
+        "maxDD": -0.04759767807217852,
+        "cash": 838699.0424994243,
+        "filled": 52,
+        "buys": 27,
+        "sells": 25,
+        "rejected": 0,
+        "fees": 7662.8827219797295,
+        "halted": false,
+        "holdings": [
+          {
+            "symbol": "MSFT",
+            "qty": 1,
+            "cost": 80730.86587776046,
+            "value": 82399.42723431159
+          },
+          {
+            "symbol": "AAPL",
+            "qty": 1,
+            "cost": 54682.473451861624,
+            "value": 55064.72655075928
+          }
+        ],
+        "tradedSymbols": [
+          "AAPL",
+          "MSFT",
+          "NVDA"
+        ],
+        "pendingOrders": 0
+      }
+    },
+    {
+      "summary": {
+        "label": "半年前",
+        "risk": "medium",
+        "requestedStart": "2026-04-23",
+        "firstSession": "2026-04-23",
+        "firstFill": "2026-04-23",
+        "end": "2026-10-22",
+        "initial": 1000000,
+        "final": 992519.8834012478,
+        "profit": -7480.116598752211,
+        "return": -0.007480116598752251,
+        "cagr": -0.014873967766483087,
+        "maxDD": -0.031773875204494484,
+        "cash": 855055.7296161769,
+        "filled": 34,
+        "buys": 18,
+        "sells": 16,
+        "rejected": 0,
+        "fees": 4932.534507242922,
+        "halted": false,
+        "holdings": [
+          {
+            "symbol": "MSFT",
+            "qty": 1,
+            "cost": 80730.86587776046,
+            "value": 82399.42723431159
+          },
+          {
+            "symbol": "AAPL",
+            "qty": 1,
+            "cost": 54682.473451861624,
+            "value": 55064.72655075928
+          }
+        ],
+        "tradedSymbols": [
+          "NVDA",
+          "AAPL",
+          "MSFT"
+        ],
+        "pendingOrders": 0
+      }
+    }
+  ]
+}
