@@ -1,0 +1,1322 @@
+{
+  "mode": "etf_reference",
+  "config": {
+    "initial": 1000000,
+    "starts": [
+      "2016-10-24",
+      "2021-10-24",
+      "2025-10-24"
+    ],
+    "end": "2026-10-23",
+    "strategy": "weekly_trend",
+    "candidate_count_per_market": 250,
+    "size_quota": {
+      "large": 125,
+      "mid": 125
+    },
+    "candidate_sector_cap": 50,
+    "minimum_history": 252,
+    "liquidity_window": 60,
+    "min_median_turnover": {
+      "JP": 100000000,
+      "US": 1000000
+    },
+    "fee_bps": 10,
+    "slip_bps": 5,
+    "fx_bps": 10,
+    "position_cap": 0.15,
+    "country_cap": 0.6,
+    "sector_cap": 0.3,
+    "exposure_cap": 0.9,
+    "trade_risk": 0.02,
+    "portfolio_risk": 0.08,
+    "stop": 0.15,
+    "circuit": 0.4,
+    "volume_participation": 0.01,
+    "dividends": false
+  },
+  "input_sha256": "1cbffebed7ae8aa2bd700d9f248aa0b4bf4e1ed6f47ab8217b72705f3c6a71be",
+  "sources": [
+    {
+      "symbol": "1348.T",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/1348.T?period1=1420070400&period2=1792800000&interval=1d&events=div%2Csplits",
+      "sha256": "96a6f1d5cfb53683ac68d3cb245a8225a1dbe7c7841e67662389e1a2defda7ce",
+      "rows": 2903,
+      "first": "2015-01-05",
+      "last": "2026-10-23"
+    },
+    {
+      "symbol": "1346.T",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/1346.T?period1=1420070400&period2=1792800000&interval=1d&events=div%2Csplits",
+      "sha256": "ac90d756a8b8f000f3536ea729c64f21aedaaf1ae7a76437daf30a23268ed744",
+      "rows": 2903,
+      "first": "2015-01-05",
+      "last": "2026-10-23"
+    },
+    {
+      "symbol": "SPY",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/SPY?period1=1420070400&period2=1792800000&interval=1d&events=div%2Csplits",
+      "sha256": "e6df8e06ed57656e6bc94b1f8b2a42ac634c438c92523436f4511e4b6c696b5a",
+      "rows": 2970,
+      "first": "2015-01-02",
+      "last": "2026-10-23"
+    },
+    {
+      "symbol": "QQQ",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/QQQ?period1=1420070400&period2=1792800000&interval=1d&events=div%2Csplits",
+      "sha256": "5d0a85d0e95f29407152a34b722bb9914088b52222fddb9e10473f51e1dffce0",
+      "rows": 2970,
+      "first": "2015-01-02",
+      "last": "2026-10-23"
+    },
+    {
+      "symbol": "IWM",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/IWM?period1=1420070400&period2=1792800000&interval=1d&events=div%2Csplits",
+      "sha256": "73c817b1d48878fcdcf774ae43f5d080b6ac5e7bf27991925cd7ec2dc263b850",
+      "rows": 2970,
+      "first": "2015-01-02",
+      "last": "2026-10-23"
+    },
+    {
+      "symbol": "JPY=X",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/JPY%3DX?period1=1420070400&period2=1792800000&interval=1d&events=div%2Csplits",
+      "sha256": "5ddb599aa01bcc16cd0f1d055ef57a02effa2140ae4760a329d4e09b2e963f4f",
+      "rows": 3075,
+      "first": "2015-01-01",
+      "last": "2026-10-23"
+    }
+  ],
+  "coverage": {
+    "from_date": "2015-01-01",
+    "through": "2026-10-23",
+    "includes_delisted": false,
+    "complete_market_history": false,
+    "dividend_mode": "excluded",
+    "fx_execution": "lagged_daily_proxy",
+    "note": "Five fixed ETFs; not a 500-equity PIT universe"
+  },
+  "retrieved_at": null,
+  "notice": "Reference ETF results are not a 500-stock strategy result",
+  "runs": [
+    {
+      "summary": {
+        "start": "2016-10-24",
+        "end": "2026-10-23",
+        "strategy": "weekly_trend",
+        "mode": "etf_reference",
+        "benchmark": null,
+        "initial": 1000000,
+        "final": 1646914.4196154778,
+        "profit": 646914.4196154778,
+        "return_": 0.6469144196154777,
+        "cagr": 0.05116300960657849,
+        "max_drawdown": -0.13930559484470617,
+        "average_stock_exposure": 0.3372810123370602,
+        "fills": 313,
+        "traded_symbols": [
+          "1346.T",
+          "1348.T",
+          "IWM",
+          "QQQ",
+          "SPY"
+        ],
+        "fees_jpy": 44695.203055497266,
+        "fx_cost_jpy": 374.89759819999927,
+        "cash": {
+          "JPY": 552369.5359742704,
+          "USD": 3875.0849481593714
+        },
+        "last_fx": 158.26800537109375,
+        "last_fx_at": "2026-10-23T00:00:00+00:00",
+        "halted": false,
+        "rejection_reasons": {
+          "exposure_or_total_risk": 188
+        },
+        "holdings": [
+          {
+            "id": "1348.T",
+            "qty": 60,
+            "cost_jpy": 173870.501805,
+            "value_jpy": 249480.0
+          },
+          {
+            "id": "SPY",
+            "qty": 1,
+            "cost_jpy": 107945.78529120803,
+            "value_jpy": 120278.93140511215
+          },
+          {
+            "id": "QQQ",
+            "qty": 1,
+            "cost_jpy": 113815.26242779395,
+            "value_jpy": 111483.98684736341
+          }
+        ],
+        "pending_orders": [
+          {
+            "asset": "1348.T",
+            "side": "SELL",
+            "qty": 60,
+            "placed": "2026-10-23T06:30:00+00:00",
+            "reason": "exit_or_universe"
+          },
+          {
+            "asset": "1346.T",
+            "side": "BUY",
+            "qty": 3,
+            "placed": "2026-10-23T06:30:00+00:00",
+            "reason": "weekly_trend"
+          }
+        ],
+        "case": "weekly_trend"
+      }
+    },
+    {
+      "summary": {
+        "start": "2016-10-24",
+        "end": "2026-10-23",
+        "strategy": "ma20_60",
+        "mode": "etf_reference",
+        "benchmark": null,
+        "initial": 1000000,
+        "final": 1343665.960930924,
+        "profit": 343665.96093092393,
+        "return_": 0.34366596093092383,
+        "cagr": 0.02998497154869284,
+        "max_drawdown": -0.1250509251017582,
+        "average_stock_exposure": 0.27305439214294525,
+        "fills": 820,
+        "traded_symbols": [
+          "1346.T",
+          "1348.T",
+          "IWM",
+          "QQQ",
+          "SPY"
+        ],
+        "fees_jpy": 104908.83780046788,
+        "fx_cost_jpy": 385.060831094634,
+        "cash": {
+          "JPY": 696381.0365252236,
+          "USD": 4089.8027550672678
+        },
+        "last_fx": 158.26800537109375,
+        "last_fx_at": "2026-10-23T00:00:00+00:00",
+        "halted": false,
+        "rejection_reasons": {
+          "exposure_or_total_risk": 487
+        },
+        "holdings": [],
+        "pending_orders": [],
+        "case": "ma20_60"
+      }
+    },
+    {
+      "summary": {
+        "start": "2016-10-24",
+        "end": "2026-10-23",
+        "strategy": "weekly_trend",
+        "mode": "etf_reference",
+        "benchmark": null,
+        "initial": 1000000,
+        "final": 1535792.3786145886,
+        "profit": 535792.3786145886,
+        "return_": 0.5357923786145886,
+        "cagr": 0.04384448712413369,
+        "max_drawdown": -0.1523103921982204,
+        "average_stock_exposure": 0.33781967059502543,
+        "fills": 319,
+        "traded_symbols": [
+          "1346.T",
+          "1348.T",
+          "IWM",
+          "QQQ",
+          "SPY"
+        ],
+        "fees_jpy": 89102.38233417593,
+        "fx_cost_jpy": 751.7453448672452,
+        "cash": {
+          "JPY": 541241.5197015167,
+          "USD": 3506.0019828994555
+        },
+        "last_fx": 158.26800537109375,
+        "last_fx_at": "2026-10-23T00:00:00+00:00",
+        "halted": false,
+        "rejection_reasons": {
+          "exposure_or_total_risk": 184
+        },
+        "holdings": [
+          {
+            "id": "1348.T",
+            "qty": 50,
+            "cost_jpy": 145109.31435,
+            "value_jpy": 207900.0
+          },
+          {
+            "id": "SPY",
+            "qty": 1,
+            "cost_jpy": 108107.6230502653,
+            "value_jpy": 120278.93140511215
+          },
+          {
+            "id": "QQQ",
+            "qty": 1,
+            "cost_jpy": 113985.90000264821,
+            "value_jpy": 111483.98684736341
+          }
+        ],
+        "pending_orders": [
+          {
+            "asset": "1348.T",
+            "side": "SELL",
+            "qty": 50,
+            "placed": "2026-10-23T06:30:00+00:00",
+            "reason": "exit_or_universe"
+          },
+          {
+            "asset": "1346.T",
+            "side": "BUY",
+            "qty": 3,
+            "placed": "2026-10-23T06:30:00+00:00",
+            "reason": "weekly_trend"
+          }
+        ],
+        "case": "double_costs"
+      }
+    },
+    {
+      "summary": {
+        "start": "2016-10-24",
+        "end": "2026-10-23",
+        "strategy": "weekly_trend",
+        "mode": "etf_reference",
+        "benchmark": "equal",
+        "initial": 1000000,
+        "final": 4737876.964495495,
+        "profit": 3737876.964495495,
+        "return_": 3.737876964495495,
+        "cagr": 0.16833564629714615,
+        "max_drawdown": -0.30949017136788504,
+        "average_stock_exposure": 0.9802156649677488,
+        "fills": 5,
+        "traded_symbols": [
+          "1346.T",
+          "1348.T",
+          "IWM",
+          "QQQ",
+          "SPY"
+        ],
+        "fees_jpy": 961.9537848178581,
+        "fx_cost_jpy": 568.5749167276372,
+        "cash": {
+          "JPY": 36515.68648059643,
+          "USD": 0.0
+        },
+        "last_fx": 158.26800537109375,
+        "last_fx_at": "2026-10-23T00:00:00+00:00",
+        "halted": false,
+        "rejection_reasons": {},
+        "holdings": [
+          {
+            "id": "IWM",
+            "qty": 15,
+            "cost_jpy": 190867.9071520061,
+            "value_jpy": 654636.0372161865
+          },
+          {
+            "id": "QQQ",
+            "qty": 16,
+            "cost_jpy": 198370.83682430806,
+            "value_jpy": 1783743.7895578146
+          },
+          {
+            "id": "SPY",
+            "qty": 8,
+            "cost_jpy": 179336.17275136182,
+            "value_jpy": 962231.4512408972
+          },
+          {
+            "id": "1346.T",
+            "qty": 11,
+            "cost_jpy": 196644.623175,
+            "value_jpy": 718630.0
+          },
+          {
+            "id": "1348.T",
+            "qty": 140,
+            "cost_jpy": 197696.19869999998,
+            "value_jpy": 582120.0
+          }
+        ],
+        "pending_orders": [],
+        "case": "equal_buy_hold"
+      }
+    },
+    {
+      "summary": {
+        "start": "2016-10-24",
+        "end": "2026-10-23",
+        "strategy": "weekly_trend",
+        "mode": "etf_reference",
+        "benchmark": "SPY",
+        "initial": 1000000,
+        "final": 5304937.682742312,
+        "profit": 4304937.682742312,
+        "return_": 4.304937682742311,
+        "cagr": 0.18162031874684326,
+        "max_drawdown": -0.3393354255152983,
+        "average_stock_exposure": 0.9935517923200098,
+        "fills": 1,
+        "traded_symbols": [
+          "SPY"
+        ],
+        "fees_jpy": 985.3635865459441,
+        "fx_cost_jpy": 986.3489501323784,
+        "cash": {
+          "JPY": 12664.700917377486,
+          "USD": 0.0
+        },
+        "last_fx": 158.26800537109375,
+        "last_fx_at": "2026-10-23T00:00:00+00:00",
+        "halted": false,
+        "rejection_reasons": {},
+        "holdings": [
+          {
+            "id": "SPY",
+            "qty": 44,
+            "cost_jpy": 986348.9501324901,
+            "value_jpy": 5292272.9818249345
+          }
+        ],
+        "pending_orders": [],
+        "case": "spy_buy_hold"
+      }
+    },
+    {
+      "summary": {
+        "start": "2016-10-24",
+        "end": "2026-10-23",
+        "strategy": "weekly_trend",
+        "mode": "etf_reference",
+        "benchmark": "1346.T",
+        "initial": 1000000,
+        "final": 3609376.05885,
+        "profit": 2609376.05885,
+        "return_": 2.60937605885,
+        "cagr": 0.1369748160984261,
+        "max_drawdown": -0.31184679662456816,
+        "average_stock_exposure": 0.989186043335818,
+        "fills": 1,
+        "traded_symbols": [
+          "1346.T"
+        ],
+        "fees_jpy": 982.79115,
+        "fx_cost_jpy": 0.0,
+        "cash": {
+          "JPY": 16226.05885000003,
+          "USD": 0.0
+        },
+        "last_fx": 158.26800537109375,
+        "last_fx_at": "2026-10-23T00:00:00+00:00",
+        "halted": false,
+        "rejection_reasons": {
+          "insufficient_cash": 1
+        },
+        "holdings": [
+          {
+            "id": "1346.T",
+            "qty": 55,
+            "cost_jpy": 983773.94115,
+            "value_jpy": 3593150.0
+          }
+        ],
+        "pending_orders": [],
+        "case": "nikkei_etf_buy_hold"
+      }
+    },
+    {
+      "summary": {
+        "start": "2016-10-24",
+        "end": "2026-10-23",
+        "strategy": "weekly_trend",
+        "mode": "etf_reference",
+        "benchmark": null,
+        "initial": 1000000,
+        "final": 1648275.925223954,
+        "profit": 648275.925223954,
+        "return_": 0.648275925223954,
+        "cagr": 0.05124988892812454,
+        "max_drawdown": -0.141332507627825,
+        "average_stock_exposure": 0.33728133947894895,
+        "fills": 313,
+        "traded_symbols": [
+          "1346.T",
+          "1348.T",
+          "IWM",
+          "QQQ",
+          "SPY"
+        ],
+        "fees_jpy": 44695.203055497266,
+        "fx_cost_jpy": 374.89759819999927,
+        "cash": {
+          "JPY": 552369.5359742704,
+          "USD": 3875.0849481593714
+        },
+        "last_fx": 158.5229949951172,
+        "last_fx_at": "2026-10-23T00:00:00+00:00",
+        "halted": false,
+        "rejection_reasons": {
+          "exposure_or_total_risk": 188
+        },
+        "holdings": [
+          {
+            "id": "1348.T",
+            "qty": 60,
+            "cost_jpy": 173870.501805,
+            "value_jpy": 249480.0
+          },
+          {
+            "id": "SPY",
+            "qty": 1,
+            "cost_jpy": 107945.78529120803,
+            "value_jpy": 120472.71586221084
+          },
+          {
+            "id": "QQQ",
+            "qty": 1,
+            "cost_jpy": 113815.26242779395,
+            "value_jpy": 111663.60154475085
+          }
+        ],
+        "pending_orders": [
+          {
+            "asset": "1348.T",
+            "side": "SELL",
+            "qty": 60,
+            "placed": "2026-10-23T06:30:00+00:00",
+            "reason": "exit_or_universe"
+          },
+          {
+            "asset": "1346.T",
+            "side": "BUY",
+            "qty": 3,
+            "placed": "2026-10-23T06:30:00+00:00",
+            "reason": "weekly_trend"
+          }
+        ],
+        "case": "extra_day_fx_delay"
+      }
+    },
+    {
+      "summary": {
+        "start": "2021-10-24",
+        "end": "2026-10-23",
+        "strategy": "weekly_trend",
+        "mode": "etf_reference",
+        "benchmark": null,
+        "initial": 1000000,
+        "final": 1305513.2687105448,
+        "profit": 305513.2687105448,
+        "return_": 0.30551326871054485,
+        "cagr": 0.054774030164409515,
+        "max_drawdown": -0.12457858633373253,
+        "average_stock_exposure": 0.32663787882017675,
+        "fills": 141,
+        "traded_symbols": [
+          "1346.T",
+          "1348.T",
+          "IWM",
+          "QQQ",
+          "SPY"
+        ],
+        "fees_jpy": 17371.93999119323,
+        "fx_cost_jpy": 325.377029478489,
+        "cash": {
+          "JPY": 599195.67503949,
+          "USD": 1947.5488725333726
+        },
+        "last_fx": 158.26800537109375,
+        "last_fx_at": "2026-10-23T00:00:00+00:00",
+        "halted": false,
+        "rejection_reasons": {
+          "exposure_or_total_risk": 57
+        },
+        "holdings": [
+          {
+            "id": "1348.T",
+            "qty": 40,
+            "cost_jpy": 115913.66786999999,
+            "value_jpy": 166320.0
+          },
+          {
+            "id": "SPY",
+            "qty": 1,
+            "cost_jpy": 107945.78529120803,
+            "value_jpy": 120278.93140511215
+          },
+          {
+            "id": "QQQ",
+            "qty": 1,
+            "cost_jpy": 113815.26242779395,
+            "value_jpy": 111483.98684736341
+          }
+        ],
+        "pending_orders": [
+          {
+            "asset": "1348.T",
+            "side": "SELL",
+            "qty": 40,
+            "placed": "2026-10-23T06:30:00+00:00",
+            "reason": "exit_or_universe"
+          },
+          {
+            "asset": "1346.T",
+            "side": "BUY",
+            "qty": 2,
+            "placed": "2026-10-23T06:30:00+00:00",
+            "reason": "weekly_trend"
+          }
+        ],
+        "case": "weekly_trend"
+      }
+    },
+    {
+      "summary": {
+        "start": "2021-10-24",
+        "end": "2026-10-23",
+        "strategy": "ma20_60",
+        "mode": "etf_reference",
+        "benchmark": null,
+        "initial": 1000000,
+        "final": 1133315.75153834,
+        "profit": 133315.75153834,
+        "return_": 0.13331575153834008,
+        "cagr": 0.025348908004732218,
+        "max_drawdown": -0.11991936005776749,
+        "average_stock_exposure": 0.24904470058574665,
+        "fills": 432,
+        "traded_symbols": [
+          "1346.T",
+          "1348.T",
+          "IWM",
+          "QQQ",
+          "SPY"
+        ],
+        "fees_jpy": 49513.60800070625,
+        "fx_cost_jpy": 345.38245143071254,
+        "cash": {
+          "JPY": 690548.894757832,
+          "USD": 2797.5765268687423
+        },
+        "last_fx": 158.26800537109375,
+        "last_fx_at": "2026-10-23T00:00:00+00:00",
+        "halted": false,
+        "rejection_reasons": {
+          "exposure_or_total_risk": 154
+        },
+        "holdings": [],
+        "pending_orders": [],
+        "case": "ma20_60"
+      }
+    },
+    {
+      "summary": {
+        "start": "2021-10-24",
+        "end": "2026-10-23",
+        "strategy": "weekly_trend",
+        "mode": "etf_reference",
+        "benchmark": null,
+        "initial": 1000000,
+        "final": 1275407.5241411882,
+        "profit": 275407.52414118825,
+        "return_": 0.2754075241411882,
+        "cagr": 0.049863139172623416,
+        "max_drawdown": -0.12804434513673368,
+        "average_stock_exposure": 0.32374721166783893,
+        "fills": 143,
+        "traded_symbols": [
+          "1346.T",
+          "1348.T",
+          "IWM",
+          "QQQ",
+          "SPY"
+        ],
+        "fees_jpy": 34685.60530918318,
+        "fx_cost_jpy": 646.7284559590453,
+        "cash": {
+          "JPY": 584575.5277745158,
+          "USD": 1849.7047298206803
+        },
+        "last_fx": 158.26800537109375,
+        "last_fx_at": "2026-10-23T00:00:00+00:00",
+        "halted": false,
+        "rejection_reasons": {
+          "exposure_or_total_risk": 56
+        },
+        "holdings": [
+          {
+            "id": "1348.T",
+            "qty": 40,
+            "cost_jpy": 116087.45147999999,
+            "value_jpy": 166320.0
+          },
+          {
+            "id": "SPY",
+            "qty": 1,
+            "cost_jpy": 108107.6230502653,
+            "value_jpy": 120278.93140511215
+          },
+          {
+            "id": "QQQ",
+            "qty": 1,
+            "cost_jpy": 113985.90000264821,
+            "value_jpy": 111483.98684736341
+          }
+        ],
+        "pending_orders": [
+          {
+            "asset": "1348.T",
+            "side": "SELL",
+            "qty": 40,
+            "placed": "2026-10-23T06:30:00+00:00",
+            "reason": "exit_or_universe"
+          },
+          {
+            "asset": "1346.T",
+            "side": "BUY",
+            "qty": 2,
+            "placed": "2026-10-23T06:30:00+00:00",
+            "reason": "weekly_trend"
+          }
+        ],
+        "case": "double_costs"
+      }
+    },
+    {
+      "summary": {
+        "start": "2021-10-24",
+        "end": "2026-10-23",
+        "strategy": "weekly_trend",
+        "mode": "etf_reference",
+        "benchmark": "equal",
+        "initial": 1000000,
+        "final": 2005777.7354124603,
+        "profit": 1005777.7354124603,
+        "return_": 1.0057777354124604,
+        "cagr": 0.14938318271520656,
+        "max_drawdown": -0.20314132186310885,
+        "average_stock_exposure": 0.8983424375488135,
+        "fills": 5,
+        "traded_symbols": [
+          "1346.T",
+          "1348.T",
+          "IWM",
+          "QQQ",
+          "SPY"
+        ],
+        "fees_jpy": 871.3120231082191,
+        "fx_cost_jpy": 508.488428556273,
+        "cash": {
+          "JPY": 127308.17644011643,
+          "USD": 0.0
+        },
+        "last_fx": 158.26800537109375,
+        "last_fx_at": "2026-10-23T00:00:00+00:00",
+        "halted": false,
+        "rejection_reasons": {},
+        "holdings": [
+          {
+            "id": "1346.T",
+            "qty": 6,
+            "cost_jpy": 177385.76856,
+            "value_jpy": 391980.0
+          },
+          {
+            "id": "1348.T",
+            "qty": 90,
+            "cost_jpy": 186309.138015,
+            "value_jpy": 374220.0
+          },
+          {
+            "id": "IWM",
+            "qty": 7,
+            "cost_jpy": 181809.62933401475,
+            "value_jpy": 305496.8173675537
+          },
+          {
+            "id": "QQQ",
+            "qty": 4,
+            "cost_jpy": 171286.65114185147,
+            "value_jpy": 445935.94738945365
+          },
+          {
+            "id": "SPY",
+            "qty": 3,
+            "cost_jpy": 155392.14808046108,
+            "value_jpy": 360836.79421533644
+          }
+        ],
+        "pending_orders": [],
+        "case": "equal_buy_hold"
+      }
+    },
+    {
+      "summary": {
+        "start": "2021-10-24",
+        "end": "2026-10-23",
+        "strategy": "weekly_trend",
+        "mode": "etf_reference",
+        "benchmark": "SPY",
+        "initial": 1000000,
+        "final": 2300165.275249701,
+        "profit": 1300165.275249701,
+        "return_": 1.300165275249701,
+        "cagr": 0.1813041082824869,
+        "max_drawdown": -0.23474082126776386,
+        "average_stock_exposure": 0.9887375391190414,
+        "fills": 1,
+        "traded_symbols": [
+          "SPY"
+        ],
+        "fees_jpy": 983.1671040721812,
+        "fx_cost_jpy": 984.1502711761277,
+        "cash": {
+          "JPY": 14865.578552570427,
+          "USD": 0.0
+        },
+        "last_fx": 158.26800537109375,
+        "last_fx_at": "2026-10-23T00:00:00+00:00",
+        "halted": false,
+        "rejection_reasons": {},
+        "holdings": [
+          {
+            "id": "SPY",
+            "qty": 19,
+            "cost_jpy": 984150.2711762534,
+            "value_jpy": 2285299.696697131
+          }
+        ],
+        "pending_orders": [],
+        "case": "spy_buy_hold"
+      }
+    },
+    {
+      "summary": {
+        "start": "2021-10-24",
+        "end": "2026-10-23",
+        "strategy": "weekly_trend",
+        "mode": "etf_reference",
+        "benchmark": "1346.T",
+        "initial": 1000000,
+        "final": 2180268.27292,
+        "profit": 1180268.27292,
+        "return_": 1.1802682729199998,
+        "cagr": 0.16872209930500937,
+        "max_drawdown": -0.2634362825390225,
+        "average_stock_exposure": 0.9799386810770553,
+        "fills": 1,
+        "traded_symbols": [
+          "1346.T"
+        ],
+        "fees_jpy": 974.6470799999998,
+        "fx_cost_jpy": 0.0,
+        "cash": {
+          "JPY": 24378.272920000018,
+          "USD": 0.0
+        },
+        "last_fx": 158.26800537109375,
+        "last_fx_at": "2026-10-23T00:00:00+00:00",
+        "halted": false,
+        "rejection_reasons": {},
+        "holdings": [
+          {
+            "id": "1346.T",
+            "qty": 33,
+            "cost_jpy": 975621.72708,
+            "value_jpy": 2155890.0
+          }
+        ],
+        "pending_orders": [],
+        "case": "nikkei_etf_buy_hold"
+      }
+    },
+    {
+      "summary": {
+        "start": "2021-10-24",
+        "end": "2026-10-23",
+        "strategy": "weekly_trend",
+        "mode": "etf_reference",
+        "benchmark": null,
+        "initial": 1000000,
+        "final": 1306383.2726198058,
+        "profit": 306383.27261980576,
+        "return_": 0.3063832726198057,
+        "cagr": 0.05491459382597874,
+        "max_drawdown": -0.12608782304470123,
+        "average_stock_exposure": 0.3266284836801476,
+        "fills": 141,
+        "traded_symbols": [
+          "1346.T",
+          "1348.T",
+          "IWM",
+          "QQQ",
+          "SPY"
+        ],
+        "fees_jpy": 17371.93999119323,
+        "fx_cost_jpy": 325.377029478489,
+        "cash": {
+          "JPY": 599195.67503949,
+          "USD": 1947.5488725333726
+        },
+        "last_fx": 158.5229949951172,
+        "last_fx_at": "2026-10-23T00:00:00+00:00",
+        "halted": false,
+        "rejection_reasons": {
+          "exposure_or_total_risk": 57
+        },
+        "holdings": [
+          {
+            "id": "1348.T",
+            "qty": 40,
+            "cost_jpy": 115913.66786999999,
+            "value_jpy": 166320.0
+          },
+          {
+            "id": "SPY",
+            "qty": 1,
+            "cost_jpy": 107945.78529120803,
+            "value_jpy": 120472.71586221084
+          },
+          {
+            "id": "QQQ",
+            "qty": 1,
+            "cost_jpy": 113815.26242779395,
+            "value_jpy": 111663.60154475085
+          }
+        ],
+        "pending_orders": [
+          {
+            "asset": "1348.T",
+            "side": "SELL",
+            "qty": 40,
+            "placed": "2026-10-23T06:30:00+00:00",
+            "reason": "exit_or_universe"
+          },
+          {
+            "asset": "1346.T",
+            "side": "BUY",
+            "qty": 2,
+            "placed": "2026-10-23T06:30:00+00:00",
+            "reason": "weekly_trend"
+          }
+        ],
+        "case": "extra_day_fx_delay"
+      }
+    },
+    {
+      "summary": {
+        "start": "2025-10-24",
+        "end": "2026-10-23",
+        "strategy": "weekly_trend",
+        "mode": "etf_reference",
+        "benchmark": null,
+        "initial": 1000000,
+        "final": 1052837.1965045305,
+        "profit": 52837.1965045305,
+        "return_": 0.05283719650453045,
+        "cagr": 0.05287432669753467,
+        "max_drawdown": -0.042205137289994865,
+        "average_stock_exposure": 0.4393418664431702,
+        "fills": 27,
+        "traded_symbols": [
+          "1346.T",
+          "1348.T",
+          "IWM",
+          "QQQ",
+          "SPY"
+        ],
+        "fees_jpy": 2907.161637728442,
+        "fx_cost_jpy": 336.86584260152813,
+        "cash": {
+          "JPY": 546800.0609448514,
+          "USD": 839.7288952722015
+        },
+        "last_fx": 158.26800537109375,
+        "last_fx_at": "2026-10-23T00:00:00+00:00",
+        "halted": false,
+        "rejection_reasons": {
+          "exposure_or_total_risk": 38
+        },
+        "holdings": [
+          {
+            "id": "1348.T",
+            "qty": 34,
+            "cost_jpy": 134944.180371,
+            "value_jpy": 141372.0
+          },
+          {
+            "id": "SPY",
+            "qty": 1,
+            "cost_jpy": 107945.78529120803,
+            "value_jpy": 120278.93140511215
+          },
+          {
+            "id": "QQQ",
+            "qty": 1,
+            "cost_jpy": 113815.26242779395,
+            "value_jpy": 111483.98684736341
+          }
+        ],
+        "pending_orders": [
+          {
+            "asset": "1348.T",
+            "side": "SELL",
+            "qty": 34,
+            "placed": "2026-10-23T06:30:00+00:00",
+            "reason": "exit_or_universe"
+          },
+          {
+            "asset": "1346.T",
+            "side": "BUY",
+            "qty": 2,
+            "placed": "2026-10-23T06:30:00+00:00",
+            "reason": "weekly_trend"
+          }
+        ],
+        "case": "weekly_trend"
+      }
+    },
+    {
+      "summary": {
+        "start": "2025-10-24",
+        "end": "2026-10-23",
+        "strategy": "ma20_60",
+        "mode": "etf_reference",
+        "benchmark": null,
+        "initial": 1000000,
+        "final": 1007869.635859452,
+        "profit": 7869.635859451955,
+        "return_": 0.007869635859451884,
+        "cagr": 0.00787504718941201,
+        "max_drawdown": -0.04898870208328887,
+        "average_stock_exposure": 0.2975834656752284,
+        "fills": 124,
+        "traded_symbols": [
+          "1346.T",
+          "1348.T",
+          "IWM",
+          "QQQ",
+          "SPY"
+        ],
+        "fees_jpy": 14044.19198893424,
+        "fx_cost_jpy": 335.75282212574393,
+        "cash": {
+          "JPY": 686820.3119526131,
+          "USD": 2028.5169017835851
+        },
+        "last_fx": 158.26800537109375,
+        "last_fx_at": "2026-10-23T00:00:00+00:00",
+        "halted": false,
+        "rejection_reasons": {
+          "exposure_or_total_risk": 62
+        },
+        "holdings": [],
+        "pending_orders": [],
+        "case": "ma20_60"
+      }
+    },
+    {
+      "summary": {
+        "start": "2025-10-24",
+        "end": "2026-10-23",
+        "strategy": "weekly_trend",
+        "mode": "etf_reference",
+        "benchmark": null,
+        "initial": 1000000,
+        "final": 1048099.6241769387,
+        "profit": 48099.62417693867,
+        "return_": 0.04809962417693869,
+        "cagr": 0.04813334958094906,
+        "max_drawdown": -0.04371648791959881,
+        "average_stock_exposure": 0.44041420858144725,
+        "fills": 27,
+        "traded_symbols": [
+          "1346.T",
+          "1348.T",
+          "IWM",
+          "QQQ",
+          "SPY"
+        ],
+        "fees_jpy": 5814.646297498707,
+        "fx_cost_jpy": 680.5698241242571,
+        "cash": {
+          "JPY": 542261.9416697468,
+          "USD": 838.4686718175659
+        },
+        "last_fx": 158.26800537109375,
+        "last_fx_at": "2026-10-23T00:00:00+00:00",
+        "halted": false,
+        "rejection_reasons": {
+          "exposure_or_total_risk": 38
+        },
+        "holdings": [
+          {
+            "id": "1348.T",
+            "qty": 34,
+            "cost_jpy": 135146.49548399998,
+            "value_jpy": 141372.0
+          },
+          {
+            "id": "SPY",
+            "qty": 1,
+            "cost_jpy": 108107.6230502653,
+            "value_jpy": 120278.93140511215
+          },
+          {
+            "id": "QQQ",
+            "qty": 1,
+            "cost_jpy": 113985.90000264821,
+            "value_jpy": 111483.98684736341
+          }
+        ],
+        "pending_orders": [
+          {
+            "asset": "1348.T",
+            "side": "SELL",
+            "qty": 34,
+            "placed": "2026-10-23T06:30:00+00:00",
+            "reason": "exit_or_universe"
+          },
+          {
+            "asset": "1346.T",
+            "side": "BUY",
+            "qty": 2,
+            "placed": "2026-10-23T06:30:00+00:00",
+            "reason": "weekly_trend"
+          }
+        ],
+        "case": "double_costs"
+      }
+    },
+    {
+      "summary": {
+        "start": "2025-10-24",
+        "end": "2026-10-23",
+        "strategy": "weekly_trend",
+        "mode": "etf_reference",
+        "benchmark": "equal",
+        "initial": 1000000,
+        "final": 1160778.9846249702,
+        "profit": 160778.98462497024,
+        "return_": 0.1607789846249703,
+        "cagr": 0.1608975263411243,
+        "max_drawdown": -0.06805553538406306,
+        "average_stock_exposure": 0.8505953761142684,
+        "fills": 5,
+        "traded_symbols": [
+          "1346.T",
+          "1348.T",
+          "IWM",
+          "QQQ",
+          "SPY"
+        ],
+        "fees_jpy": 836.5171030942258,
+        "fx_cost_jpy": 480.3126829442481,
+        "cash": {
+          "JPY": 162166.06711973564,
+          "USD": 0.0
+        },
+        "last_fx": 158.26800537109375,
+        "last_fx_at": "2026-10-23T00:00:00+00:00",
+        "halted": false,
+        "rejection_reasons": {},
+        "holdings": [
+          {
+            "id": "IWM",
+            "qty": 5,
+            "cost_jpy": 189999.03243242172,
+            "value_jpy": 218212.0124053955
+          },
+          {
+            "id": "QQQ",
+            "qty": 2,
+            "cost_jpy": 187409.92906767633,
+            "value_jpy": 222967.97369472682
+          },
+          {
+            "id": "SPY",
+            "qty": 1,
+            "cost_jpy": 102903.72144422198,
+            "value_jpy": 120278.93140511215
+          },
+          {
+            "id": "1346.T",
+            "qty": 3,
+            "cost_jpy": 156234.078,
+            "value_jpy": 195990.0
+          },
+          {
+            "id": "1348.T",
+            "qty": 58,
+            "cost_jpy": 200806.859253,
+            "value_jpy": 241164.0
+          }
+        ],
+        "pending_orders": [],
+        "case": "equal_buy_hold"
+      }
+    },
+    {
+      "summary": {
+        "start": "2025-10-24",
+        "end": "2026-10-23",
+        "strategy": "weekly_trend",
+        "mode": "etf_reference",
+        "benchmark": "SPY",
+        "initial": 1000000,
+        "final": 1155450.7561550138,
+        "profit": 155450.7561550138,
+        "return_": 0.1554507561550138,
+        "cagr": 0.15556511228998682,
+        "max_drawdown": -0.08107430414405381,
+        "average_stock_exposure": 0.9329160706560367,
+        "fills": 1,
+        "traded_symbols": [
+          "SPY"
+        ],
+        "fees_jpy": 925.2082847132845,
+        "fx_cost_jpy": 926.1334929978475,
+        "cash": {
+          "JPY": 72940.37350900448,
+          "USD": 0.0
+        },
+        "last_fx": 158.26800537109375,
+        "last_fx_at": "2026-10-23T00:00:00+00:00",
+        "halted": false,
+        "rejection_reasons": {},
+        "holdings": [
+          {
+            "id": "SPY",
+            "qty": 9,
+            "cost_jpy": 926133.4929979977,
+            "value_jpy": 1082510.3826460093
+          }
+        ],
+        "pending_orders": [],
+        "case": "spy_buy_hold"
+      }
+    },
+    {
+      "summary": {
+        "start": "2025-10-24",
+        "end": "2026-10-23",
+        "strategy": "weekly_trend",
+        "mode": "etf_reference",
+        "benchmark": "1346.T",
+        "initial": 1000000,
+        "final": 1251787.506,
+        "profit": 251787.50600000005,
+        "return_": 0.2517875060000001,
+        "cagr": 0.2519800667632994,
+        "max_drawdown": -0.1551538296727043,
+        "average_stock_exposure": 0.9828452732446666,
+        "fills": 1,
+        "traded_symbols": [
+          "1346.T"
+        ],
+        "fees_jpy": 988.494,
+        "fx_cost_jpy": 0.0,
+        "cash": {
+          "JPY": 10517.506000000052,
+          "USD": 0.0
+        },
+        "last_fx": 158.26800537109375,
+        "last_fx_at": "2026-10-23T00:00:00+00:00",
+        "halted": false,
+        "rejection_reasons": {},
+        "holdings": [
+          {
+            "id": "1346.T",
+            "qty": 19,
+            "cost_jpy": 989482.494,
+            "value_jpy": 1241270.0
+          }
+        ],
+        "pending_orders": [],
+        "case": "nikkei_etf_buy_hold"
+      }
+    },
+    {
+      "summary": {
+        "start": "2025-10-24",
+        "end": "2026-10-23",
+        "strategy": "weekly_trend",
+        "mode": "etf_reference",
+        "benchmark": null,
+        "initial": 1000000,
+        "final": 1053424.7178143035,
+        "profit": 53424.71781430347,
+        "return_": 0.05342471781430347,
+        "cagr": 0.05346227126568892,
+        "max_drawdown": -0.04167065304675055,
+        "average_stock_exposure": 0.43933858289143096,
+        "fills": 27,
+        "traded_symbols": [
+          "1346.T",
+          "1348.T",
+          "IWM",
+          "QQQ",
+          "SPY"
+        ],
+        "fees_jpy": 2907.161637728442,
+        "fx_cost_jpy": 336.86584260152813,
+        "cash": {
+          "JPY": 546800.0609448514,
+          "USD": 839.7288952722015
+        },
+        "last_fx": 158.5229949951172,
+        "last_fx_at": "2026-10-23T00:00:00+00:00",
+        "halted": false,
+        "rejection_reasons": {
+          "exposure_or_total_risk": 38
+        },
+        "holdings": [
+          {
+            "id": "1348.T",
+            "qty": 34,
+            "cost_jpy": 134944.180371,
+            "value_jpy": 141372.0
+          },
+          {
+            "id": "SPY",
+            "qty": 1,
+            "cost_jpy": 107945.78529120803,
+            "value_jpy": 120472.71586221084
+          },
+          {
+            "id": "QQQ",
+            "qty": 1,
+            "cost_jpy": 113815.26242779395,
+            "value_jpy": 111663.60154475085
+          }
+        ],
+        "pending_orders": [
+          {
+            "asset": "1348.T",
+            "side": "SELL",
+            "qty": 34,
+            "placed": "2026-10-23T06:30:00+00:00",
+            "reason": "exit_or_universe"
+          },
+          {
+            "asset": "1346.T",
+            "side": "BUY",
+            "qty": 2,
+            "placed": "2026-10-23T06:30:00+00:00",
+            "reason": "weekly_trend"
+          }
+        ],
+        "case": "extra_day_fx_delay"
+      }
+    }
+  ]
+}
