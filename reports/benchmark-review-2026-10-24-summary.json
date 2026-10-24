@@ -1,0 +1,316 @@
+{
+  "end": "2026-10-22",
+  "initial": 1000000,
+  "benchmarkRetrievedAt": "2026-10-24T02:36:37.979582+00:00",
+  "methodology": "Enter first available session open on/after each requested start; price-only index; S&P converted to JPY with same daily FX convention as strategy; no index costs or dividends; cash 0 interest; blend/diluted references fixed initial allocations held without rebalancing.",
+  "sources": [
+    {
+      "symbol": "^GSPC",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/%5EGSPC?period1=1619827200&period2=1792713600&interval=1d",
+      "sha256": "28c822ba34054f1d25230f578cecb4219c5fc1545a5bf38d425d3dd49b3e4914",
+      "rows": 1376,
+      "first": "2021-05-03",
+      "last": "2026-10-22"
+    },
+    {
+      "symbol": "^N225",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/%5EN225?period1=1619827200&period2=1792713600&interval=1d",
+      "sha256": "e89e071bd5b63410bbae121fde42c418faef84f11c18daf27d6f688c6e97baec",
+      "rows": 1337,
+      "first": "2021-05-06",
+      "last": "2026-10-22"
+    }
+  ],
+  "comparisons": [
+    {
+      "label": "5年前",
+      "risk": "high",
+      "requestedStart": "2021-10-23",
+      "firstSession": "2021-10-25",
+      "firstFill": "2021-10-26",
+      "end": "2026-10-22",
+      "initial": 1000000,
+      "final": 1453336.3745261994,
+      "profit": 453336.3745261994,
+      "return": 0.45333637452619935,
+      "cagr": 0.0776498545048967,
+      "maxDD": -0.07347093340695499,
+      "cash": 1123343.3404052984,
+      "filled": 244,
+      "buys": 123,
+      "sells": 121,
+      "rejected": 0,
+      "fees": 63844.4926579397,
+      "halted": false,
+      "holdings": [
+        {
+          "symbol": "MSFT",
+          "qty": 2,
+          "cost": 161461.73175552092,
+          "value": 164798.85446862318
+        },
+        {
+          "symbol": "AAPL",
+          "qty": 3,
+          "cost": 164047.42035558488,
+          "value": 165194.17965227785
+        }
+      ],
+      "tradedSymbols": [
+        "MSFT",
+        "NVDA",
+        "8306",
+        "AAPL"
+      ],
+      "pendingOrders": 0,
+      "benchmarks": {
+        "sp500JPY": {
+          "entryDate": "2021-10-25",
+          "entryOpen": 4553.68994140625,
+          "entryFX": 113.66400146484375,
+          "lastClose": 7663.43017578125,
+          "endFX": 158.1320037841797,
+          "final": 2341297.3928263555,
+          "return": 1.3412973928263554,
+          "cagr": 0.18549965753930353,
+          "maxDD": -0.23518116249310017,
+          "localCurrencyReturn": 0.6829055720501394
+        },
+        "nikkei225JPY": {
+          "entryDate": "2021-10-25",
+          "entryOpen": 28527.130859375,
+          "entryFX": 1,
+          "lastClose": 62907.83984375,
+          "endFX": 1,
+          "final": 2205193.3702640943,
+          "return": 1.2051933702640945,
+          "cagr": 0.17138252271903842,
+          "maxDD": -0.26258607248225574,
+          "localCurrencyReturn": 1.2051933702640945
+        },
+        "halfJapanHalfUS": {
+          "final": 2273245.381545225,
+          "return": 1.2732453815452254,
+          "cagr": 0.17852562315626042,
+          "maxDD": -0.22652412849885628
+        },
+        "stocks30Cash70": {
+          "final": 1381973.6144635675,
+          "return": 0.3819736144635675,
+          "cagr": 0.06685107081167163,
+          "maxDD": -0.09299565857043823
+        }
+      },
+      "diagnostics": {
+        "averageStockExposure": 0.19417301186491637,
+        "maxStockExposure": 0.5131756791020291,
+        "endStockExposure": 0.2270589520120431,
+        "fractionFullyCash": 0.25327174749807546,
+        "explicitFees": 63844.4926579397,
+        "estimatedSlippageCost": 17160.13886245126,
+        "grossTradedNotional": 34320175.55091657,
+        "notionalToAverageEquity": 27.302786355184892,
+        "meanClosedHoldingDays": 24.380165289256198,
+        "medianClosedHoldingDays": 10,
+        "contributionsBySymbol": {
+          "8306": 75906.19766267417,
+          "MSFT": 3249.875739398529,
+          "NVDA": 278692.28435519955,
+          "AAPL": 95488.01676892646
+        }
+      }
+    },
+    {
+      "label": "1年前",
+      "risk": "high",
+      "requestedStart": "2025-10-23",
+      "firstSession": "2025-10-23",
+      "firstFill": "2025-10-23",
+      "end": "2026-10-22",
+      "initial": 1000000,
+      "final": 970334.7544245572,
+      "profit": -29665.245575442794,
+      "return": -0.02966524557544281,
+      "cagr": -0.02968525962618207,
+      "maxDD": -0.06385221922624285,
+      "cash": 777805.874088727,
+      "filled": 52,
+      "buys": 27,
+      "sells": 25,
+      "rejected": 0,
+      "fees": 9918.381862325528,
+      "halted": false,
+      "holdings": [
+        {
+          "symbol": "MSFT",
+          "qty": 1,
+          "cost": 80730.86587776046,
+          "value": 82399.42723431159
+        },
+        {
+          "symbol": "AAPL",
+          "qty": 2,
+          "cost": 109364.94690372325,
+          "value": 110129.45310151856
+        }
+      ],
+      "tradedSymbols": [
+        "AAPL",
+        "MSFT",
+        "NVDA"
+      ],
+      "pendingOrders": 0,
+      "benchmarks": {
+        "sp500JPY": {
+          "entryDate": "2025-10-23",
+          "entryOpen": 6703.64990234375,
+          "entryFX": 151.95399475097656,
+          "lastClose": 7663.43017578125,
+          "endFX": 158.1320037841797,
+          "final": 1189650.8846280302,
+          "return": 0.18965088462803026,
+          "cagr": 0.18979239622306276,
+          "maxDD": -0.07881535334293677,
+          "localCurrencyReturn": 0.14317279204899092
+        },
+        "nikkei225JPY": {
+          "entryDate": "2025-10-23",
+          "entryOpen": 48866.578125,
+          "entryFX": 1,
+          "lastClose": 62907.83984375,
+          "endFX": 1,
+          "final": 1287338.7549836752,
+          "return": 0.2873387549836752,
+          "cagr": 0.2875614813023484,
+          "maxDD": -0.1510668050539723,
+          "localCurrencyReturn": 0.2873387549836752
+        },
+        "halfJapanHalfUS": {
+          "final": 1238494.8198058526,
+          "return": 0.23849481980585252,
+          "cagr": 0.23867627834645067,
+          "maxDD": -0.08936407812549574
+        },
+        "stocks30Cash70": {
+          "final": 1071548.4459417558,
+          "return": 0.07154844594175569,
+          "cagr": 0.07159916569375291,
+          "maxDD": -0.03148364269359283
+        }
+      },
+      "diagnostics": {
+        "averageStockExposure": 0.12534612419404334,
+        "maxStockExposure": 0.3241751451204397,
+        "endStockExposure": 0.19841490728630717,
+        "fractionFullyCash": 0.3423076923076923,
+        "explicitFees": 9918.381862325528,
+        "estimatedSlippageCost": 2479.543016531123,
+        "grossTradedNotional": 4959190.931162763,
+        "notionalToAverageEquity": 5.030649839554445,
+        "meanClosedHoldingDays": 17.04,
+        "medianClosedHoldingDays": 10,
+        "contributionsBySymbol": {
+          "MSFT": -10975.94681795704,
+          "NVDA": -26532.91924121474,
+          "AAPL": 7843.620483729406
+        }
+      }
+    },
+    {
+      "label": "半年前",
+      "risk": "high",
+      "requestedStart": "2026-04-23",
+      "firstSession": "2026-04-23",
+      "firstFill": "2026-04-23",
+      "end": "2026-10-22",
+      "initial": 1000000,
+      "final": 993133.9947113249,
+      "profit": -6866.005288675078,
+      "return": -0.006866005288675092,
+      "cagr": -0.013657018154202727,
+      "maxDD": -0.043791546598320186,
+      "cash": 800605.1143754948,
+      "filled": 34,
+      "buys": 18,
+      "sells": 16,
+      "rejected": 0,
+      "fees": 6319.722253799755,
+      "halted": false,
+      "holdings": [
+        {
+          "symbol": "MSFT",
+          "qty": 1,
+          "cost": 80730.86587776046,
+          "value": 82399.42723431159
+        },
+        {
+          "symbol": "AAPL",
+          "qty": 2,
+          "cost": 109364.94690372325,
+          "value": 110129.45310151856
+        }
+      ],
+      "tradedSymbols": [
+        "NVDA",
+        "AAPL",
+        "MSFT"
+      ],
+      "pendingOrders": 0,
+      "benchmarks": {
+        "sp500JPY": {
+          "entryDate": "2026-04-23",
+          "entryOpen": 7118.7998046875,
+          "entryFX": 159.48800659179688,
+          "lastClose": 7663.43017578125,
+          "endFX": 158.1320037841797,
+          "final": 1067353.231144408,
+          "return": 0.06735323114440805,
+          "cagr": 0.1389386242223829,
+          "maxDD": -0.06173952324993737,
+          "localCurrencyReturn": 0.07650592600386497
+        },
+        "nikkei225JPY": {
+          "entryDate": "2026-04-23",
+          "entryOpen": 59758.640625,
+          "entryFX": 1,
+          "lastClose": 62907.83984375,
+          "endFX": 1,
+          "final": 1052698.6421681175,
+          "return": 0.05269864216811748,
+          "cagr": 0.10794120774758054,
+          "maxDD": -0.1510668050539722,
+          "localCurrencyReturn": 0.05269864216811748
+        },
+        "halfJapanHalfUS": {
+          "final": 1060025.9366562627,
+          "return": 0.06002593665626277,
+          "cagr": 0.12338656909200885,
+          "maxDD": -0.08328791091935706
+        },
+        "stocks30Cash70": {
+          "final": 1018007.7809968789,
+          "return": 0.01800778099687883,
+          "cagr": 0.03626404109378489,
+          "maxDD": -0.02728230315001734
+        }
+      },
+      "diagnostics": {
+        "averageStockExposure": 0.18444888976733664,
+        "maxStockExposure": 0.34499291032306234,
+        "endStockExposure": 0.19385992359650592,
+        "fractionFullyCash": 0.1450381679389313,
+        "explicitFees": 6319.722253799755,
+        "estimatedSlippageCost": 1579.8826896297685,
+        "grossTradedNotional": 3159861.126899878,
+        "notionalToAverageEquity": 3.1568881632186754,
+        "meanClosedHoldingDays": 19,
+        "medianClosedHoldingDays": 15,
+        "contributionsBySymbol": {
+          "MSFT": -10105.73345349732,
+          "NVDA": -2509.313344188631,
+          "AAPL": 5749.041509011062
+        }
+      }
+    }
+  ]
+}
