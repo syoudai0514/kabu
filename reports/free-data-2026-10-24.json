@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "mode": "free_public_observations",
+  "collected_at": "2026-10-24T23:55:34.480507+00:00",
+  "data_subscription_cost_jpy": 0,
+  "external_llm_calls": 0,
+  "broker_orders_enabled": false,
+  "historical_pit_complete": false,
+  "universe_selection_ready": false,
+  "sources": [
+    {
+      "source": "jpx_listings",
+      "status": "ok",
+      "observed_at": "2026-10-24T23:55:31.848912+00:00",
+      "items": 4447,
+      "sha256": "a26fdf4420cb6a152a1811ce0c6e293e642c8a99f1cc2ad9c47a5d55f2722c82",
+      "source_as_of": "2026-09-30",
+      "coverage": "monthly_snapshot",
+      "new_versions": 0,
+      "common_stock_candidates": 3702,
+      "url": "https://www.jpx.co.jp/markets/statistics-equities/misc/tvdivq0000001vg2-att/data_j.xlsx"
+    },
+    {
+      "source": "nasdaq_listed",
+      "status": "ok",
+      "observed_at": "2026-10-24T23:55:32.842359+00:00",
+      "items": 5625,
+      "sha256": "59ac9b74ff663c6de40f5c93a54d5e12eb3fbef74f82e8a7cfc1456ad9f969ec",
+      "source_as_of_label": "File Creation Time: 1023202621:31",
+      "coverage": "current_directory",
+      "round_lot_note": "Exchange round lot is not a broker minimum order size",
+      "new_versions": 0,
+      "common_stock_candidates": 3136,
+      "url": "https://www.nasdaqtrader.com/dynamic/SymDir/nasdaqlisted.txt"
+    },
+    {
+      "source": "other_listed",
+      "status": "ok",
+      "observed_at": "2026-10-24T23:55:33.522518+00:00",
+      "items": 7674,
+      "sha256": "94335ed3f4abc4bbd58a4415d105d453184f5484eaf6a2884d1bfb0120d850c9",
+      "source_as_of_label": "File Creation Time: 1023202621:31",
+      "coverage": "current_directory",
+      "round_lot_note": "Exchange round lot is not a broker minimum order size",
+      "new_versions": 0,
+      "common_stock_candidates": 1975,
+      "url": "https://www.nasdaqtrader.com/dynamic/SymDir/otherlisted.txt"
+    },
+    {
+      "source": "sec_filings",
+      "status": "ok",
+      "observed_at": "2026-10-24T23:55:34.172205+00:00",
+      "items": 47,
+      "sha256": "9296a82b149c5694e8a9ddf0928c868dca034b34466c30251963cc9963fd6804",
+      "coverage": "latest_100_partial_feed",
+      "full_archive": false,
+      "new_versions": 47,
+      "common_stock_candidates": 0,
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&count=100&output=atom"
+    }
+  ],
+  "missing": [
+    "historical_permanent_security_ids",
+    "historical_listings_and_delistings",
+    "historical_lots_and_corporate_actions",
+    "equity_prices_and_liquidity",
+    "historical_sector_and_size",
+    "complete_jp_us_news_archive",
+    "broker_tradability_and_news_security_mapping"
+  ],
+  "scope_note": "Current or monthly directory observations and latest partial SEC feed only; not 500-equity historical validation."
+}
