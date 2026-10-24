@@ -1,0 +1,2 @@
+# Reproduce the vectorized screening environment; the engine uses no other dependencies.
+numpy==2.3.5

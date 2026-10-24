@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "frozen_at": "2026-10-24",
+  "mode": "etf_reference_screening",
+  "seed": 20261024,
+  "trials": 24000,
+  "dimensions": {
+    "trend": [40, 60, 100, 150, 200, 252],
+    "momentum": [21, 63, 126, 189, 252],
+    "rebalance": [5, 21, 63],
+    "topk": [1, 2, 3, 5],
+    "gross": [0.5, 0.75, 1.0],
+    "weighting": ["equal", "inverse_vol"],
+    "voltarget": [0, 0.15, 0.25],
+    "defensive_cash": [false, true],
+    "entry_buffer": [0, 0.01, 0.02]
+  },
+  "partitions": {
+    "train": ["2016-10-24", "2020-12-31"],
+    "validation": ["2021-01-01", "2024-10-23"],
+    "audit": ["2024-10-24", "2026-10-23"]
+  },
+  "minimum_history": 252,
+  "volatility_lookback": 63,
+  "initial_jpy": 1000000,
+  "cost_bps": {"fee": 10, "slippage": 5, "us_fx_proxy": 10},
+  "ranking": "positive_train_and_validation_excess_first; validation_excess_cagr - 0.25*abs(validation_max_drawdown) - 0.5*max(0,-train_excess_cagr); id_tiebreak",
+  "selection_uses": ["train", "validation"],
+  "audit_status": "previously_seen_diagnostic_only",
+  "adoption_status": "research_only"
+}

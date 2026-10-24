@@ -1,0 +1,5510 @@
+{
+  "schema_version": 1,
+  "engine_version": "screen-1.0",
+  "mode": "etf_reference_screening",
+  "adoption_status": "research_only",
+  "executable": false,
+  "limitations": [
+    "Five fixed ETFs chosen with hindsight; not a 500-stock point-in-time universe.",
+    "Fractional daily UTC-close approximation; no integer lots, executable fills, market liquidity or tax model.",
+    "Simultaneous UTC valuation carries closed-market prices; cross-market close allocations are not executable.",
+    "Lagged daily FX proxy and approximate proportional fee/slippage/FX turnover charges; dividends excluded.",
+    "Volatility scaling uses a diagonal covariance proxy; correlated ETFs can exceed the nominal volatility target.",
+    "Audit prices were already seen; audit and 1/5/10-year figures are diagnostics, never untouched out-of-sample evidence.",
+    "24,000 correlated trials create multiple-testing and selection bias; best historical score is not adoption evidence.",
+    "Full point-in-time coverage and event-time v2 replay are required before any adoption assessment."
+  ],
+  "provenance": {
+    "engine_version": "screen-1.0",
+    "data_sha256": "1cbffebed7ae8aa2bd700d9f248aa0b4bf4e1ed6f47ab8217b72705f3c6a71be",
+    "search_space_sha256": "ebd64b8a417d39f5643159a4e984952855e0f0305f0ac8037db0755cf9771977",
+    "seed": 20261024,
+    "expected_trials": 24000,
+    "executed_trials": 24000,
+    "completed_at": "2026-10-24T11:54:10.869785+00:00",
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "checkpoint_files": [
+      "checkpoint-000-of-001.jsonl"
+    ],
+    "all_metrics_csv": "/workspace/kabu/research/history-search-2026-10-24/all-candidates.csv",
+    "wall_seconds": 21.301,
+    "max_rss_kib": 180060,
+    "source_fingerprint": {
+      "note": "Recorded after the completed 24,000 trial run; original manifest is preserved. Engine source was unchanged during the batch. The runner subsequently gained a source-fingerprint resume guard.",
+      "engine_source_sha256": "d3d3f27aa2b285d4edee5054b930600e009385d05ed636d62927f0d36b34e661",
+      "runner_source_sha256_at_execution": "ce19ed7a4a796064cd9146023b1742bc10f9986944ee3508cf037bc8019f8bb9",
+      "completed_trials": 24000,
+      "engine_version": "screen-1.0"
+    }
+  },
+  "partitions": {
+    "train": {
+      "start": "2016-10-24",
+      "end": "2020-12-31"
+    },
+    "validation": {
+      "start": "2021-01-01",
+      "end": "2024-10-23"
+    },
+    "audit": {
+      "start": "2024-10-24",
+      "end": "2026-10-23"
+    },
+    "selection_uses": [
+      "train",
+      "validation"
+    ],
+    "audit_status": "previously_seen"
+  },
+  "ranking": {
+    "objective": "positive_train_and_validation_excess_first; validation_excess_cagr - 0.25*abs(validation_max_drawdown) - 0.5*max(0,-train_excess_cagr); id_tiebreak",
+    "selected_id": "c01478",
+    "positive_training_excess_count": 68,
+    "positive_validation_excess_count": 29,
+    "positive_both_count": 0,
+    "min_score": -0.48127898835952665,
+    "median_score": -0.2635473709382232,
+    "max_score": -0.09420380971696865
+  },
+  "selected": {
+    "id": "c01478",
+    "config": {
+      "trend": 252,
+      "momentum": 252,
+      "rebalance": 21,
+      "topk": 2,
+      "gross": 1.0,
+      "weighting": "inverse_vol",
+      "voltarget": 0,
+      "defensive_cash": false,
+      "entry_buffer": 0
+    },
+    "config_sha256": "8e0b61fc065c610f8365864fd8aa779ec77ed9d6ee743aa90219831e74a75fff",
+    "train": {
+      "start": "2016-10-24",
+      "end": "2020-12-31",
+      "valuation_start": "2016-10-21",
+      "initial": 1000000,
+      "final": 1745066.5379225458,
+      "profit": 745066.5379225458,
+      "return_": 0.7450665379225458,
+      "cagr": 0.14196113835951607,
+      "max_drawdown": -0.3049700508028417,
+      "volatility": 0.18031507819597536,
+      "sharpe": 0.8041589919762789,
+      "sortino": 1.0918000438306392,
+      "average_exposure": 0.9037580201649863,
+      "turnover": 22.82355022945987,
+      "fees_jpy": 63965.603586253485,
+      "observations": 1091,
+      "excess_cagr": 0.0014808025009551695
+    },
+    "validation": {
+      "start": "2021-01-04",
+      "end": "2024-10-23",
+      "valuation_start": "2020-12-31",
+      "initial": 1000000,
+      "final": 1910504.4742546298,
+      "profit": 910504.4742546298,
+      "return_": 0.9105044742546298,
+      "cagr": 0.1851438559794294,
+      "max_drawdown": -0.1867478355748774,
+      "volatility": 0.15286680005321604,
+      "sharpe": 1.1547724837149347,
+      "sortino": 1.6676930925754345,
+      "average_exposure": 0.8090909090909091,
+      "turnover": 15.20954008603546,
+      "fees_jpy": 44986.03261562076,
+      "observations": 990,
+      "excess_cagr": -0.0475168508232493
+    },
+    "audit": {
+      "start": "2024-10-24",
+      "end": "2026-10-23",
+      "valuation_start": "2024-10-23",
+      "initial": 1000000,
+      "final": 1318919.003444073,
+      "profit": 318919.00344407297,
+      "return_": 0.318919003444073,
+      "cagr": 0.14855086565651643,
+      "max_drawdown": -0.2604398755276376,
+      "volatility": 0.20330371381190399,
+      "sharpe": 0.7616723139427126,
+      "sortino": 1.0780515933762367,
+      "average_exposure": 0.9596153846153846,
+      "turnover": 12.398589038775103,
+      "fees_jpy": 27160.611185520556,
+      "observations": 520,
+      "excess_cagr": -0.02805244017286168
+    },
+    "passes_train": true,
+    "passes_validation": false,
+    "score": -0.09420380971696865,
+    "full_period": {
+      "start": "2016-01-18",
+      "end": "2026-10-23",
+      "valuation_start": "2016-01-15",
+      "initial": 1000000,
+      "final": 3438947.1530997646,
+      "profit": 2438947.1530997646,
+      "return_": 2.4389471530997646,
+      "cagr": 0.12151250829578686,
+      "max_drawdown": -0.32218699012149365,
+      "volatility": 0.1828358693323163,
+      "sharpe": 0.6999957198863495,
+      "sortino": 0.966518464104099,
+      "average_exposure": 0.850053552302749,
+      "turnover": 60.870061586137915,
+      "fees_jpy": 197612.95024913797,
+      "observations": 2801
+    }
+  },
+  "top20": [
+    {
+      "id": "c01478",
+      "config": {
+        "trend": 252,
+        "momentum": 252,
+        "rebalance": 21,
+        "topk": 2,
+        "gross": 1.0,
+        "weighting": "inverse_vol",
+        "voltarget": 0,
+        "defensive_cash": false,
+        "entry_buffer": 0
+      },
+      "config_sha256": "8e0b61fc065c610f8365864fd8aa779ec77ed9d6ee743aa90219831e74a75fff",
+      "train": {
+        "start": "2016-10-24",
+        "end": "2020-12-31",
+        "valuation_start": "2016-10-21",
+        "initial": 1000000,
+        "final": 1745066.5379225458,
+        "profit": 745066.5379225458,
+        "return_": 0.7450665379225458,
+        "cagr": 0.14196113835951607,
+        "max_drawdown": -0.3049700508028417,
+        "volatility": 0.18031507819597536,
+        "sharpe": 0.8041589919762789,
+        "sortino": 1.0918000438306392,
+        "average_exposure": 0.9037580201649863,
+        "turnover": 22.82355022945987,
+        "fees_jpy": 63965.603586253485,
+        "observations": 1091,
+        "excess_cagr": 0.0014808025009551695
+      },
+      "validation": {
+        "start": "2021-01-04",
+        "end": "2024-10-23",
+        "valuation_start": "2020-12-31",
+        "initial": 1000000,
+        "final": 1910504.4742546298,
+        "profit": 910504.4742546298,
+        "return_": 0.9105044742546298,
+        "cagr": 0.1851438559794294,
+        "max_drawdown": -0.1867478355748774,
+        "volatility": 0.15286680005321604,
+        "sharpe": 1.1547724837149347,
+        "sortino": 1.6676930925754345,
+        "average_exposure": 0.8090909090909091,
+        "turnover": 15.20954008603546,
+        "fees_jpy": 44986.03261562076,
+        "observations": 990,
+        "excess_cagr": -0.0475168508232493
+      },
+      "audit": {
+        "start": "2024-10-24",
+        "end": "2026-10-23",
+        "valuation_start": "2024-10-23",
+        "initial": 1000000,
+        "final": 1318919.003444073,
+        "profit": 318919.00344407297,
+        "return_": 0.318919003444073,
+        "cagr": 0.14855086565651643,
+        "max_drawdown": -0.2604398755276376,
+        "volatility": 0.20330371381190399,
+        "sharpe": 0.7616723139427126,
+        "sortino": 1.0780515933762367,
+        "average_exposure": 0.9596153846153846,
+        "turnover": 12.398589038775103,
+        "fees_jpy": 27160.611185520556,
+        "observations": 520,
+        "excess_cagr": -0.02805244017286168
+      },
+      "passes_train": true,
+      "passes_validation": false,
+      "score": -0.09420380971696865
+    },
+    {
+      "id": "c01954",
+      "config": {
+        "trend": 252,
+        "momentum": 252,
+        "rebalance": 21,
+        "topk": 2,
+        "gross": 1.0,
+        "weighting": "equal",
+        "voltarget": 0,
+        "defensive_cash": false,
+        "entry_buffer": 0
+      },
+      "config_sha256": "840d700c9a9e22281a121b976844504dcb2dc773a11ea07aa538961b69c3469c",
+      "train": {
+        "start": "2016-10-24",
+        "end": "2020-12-31",
+        "valuation_start": "2016-10-21",
+        "initial": 1000000,
+        "final": 1773334.068946597,
+        "profit": 773334.0689465968,
+        "return_": 0.7733340689465968,
+        "cagr": 0.14634439474358407,
+        "max_drawdown": -0.30425082338476406,
+        "volatility": 0.18174763391911397,
+        "sharpe": 0.8196676187927702,
+        "sortino": 1.115567276424165,
+        "average_exposure": 0.9037580201649863,
+        "turnover": 20.317583396836326,
+        "fees_jpy": 56784.47250447858,
+        "observations": 1091,
+        "excess_cagr": 0.005864058885023171
+      },
+      "validation": {
+        "start": "2021-01-04",
+        "end": "2024-10-23",
+        "valuation_start": "2020-12-31",
+        "initial": 1000000,
+        "final": 1908181.457618993,
+        "profit": 908181.457618993,
+        "return_": 0.908181457618993,
+        "cagr": 0.1847655691979,
+        "max_drawdown": -0.18998543718449445,
+        "volatility": 0.15419927857933577,
+        "sharpe": 1.1441128007108432,
+        "sortino": 1.6511746993939806,
+        "average_exposure": 0.8090909090909091,
+        "turnover": 14.336610538746886,
+        "fees_jpy": 42305.46643571169,
+        "observations": 990,
+        "excess_cagr": -0.047895137604778704
+      },
+      "audit": {
+        "start": "2024-10-24",
+        "end": "2026-10-23",
+        "valuation_start": "2024-10-23",
+        "initial": 1000000,
+        "final": 1315336.5645447876,
+        "profit": 315336.56454478763,
+        "return_": 0.31533656454478765,
+        "cagr": 0.14698889356554345,
+        "max_drawdown": -0.2582504498084853,
+        "volatility": 0.20637993131861387,
+        "sharpe": 0.7469667217454723,
+        "sortino": 1.0591536401563582,
+        "average_exposure": 0.9596153846153846,
+        "turnover": 11.171476361421993,
+        "fees_jpy": 24500.22640173384,
+        "observations": 520,
+        "excess_cagr": -0.029614412263834655
+      },
+      "passes_train": true,
+      "passes_validation": false,
+      "score": -0.09539149690090232
+    },
+    {
+      "id": "c02733",
+      "config": {
+        "trend": 200,
+        "momentum": 252,
+        "rebalance": 63,
+        "topk": 1,
+        "gross": 1.0,
+        "weighting": "inverse_vol",
+        "voltarget": 0,
+        "defensive_cash": false,
+        "entry_buffer": 0.02
+      },
+      "config_sha256": "e3510a3b116258f3c7702d2cda2fab135b878f31b4b6a57bcad5865efe03f6c8",
+      "train": {
+        "start": "2016-10-24",
+        "end": "2020-12-31",
+        "valuation_start": "2016-10-21",
+        "initial": 1000000,
+        "final": 1669210.6339750115,
+        "profit": 669210.6339750114,
+        "return_": 0.6692106339750115,
+        "cagr": 0.12992530676069647,
+        "max_drawdown": -0.2972699588381472,
+        "volatility": 0.21226868788645567,
+        "sharpe": 0.6642452193284578,
+        "sortino": 0.9093674903536442,
+        "average_exposure": 0.8845096241979835,
+        "turnover": 8.0,
+        "fees_jpy": 26386.721469166634,
+        "observations": 1091,
+        "excess_cagr": -0.010555029097864432
+      },
+      "validation": {
+        "start": "2021-01-04",
+        "end": "2024-10-23",
+        "valuation_start": "2020-12-31",
+        "initial": 1000000,
+        "final": 1953904.9756381172,
+        "profit": 953904.9756381173,
+        "return_": 0.9539049756381173,
+        "cagr": 0.1921497315981684,
+        "max_drawdown": -0.21658573505336642,
+        "volatility": 0.1746489372088136,
+        "sharpe": 1.063876737037086,
+        "sortino": 1.550035504748255,
+        "average_exposure": 0.8090909090909091,
+        "turnover": 12.0,
+        "fees_jpy": 33982.385574040905,
+        "observations": 990,
+        "excess_cagr": -0.0405109752045103
+      },
+      "audit": {
+        "start": "2024-10-24",
+        "end": "2026-10-23",
+        "valuation_start": "2024-10-23",
+        "initial": 1000000,
+        "final": 1260251.944729162,
+        "profit": 260251.9447291618,
+        "return_": 0.2602519447291618,
+        "cagr": 0.12269836803646172,
+        "max_drawdown": -0.2717594247168845,
+        "volatility": 0.25539124173343314,
+        "sharpe": 0.5657370005316629,
+        "sortino": 0.8509416710438127,
+        "average_exposure": 0.8788461538461538,
+        "turnover": 6.0,
+        "fees_jpy": 12604.98877589878,
+        "observations": 520,
+        "excess_cagr": -0.053904937792916385
+      },
+      "passes_train": false,
+      "passes_validation": false,
+      "score": -0.09993492351678412
+    },
+    {
+      "id": "c06001",
+      "config": {
+        "trend": 200,
+        "momentum": 252,
+        "rebalance": 63,
+        "topk": 1,
+        "gross": 1.0,
+        "weighting": "equal",
+        "voltarget": 0,
+        "defensive_cash": false,
+        "entry_buffer": 0.01
+      },
+      "config_sha256": "651dfc6eb0689638f89d8dc37c2f32dbb5b6b91a9bc60bed6f6f59529c0c0db8",
+      "train": {
+        "start": "2016-10-24",
+        "end": "2020-12-31",
+        "valuation_start": "2016-10-21",
+        "initial": 1000000,
+        "final": 1669210.6339750115,
+        "profit": 669210.6339750114,
+        "return_": 0.6692106339750115,
+        "cagr": 0.12992530676069647,
+        "max_drawdown": -0.2972699588381472,
+        "volatility": 0.21226868788645567,
+        "sharpe": 0.6642452193284578,
+        "sortino": 0.9093674903536442,
+        "average_exposure": 0.8845096241979835,
+        "turnover": 8.0,
+        "fees_jpy": 26386.721469166634,
+        "observations": 1091,
+        "excess_cagr": -0.010555029097864432
+      },
+      "validation": {
+        "start": "2021-01-04",
+        "end": "2024-10-23",
+        "valuation_start": "2020-12-31",
+        "initial": 1000000,
+        "final": 1953904.9756381172,
+        "profit": 953904.9756381173,
+        "return_": 0.9539049756381173,
+        "cagr": 0.1921497315981684,
+        "max_drawdown": -0.21658573505336642,
+        "volatility": 0.1746489372088136,
+        "sharpe": 1.063876737037086,
+        "sortino": 1.550035504748255,
+        "average_exposure": 0.8090909090909091,
+        "turnover": 12.0,
+        "fees_jpy": 33982.385574040905,
+        "observations": 990,
+        "excess_cagr": -0.0405109752045103
+      },
+      "audit": {
+        "start": "2024-10-24",
+        "end": "2026-10-23",
+        "valuation_start": "2024-10-23",
+        "initial": 1000000,
+        "final": 1260251.944729162,
+        "profit": 260251.9447291618,
+        "return_": 0.2602519447291618,
+        "cagr": 0.12269836803646172,
+        "max_drawdown": -0.2717594247168845,
+        "volatility": 0.25539124173343314,
+        "sharpe": 0.5657370005316629,
+        "sortino": 0.8509416710438127,
+        "average_exposure": 0.8788461538461538,
+        "turnover": 6.0,
+        "fees_jpy": 12604.98877589878,
+        "observations": 520,
+        "excess_cagr": -0.053904937792916385
+      },
+      "passes_train": false,
+      "passes_validation": false,
+      "score": -0.09993492351678412
+    },
+    {
+      "id": "c07847",
+      "config": {
+        "trend": 150,
+        "momentum": 252,
+        "rebalance": 63,
+        "topk": 1,
+        "gross": 1.0,
+        "weighting": "inverse_vol",
+        "voltarget": 0,
+        "defensive_cash": false,
+        "entry_buffer": 0
+      },
+      "config_sha256": "459eac3bb703f1799b47d5f615af346a746fb15a82d9cb0bd9f7688cf9fbe32b",
+      "train": {
+        "start": "2016-10-24",
+        "end": "2020-12-31",
+        "valuation_start": "2016-10-21",
+        "initial": 1000000,
+        "final": 1669210.6339750115,
+        "profit": 669210.6339750114,
+        "return_": 0.6692106339750115,
+        "cagr": 0.12992530676069647,
+        "max_drawdown": -0.2972699588381472,
+        "volatility": 0.21226868788645567,
+        "sharpe": 0.6642452193284578,
+        "sortino": 0.9093674903536442,
+        "average_exposure": 0.8845096241979835,
+        "turnover": 8.0,
+        "fees_jpy": 26386.721469166634,
+        "observations": 1091,
+        "excess_cagr": -0.010555029097864432
+      },
+      "validation": {
+        "start": "2021-01-04",
+        "end": "2024-10-23",
+        "valuation_start": "2020-12-31",
+        "initial": 1000000,
+        "final": 1953904.9756381172,
+        "profit": 953904.9756381173,
+        "return_": 0.9539049756381173,
+        "cagr": 0.1921497315981684,
+        "max_drawdown": -0.21658573505336642,
+        "volatility": 0.1746489372088136,
+        "sharpe": 1.063876737037086,
+        "sortino": 1.550035504748255,
+        "average_exposure": 0.8090909090909091,
+        "turnover": 12.0,
+        "fees_jpy": 33982.385574040905,
+        "observations": 990,
+        "excess_cagr": -0.0405109752045103
+      },
+      "audit": {
+        "start": "2024-10-24",
+        "end": "2026-10-23",
+        "valuation_start": "2024-10-23",
+        "initial": 1000000,
+        "final": 1260251.944729162,
+        "profit": 260251.9447291618,
+        "return_": 0.2602519447291618,
+        "cagr": 0.12269836803646172,
+        "max_drawdown": -0.2717594247168845,
+        "volatility": 0.25539124173343314,
+        "sharpe": 0.5657370005316629,
+        "sortino": 0.8509416710438127,
+        "average_exposure": 0.8788461538461538,
+        "turnover": 6.0,
+        "fees_jpy": 12604.98877589878,
+        "observations": 520,
+        "excess_cagr": -0.053904937792916385
+      },
+      "passes_train": false,
+      "passes_validation": false,
+      "score": -0.09993492351678412
+    },
+    {
+      "id": "c14307",
+      "config": {
+        "trend": 150,
+        "momentum": 252,
+        "rebalance": 63,
+        "topk": 1,
+        "gross": 1.0,
+        "weighting": "equal",
+        "voltarget": 0,
+        "defensive_cash": false,
+        "entry_buffer": 0.01
+      },
+      "config_sha256": "34f9a4d1a08ddf682df34e570dfb27e37eea8aa03f131e91c0f4548e00891d26",
+      "train": {
+        "start": "2016-10-24",
+        "end": "2020-12-31",
+        "valuation_start": "2016-10-21",
+        "initial": 1000000,
+        "final": 1669210.6339750115,
+        "profit": 669210.6339750114,
+        "return_": 0.6692106339750115,
+        "cagr": 0.12992530676069647,
+        "max_drawdown": -0.2972699588381472,
+        "volatility": 0.21226868788645567,
+        "sharpe": 0.6642452193284578,
+        "sortino": 0.9093674903536442,
+        "average_exposure": 0.8845096241979835,
+        "turnover": 8.0,
+        "fees_jpy": 26386.721469166634,
+        "observations": 1091,
+        "excess_cagr": -0.010555029097864432
+      },
+      "validation": {
+        "start": "2021-01-04",
+        "end": "2024-10-23",
+        "valuation_start": "2020-12-31",
+        "initial": 1000000,
+        "final": 1953904.9756381172,
+        "profit": 953904.9756381173,
+        "return_": 0.9539049756381173,
+        "cagr": 0.1921497315981684,
+        "max_drawdown": -0.21658573505336642,
+        "volatility": 0.1746489372088136,
+        "sharpe": 1.063876737037086,
+        "sortino": 1.550035504748255,
+        "average_exposure": 0.8090909090909091,
+        "turnover": 12.0,
+        "fees_jpy": 33982.385574040905,
+        "observations": 990,
+        "excess_cagr": -0.0405109752045103
+      },
+      "audit": {
+        "start": "2024-10-24",
+        "end": "2026-10-23",
+        "valuation_start": "2024-10-23",
+        "initial": 1000000,
+        "final": 1260251.944729162,
+        "profit": 260251.9447291618,
+        "return_": 0.2602519447291618,
+        "cagr": 0.12269836803646172,
+        "max_drawdown": -0.2717594247168845,
+        "volatility": 0.25539124173343314,
+        "sharpe": 0.5657370005316629,
+        "sortino": 0.8509416710438127,
+        "average_exposure": 0.8788461538461538,
+        "turnover": 6.0,
+        "fees_jpy": 12604.98877589878,
+        "observations": 520,
+        "excess_cagr": -0.053904937792916385
+      },
+      "passes_train": false,
+      "passes_validation": false,
+      "score": -0.09993492351678412
+    },
+    {
+      "id": "c15542",
+      "config": {
+        "trend": 150,
+        "momentum": 252,
+        "rebalance": 63,
+        "topk": 1,
+        "gross": 1.0,
+        "weighting": "inverse_vol",
+        "voltarget": 0,
+        "defensive_cash": false,
+        "entry_buffer": 0.01
+      },
+      "config_sha256": "6077e9d7415f16bf938ca923de8b23d788094d41e35873c5826d0764a2cb4814",
+      "train": {
+        "start": "2016-10-24",
+        "end": "2020-12-31",
+        "valuation_start": "2016-10-21",
+        "initial": 1000000,
+        "final": 1669210.6339750115,
+        "profit": 669210.6339750114,
+        "return_": 0.6692106339750115,
+        "cagr": 0.12992530676069647,
+        "max_drawdown": -0.2972699588381472,
+        "volatility": 0.21226868788645567,
+        "sharpe": 0.6642452193284578,
+        "sortino": 0.9093674903536442,
+        "average_exposure": 0.8845096241979835,
+        "turnover": 8.0,
+        "fees_jpy": 26386.721469166634,
+        "observations": 1091,
+        "excess_cagr": -0.010555029097864432
+      },
+      "validation": {
+        "start": "2021-01-04",
+        "end": "2024-10-23",
+        "valuation_start": "2020-12-31",
+        "initial": 1000000,
+        "final": 1953904.9756381172,
+        "profit": 953904.9756381173,
+        "return_": 0.9539049756381173,
+        "cagr": 0.1921497315981684,
+        "max_drawdown": -0.21658573505336642,
+        "volatility": 0.1746489372088136,
+        "sharpe": 1.063876737037086,
+        "sortino": 1.550035504748255,
+        "average_exposure": 0.8090909090909091,
+        "turnover": 12.0,
+        "fees_jpy": 33982.385574040905,
+        "observations": 990,
+        "excess_cagr": -0.0405109752045103
+      },
+      "audit": {
+        "start": "2024-10-24",
+        "end": "2026-10-23",
+        "valuation_start": "2024-10-23",
+        "initial": 1000000,
+        "final": 1260251.944729162,
+        "profit": 260251.9447291618,
+        "return_": 0.2602519447291618,
+        "cagr": 0.12269836803646172,
+        "max_drawdown": -0.2717594247168845,
+        "volatility": 0.25539124173343314,
+        "sharpe": 0.5657370005316629,
+        "sortino": 0.8509416710438127,
+        "average_exposure": 0.8788461538461538,
+        "turnover": 6.0,
+        "fees_jpy": 12604.98877589878,
+        "observations": 520,
+        "excess_cagr": -0.053904937792916385
+      },
+      "passes_train": false,
+      "passes_validation": false,
+      "score": -0.09993492351678412
+    },
+    {
+      "id": "c20212",
+      "config": {
+        "trend": 200,
+        "momentum": 252,
+        "rebalance": 63,
+        "topk": 1,
+        "gross": 1.0,
+        "weighting": "inverse_vol",
+        "voltarget": 0,
+        "defensive_cash": false,
+        "entry_buffer": 0.01
+      },
+      "config_sha256": "9460eb8287abfc19ec5b927e477dd13f9c51173db0ca159f764dd8cb92d637b1",
+      "train": {
+        "start": "2016-10-24",
+        "end": "2020-12-31",
+        "valuation_start": "2016-10-21",
+        "initial": 1000000,
+        "final": 1669210.6339750115,
+        "profit": 669210.6339750114,
+        "return_": 0.6692106339750115,
+        "cagr": 0.12992530676069647,
+        "max_drawdown": -0.2972699588381472,
+        "volatility": 0.21226868788645567,
+        "sharpe": 0.6642452193284578,
+        "sortino": 0.9093674903536442,
+        "average_exposure": 0.8845096241979835,
+        "turnover": 8.0,
+        "fees_jpy": 26386.721469166634,
+        "observations": 1091,
+        "excess_cagr": -0.010555029097864432
+      },
+      "validation": {
+        "start": "2021-01-04",
+        "end": "2024-10-23",
+        "valuation_start": "2020-12-31",
+        "initial": 1000000,
+        "final": 1953904.9756381172,
+        "profit": 953904.9756381173,
+        "return_": 0.9539049756381173,
+        "cagr": 0.1921497315981684,
+        "max_drawdown": -0.21658573505336642,
+        "volatility": 0.1746489372088136,
+        "sharpe": 1.063876737037086,
+        "sortino": 1.550035504748255,
+        "average_exposure": 0.8090909090909091,
+        "turnover": 12.0,
+        "fees_jpy": 33982.385574040905,
+        "observations": 990,
+        "excess_cagr": -0.0405109752045103
+      },
+      "audit": {
+        "start": "2024-10-24",
+        "end": "2026-10-23",
+        "valuation_start": "2024-10-23",
+        "initial": 1000000,
+        "final": 1260251.944729162,
+        "profit": 260251.9447291618,
+        "return_": 0.2602519447291618,
+        "cagr": 0.12269836803646172,
+        "max_drawdown": -0.2717594247168845,
+        "volatility": 0.25539124173343314,
+        "sharpe": 0.5657370005316629,
+        "sortino": 0.8509416710438127,
+        "average_exposure": 0.8788461538461538,
+        "turnover": 6.0,
+        "fees_jpy": 12604.98877589878,
+        "observations": 520,
+        "excess_cagr": -0.053904937792916385
+      },
+      "passes_train": false,
+      "passes_validation": false,
+      "score": -0.09993492351678412
+    },
+    {
+      "id": "c21527",
+      "config": {
+        "trend": 150,
+        "momentum": 252,
+        "rebalance": 63,
+        "topk": 1,
+        "gross": 1.0,
+        "weighting": "equal",
+        "voltarget": 0,
+        "defensive_cash": false,
+        "entry_buffer": 0
+      },
+      "config_sha256": "4a1de8728b75bc1c9aba756c875761f19a896ca768961c727f81d675c78dec6e",
+      "train": {
+        "start": "2016-10-24",
+        "end": "2020-12-31",
+        "valuation_start": "2016-10-21",
+        "initial": 1000000,
+        "final": 1669210.6339750115,
+        "profit": 669210.6339750114,
+        "return_": 0.6692106339750115,
+        "cagr": 0.12992530676069647,
+        "max_drawdown": -0.2972699588381472,
+        "volatility": 0.21226868788645567,
+        "sharpe": 0.6642452193284578,
+        "sortino": 0.9093674903536442,
+        "average_exposure": 0.8845096241979835,
+        "turnover": 8.0,
+        "fees_jpy": 26386.721469166634,
+        "observations": 1091,
+        "excess_cagr": -0.010555029097864432
+      },
+      "validation": {
+        "start": "2021-01-04",
+        "end": "2024-10-23",
+        "valuation_start": "2020-12-31",
+        "initial": 1000000,
+        "final": 1953904.9756381172,
+        "profit": 953904.9756381173,
+        "return_": 0.9539049756381173,
+        "cagr": 0.1921497315981684,
+        "max_drawdown": -0.21658573505336642,
+        "volatility": 0.1746489372088136,
+        "sharpe": 1.063876737037086,
+        "sortino": 1.550035504748255,
+        "average_exposure": 0.8090909090909091,
+        "turnover": 12.0,
+        "fees_jpy": 33982.385574040905,
+        "observations": 990,
+        "excess_cagr": -0.0405109752045103
+      },
+      "audit": {
+        "start": "2024-10-24",
+        "end": "2026-10-23",
+        "valuation_start": "2024-10-23",
+        "initial": 1000000,
+        "final": 1260251.944729162,
+        "profit": 260251.9447291618,
+        "return_": 0.2602519447291618,
+        "cagr": 0.12269836803646172,
+        "max_drawdown": -0.2717594247168845,
+        "volatility": 0.25539124173343314,
+        "sharpe": 0.5657370005316629,
+        "sortino": 0.8509416710438127,
+        "average_exposure": 0.8788461538461538,
+        "turnover": 6.0,
+        "fees_jpy": 12604.98877589878,
+        "observations": 520,
+        "excess_cagr": -0.053904937792916385
+      },
+      "passes_train": false,
+      "passes_validation": false,
+      "score": -0.09993492351678412
+    },
+    {
+      "id": "c19029",
+      "config": {
+        "trend": 252,
+        "momentum": 252,
+        "rebalance": 21,
+        "topk": 2,
+        "gross": 1.0,
+        "weighting": "equal",
+        "voltarget": 0,
+        "defensive_cash": false,
+        "entry_buffer": 0.02
+      },
+      "config_sha256": "a712456c546b3b16db0a1b5704b202b3c6d9eb8e34a57c8de2b63a40ad4cb86b",
+      "train": {
+        "start": "2016-10-24",
+        "end": "2020-12-31",
+        "valuation_start": "2016-10-21",
+        "initial": 1000000,
+        "final": 1655311.471944377,
+        "profit": 655311.4719443771,
+        "return_": 0.6553114719443771,
+        "cagr": 0.12767500740723037,
+        "max_drawdown": -0.3042508233847643,
+        "volatility": 0.17761735554413624,
+        "sharpe": 0.7449455050859887,
+        "sortino": 1.009375643427384,
+        "average_exposure": 0.8845096241979835,
+        "turnover": 23.29521621984544,
+        "fees_jpy": 67659.8303681297,
+        "observations": 1091,
+        "excess_cagr": -0.012805328451330533
+      },
+      "validation": {
+        "start": "2021-01-04",
+        "end": "2024-10-23",
+        "valuation_start": "2020-12-31",
+        "initial": 1000000,
+        "final": 1887717.6029678013,
+        "profit": 887717.6029678014,
+        "return_": 0.8877176029678013,
+        "cagr": 0.18141841126995328,
+        "max_drawdown": -0.18998543718449434,
+        "volatility": 0.1515995402394429,
+        "sharpe": 1.1429991534555792,
+        "sortino": 1.6466117142500662,
+        "average_exposure": 0.7666666666666667,
+        "turnover": 13.333323896754209,
+        "fees_jpy": 39893.35284592726,
+        "observations": 990,
+        "excess_cagr": -0.05124229553272541
+      },
+      "audit": {
+        "start": "2024-10-24",
+        "end": "2026-10-23",
+        "valuation_start": "2024-10-23",
+        "initial": 1000000,
+        "final": 1334789.5935510453,
+        "profit": 334789.5935510452,
+        "return_": 0.3347895935510452,
+        "cagr": 0.15544520767707093,
+        "max_drawdown": -0.2795586209138512,
+        "volatility": 0.22219617355108712,
+        "sharpe": 0.740819841110947,
+        "sortino": 1.0730162360884847,
+        "average_exposure": 0.9596153846153846,
+        "turnover": 12.17147636142199,
+        "fees_jpy": 26306.286973938088,
+        "observations": 520,
+        "excess_cagr": -0.02115809815230718
+      },
+      "passes_train": false,
+      "passes_validation": false,
+      "score": -0.10514131905451427
+    },
+    {
+      "id": "c00034",
+      "config": {
+        "trend": 252,
+        "momentum": 252,
+        "rebalance": 21,
+        "topk": 2,
+        "gross": 1.0,
+        "weighting": "inverse_vol",
+        "voltarget": 0,
+        "defensive_cash": false,
+        "entry_buffer": 0.02
+      },
+      "config_sha256": "c8033ca6602d72c22a8c2c4e0072686b00e1b70b32099b7b98bad13df4f6eb42",
+      "train": {
+        "start": "2016-10-24",
+        "end": "2020-12-31",
+        "valuation_start": "2016-10-21",
+        "initial": 1000000,
+        "final": 1635418.1894552459,
+        "profit": 635418.1894552457,
+        "return_": 0.6354181894552458,
+        "cagr": 0.12442907739566289,
+        "max_drawdown": -0.3049700508028419,
+        "volatility": 0.17624794421294784,
+        "sharpe": 0.733518810560517,
+        "sortino": 0.9915690448474108,
+        "average_exposure": 0.8845096241979835,
+        "turnover": 25.87209866961018,
+        "fees_jpy": 75291.64038840757,
+        "observations": 1091,
+        "excess_cagr": -0.01605125846289801
+      },
+      "validation": {
+        "start": "2021-01-04",
+        "end": "2024-10-23",
+        "valuation_start": "2020-12-31",
+        "initial": 1000000,
+        "final": 1889704.454928549,
+        "profit": 889704.4549285491,
+        "return_": 0.8897044549285491,
+        "cagr": 0.18174455925272137,
+        "max_drawdown": -0.18674783557487684,
+        "volatility": 0.15026580433783418,
+        "sharpe": 1.1535855613083352,
+        "sortino": 1.6630316700346222,
+        "average_exposure": 0.7666666666666667,
+        "turnover": 14.017207657711015,
+        "fees_jpy": 42153.75364572645,
+        "observations": 990,
+        "excess_cagr": -0.050916147549957325
+      },
+      "audit": {
+        "start": "2024-10-24",
+        "end": "2026-10-23",
+        "valuation_start": "2024-10-23",
+        "initial": 1000000,
+        "final": 1334754.5046335554,
+        "profit": 334754.50463355536,
+        "return_": 0.3347545046335554,
+        "cagr": 0.15543001001685375,
+        "max_drawdown": -0.2778289642787668,
+        "volatility": 0.2184959685246603,
+        "sharpe": 0.7495871082850873,
+        "sortino": 1.0843162603990846,
+        "average_exposure": 0.9596153846153846,
+        "turnover": 13.212992893429742,
+        "fees_jpy": 28658.821433978832,
+        "observations": 520,
+        "excess_cagr": -0.021173295812524362
+      },
+      "passes_train": false,
+      "passes_validation": false,
+      "score": -0.10562873567512554
+    },
+    {
+      "id": "c21883",
+      "config": {
+        "trend": 252,
+        "momentum": 252,
+        "rebalance": 21,
+        "topk": 3,
+        "gross": 1.0,
+        "weighting": "equal",
+        "voltarget": 0,
+        "defensive_cash": false,
+        "entry_buffer": 0
+      },
+      "config_sha256": "84f2321e1bc9534a14a82ca0e22013d57bbb9a13afce2ed4d504f80f8a0eefb4",
+      "train": {
+        "start": "2016-10-24",
+        "end": "2020-12-31",
+        "valuation_start": "2016-10-21",
+        "initial": 1000000,
+        "final": 1677859.888205219,
+        "profit": 677859.8882052192,
+        "return_": 0.6778598882052191,
+        "cagr": 0.1313184428736367,
+        "max_drawdown": -0.2633193506968392,
+        "volatility": 0.15535033863517386,
+        "sharpe": 0.8478266645322273,
+        "sortino": 1.1470237712961615,
+        "average_exposure": 0.9037580201649863,
+        "turnover": 21.68968923372674,
+        "fees_jpy": 62643.95330731539,
+        "observations": 1091,
+        "excess_cagr": -0.009161892984924203
+      },
+      "validation": {
+        "start": "2021-01-04",
+        "end": "2024-10-23",
+        "valuation_start": "2020-12-31",
+        "initial": 1000000,
+        "final": 1880050.6487115338,
+        "profit": 880050.6487115339,
+        "return_": 0.8800506487115338,
+        "cagr": 0.18015747788485847,
+        "max_drawdown": -0.20219631775697888,
+        "volatility": 0.14449798392554727,
+        "sharpe": 1.1850870022388698,
+        "sortino": 1.6767624745650676,
+        "average_exposure": 0.8090909090909091,
+        "turnover": 13.084098255641493,
+        "fees_jpy": 36391.09772742729,
+        "observations": 990,
+        "excess_cagr": -0.05250322891782022
+      },
+      "audit": {
+        "start": "2024-10-24",
+        "end": "2026-10-23",
+        "valuation_start": "2024-10-23",
+        "initial": 1000000,
+        "final": 1235480.3552298455,
+        "profit": 235480.35522984545,
+        "return_": 0.23548035522984545,
+        "cagr": 0.11160213638585126,
+        "max_drawdown": -0.2677953410387707,
+        "volatility": 0.17459681690519754,
+        "sharpe": 0.6743840625556963,
+        "sortino": 0.9518026104946574,
+        "average_exposure": 0.9596153846153846,
+        "turnover": 12.195997231151413,
+        "fees_jpy": 29152.526961273088,
+        "observations": 520,
+        "excess_cagr": -0.06500116944352685
+      },
+      "passes_train": false,
+      "passes_validation": false,
+      "score": -0.10763325484952704
+    },
+    {
+      "id": "c00207",
+      "config": {
+        "trend": 252,
+        "momentum": 252,
+        "rebalance": 21,
+        "topk": 2,
+        "gross": 1.0,
+        "weighting": "inverse_vol",
+        "voltarget": 0.25,
+        "defensive_cash": false,
+        "entry_buffer": 0
+      },
+      "config_sha256": "16761ba5f4057ff270f628385301bb3bb9994c34bee54c99d019c89700be996c",
+      "train": {
+        "start": "2016-10-24",
+        "end": "2020-12-31",
+        "valuation_start": "2016-10-21",
+        "initial": 1000000,
+        "final": 1551919.487549997,
+        "profit": 551919.4875499968,
+        "return_": 0.5519194875499969,
+        "cagr": 0.11046750707763531,
+        "max_drawdown": -0.3049700508028417,
+        "volatility": 0.17152523004963074,
+        "sharpe": 0.6782543580557877,
+        "sortino": 0.9137291925600965,
+        "average_exposure": 0.8752337297531702,
+        "turnover": 21.97789178685548,
+        "fees_jpy": 60235.43071660455,
+        "observations": 1091,
+        "excess_cagr": -0.030012828780925593
+      },
+      "validation": {
+        "start": "2021-01-04",
+        "end": "2024-10-23",
+        "valuation_start": "2020-12-31",
+        "initial": 1000000,
+        "final": 1910504.4742546298,
+        "profit": 910504.4742546298,
+        "return_": 0.9105044742546298,
+        "cagr": 0.1851438559794294,
+        "max_drawdown": -0.1867478355748774,
+        "volatility": 0.15286680005321604,
+        "sharpe": 1.1547724837149347,
+        "sortino": 1.6676930925754345,
+        "average_exposure": 0.8090909090909091,
+        "turnover": 15.20954008603546,
+        "fees_jpy": 44986.03261562076,
+        "observations": 990,
+        "excess_cagr": -0.0475168508232493
+      },
+      "audit": {
+        "start": "2024-10-24",
+        "end": "2026-10-23",
+        "valuation_start": "2024-10-23",
+        "initial": 1000000,
+        "final": 1319595.7657708335,
+        "profit": 319595.7657708335,
+        "return_": 0.3195957657708335,
+        "cagr": 0.1488457012995692,
+        "max_drawdown": -0.2604398755276376,
+        "volatility": 0.20295595310795977,
+        "sharpe": 0.7638562829728582,
+        "sortino": 1.0810838262879858,
+        "average_exposure": 0.9568277865555734,
+        "turnover": 12.386006430394456,
+        "fees_jpy": 27141.012071669527,
+        "observations": 520,
+        "excess_cagr": -0.02775760452980891
+      },
+      "passes_train": false,
+      "passes_validation": false,
+      "score": -0.10921022410743145
+    },
+    {
+      "id": "c00560",
+      "config": {
+        "trend": 150,
+        "momentum": 63,
+        "rebalance": 63,
+        "topk": 1,
+        "gross": 1.0,
+        "weighting": "inverse_vol",
+        "voltarget": 0,
+        "defensive_cash": true,
+        "entry_buffer": 0.01
+      },
+      "config_sha256": "f10f3562204aa65032617592c4e96af17b0cdb5f06c9d46656236f7e1563c48b",
+      "train": {
+        "start": "2016-10-24",
+        "end": "2020-12-31",
+        "valuation_start": "2016-10-21",
+        "initial": 1000000,
+        "final": 1020840.0041931245,
+        "profit": 20840.004193124485,
+        "return_": 0.020840004193124484,
+        "cagr": 0.0049295920184926345,
+        "max_drawdown": -0.4076615765105678,
+        "volatility": 0.17214504257063343,
+        "sharpe": 0.11436702839618636,
+        "sortino": 0.14824009587984788,
+        "average_exposure": 0.8267644362969753,
+        "turnover": 28.0,
+        "fees_jpy": 63214.16509804845,
+        "observations": 1091,
+        "excess_cagr": -0.13555074384006827
+      },
+      "validation": {
+        "start": "2021-01-04",
+        "end": "2024-10-23",
+        "valuation_start": "2020-12-31",
+        "initial": 1000000,
+        "final": 2401259.8825132963,
+        "profit": 1401259.8825132963,
+        "return_": 1.4012598825132963,
+        "cagr": 0.25841615598430345,
+        "max_drawdown": -0.2719412724306688,
+        "volatility": 0.20337128600679574,
+        "sharpe": 1.2004618707961336,
+        "sortino": 1.701416306310427,
+        "average_exposure": 0.8090909090909091,
+        "turnover": 16.0,
+        "fees_jpy": 58113.26316810713,
+        "observations": 990,
+        "excess_cagr": 0.025755449181624757
+      },
+      "audit": {
+        "start": "2024-10-24",
+        "end": "2026-10-23",
+        "valuation_start": "2024-10-23",
+        "initial": 1000000,
+        "final": 1009250.1107885892,
+        "profit": 9250.110788589172,
+        "return_": 0.009250110788589172,
+        "cagr": 0.004617576849007987,
+        "max_drawdown": -0.2676674730591,
+        "volatility": 0.2191575204336242,
+        "sharpe": 0.12913932101599715,
+        "sortino": 0.18676822014396222,
+        "average_exposure": 0.7576923076923077,
+        "turnover": 14.0,
+        "fees_jpy": 28884.395999611166,
+        "observations": 520,
+        "excess_cagr": -0.17198572898037012
+      },
+      "passes_train": false,
+      "passes_validation": true,
+      "score": -0.11000524084607657
+    },
+    {
+      "id": "c02492",
+      "config": {
+        "trend": 150,
+        "momentum": 63,
+        "rebalance": 63,
+        "topk": 1,
+        "gross": 1.0,
+        "weighting": "inverse_vol",
+        "voltarget": 0,
+        "defensive_cash": true,
+        "entry_buffer": 0
+      },
+      "config_sha256": "026640a14b3dc7dcaedcc4d1e35820e592979c5dbd382d3749ddbbbedc6df021",
+      "train": {
+        "start": "2016-10-24",
+        "end": "2020-12-31",
+        "valuation_start": "2016-10-21",
+        "initial": 1000000,
+        "final": 1020840.0041931245,
+        "profit": 20840.004193124485,
+        "return_": 0.020840004193124484,
+        "cagr": 0.0049295920184926345,
+        "max_drawdown": -0.4076615765105678,
+        "volatility": 0.17214504257063343,
+        "sharpe": 0.11436702839618636,
+        "sortino": 0.14824009587984788,
+        "average_exposure": 0.8267644362969753,
+        "turnover": 28.0,
+        "fees_jpy": 63214.16509804845,
+        "observations": 1091,
+        "excess_cagr": -0.13555074384006827
+      },
+      "validation": {
+        "start": "2021-01-04",
+        "end": "2024-10-23",
+        "valuation_start": "2020-12-31",
+        "initial": 1000000,
+        "final": 2401259.8825132963,
+        "profit": 1401259.8825132963,
+        "return_": 1.4012598825132963,
+        "cagr": 0.25841615598430345,
+        "max_drawdown": -0.2719412724306688,
+        "volatility": 0.20337128600679574,
+        "sharpe": 1.2004618707961336,
+        "sortino": 1.701416306310427,
+        "average_exposure": 0.8090909090909091,
+        "turnover": 16.0,
+        "fees_jpy": 58113.26316810713,
+        "observations": 990,
+        "excess_cagr": 0.025755449181624757
+      },
+      "audit": {
+        "start": "2024-10-24",
+        "end": "2026-10-23",
+        "valuation_start": "2024-10-23",
+        "initial": 1000000,
+        "final": 1009250.1107885892,
+        "profit": 9250.110788589172,
+        "return_": 0.009250110788589172,
+        "cagr": 0.004617576849007987,
+        "max_drawdown": -0.2676674730591,
+        "volatility": 0.2191575204336242,
+        "sharpe": 0.12913932101599715,
+        "sortino": 0.18676822014396222,
+        "average_exposure": 0.7576923076923077,
+        "turnover": 14.0,
+        "fees_jpy": 28884.395999611166,
+        "observations": 520,
+        "excess_cagr": -0.17198572898037012
+      },
+      "passes_train": false,
+      "passes_validation": true,
+      "score": -0.11000524084607657
+    },
+    {
+      "id": "c10320",
+      "config": {
+        "trend": 150,
+        "momentum": 63,
+        "rebalance": 63,
+        "topk": 1,
+        "gross": 1.0,
+        "weighting": "equal",
+        "voltarget": 0,
+        "defensive_cash": true,
+        "entry_buffer": 0
+      },
+      "config_sha256": "5fc4543929a09bd0999eccce759f3956b70f27d4cb77f4cc7e945afbfb5d449e",
+      "train": {
+        "start": "2016-10-24",
+        "end": "2020-12-31",
+        "valuation_start": "2016-10-21",
+        "initial": 1000000,
+        "final": 1020840.0041931245,
+        "profit": 20840.004193124485,
+        "return_": 0.020840004193124484,
+        "cagr": 0.0049295920184926345,
+        "max_drawdown": -0.4076615765105678,
+        "volatility": 0.17214504257063343,
+        "sharpe": 0.11436702839618636,
+        "sortino": 0.14824009587984788,
+        "average_exposure": 0.8267644362969753,
+        "turnover": 28.0,
+        "fees_jpy": 63214.16509804845,
+        "observations": 1091,
+        "excess_cagr": -0.13555074384006827
+      },
+      "validation": {
+        "start": "2021-01-04",
+        "end": "2024-10-23",
+        "valuation_start": "2020-12-31",
+        "initial": 1000000,
+        "final": 2401259.8825132963,
+        "profit": 1401259.8825132963,
+        "return_": 1.4012598825132963,
+        "cagr": 0.25841615598430345,
+        "max_drawdown": -0.2719412724306688,
+        "volatility": 0.20337128600679574,
+        "sharpe": 1.2004618707961336,
+        "sortino": 1.701416306310427,
+        "average_exposure": 0.8090909090909091,
+        "turnover": 16.0,
+        "fees_jpy": 58113.26316810713,
+        "observations": 990,
+        "excess_cagr": 0.025755449181624757
+      },
+      "audit": {
+        "start": "2024-10-24",
+        "end": "2026-10-23",
+        "valuation_start": "2024-10-23",
+        "initial": 1000000,
+        "final": 1009250.1107885892,
+        "profit": 9250.110788589172,
+        "return_": 0.009250110788589172,
+        "cagr": 0.004617576849007987,
+        "max_drawdown": -0.2676674730591,
+        "volatility": 0.2191575204336242,
+        "sharpe": 0.12913932101599715,
+        "sortino": 0.18676822014396222,
+        "average_exposure": 0.7576923076923077,
+        "turnover": 14.0,
+        "fees_jpy": 28884.395999611166,
+        "observations": 520,
+        "excess_cagr": -0.17198572898037012
+      },
+      "passes_train": false,
+      "passes_validation": true,
+      "score": -0.11000524084607657
+    },
+    {
+      "id": "c01357",
+      "config": {
+        "trend": 200,
+        "momentum": 252,
+        "rebalance": 21,
+        "topk": 2,
+        "gross": 1.0,
+        "weighting": "inverse_vol",
+        "voltarget": 0,
+        "defensive_cash": false,
+        "entry_buffer": 0
+      },
+      "config_sha256": "fa18a32ccbb52a6072c7fa1ae6216aad70a1fe023a6da07491c2610083d9d8d4",
+      "train": {
+        "start": "2016-10-24",
+        "end": "2020-12-31",
+        "valuation_start": "2016-10-21",
+        "initial": 1000000,
+        "final": 1768117.98505173,
+        "profit": 768117.98505173,
+        "return_": 0.7681179850517299,
+        "cagr": 0.14553959544754758,
+        "max_drawdown": -0.3049700508028419,
+        "volatility": 0.18138410943635952,
+        "sharpe": 0.8171995874743497,
+        "sortino": 1.1121591789505705,
+        "average_exposure": 0.9037580201649863,
+        "turnover": 22.787483089678467,
+        "fees_jpy": 65741.88531964741,
+        "observations": 1091,
+        "excess_cagr": 0.005059259588986675
+      },
+      "validation": {
+        "start": "2021-01-04",
+        "end": "2024-10-23",
+        "valuation_start": "2020-12-31",
+        "initial": 1000000,
+        "final": 1813348.824741266,
+        "profit": 813348.8247412659,
+        "return_": 0.8133488247412659,
+        "cagr": 0.16902420145436237,
+        "max_drawdown": -0.18674783557487695,
+        "volatility": 0.15318076489580135,
+        "sharpe": 1.0659445736420723,
+        "sortino": 1.5300981760747854,
+        "average_exposure": 0.8090909090909091,
+        "turnover": 17.209540086035464,
+        "fees_jpy": 47065.611502268686,
+        "observations": 990,
+        "excess_cagr": -0.06363650534831633
+      },
+      "audit": {
+        "start": "2024-10-24",
+        "end": "2026-10-23",
+        "valuation_start": "2024-10-23",
+        "initial": 1000000,
+        "final": 1334754.5046335554,
+        "profit": 334754.50463355536,
+        "return_": 0.3347545046335554,
+        "cagr": 0.15543001001685375,
+        "max_drawdown": -0.2778289642787668,
+        "volatility": 0.2184959685246603,
+        "sharpe": 0.7495871082850873,
+        "sortino": 1.0843162603990846,
+        "average_exposure": 0.9596153846153846,
+        "turnover": 13.212992893429742,
+        "fees_jpy": 28658.821433978832,
+        "observations": 520,
+        "excess_cagr": -0.021173295812524362
+      },
+      "passes_train": true,
+      "passes_validation": false,
+      "score": -0.11032346424203557
+    },
+    {
+      "id": "c01163",
+      "config": {
+        "trend": 150,
+        "momentum": 252,
+        "rebalance": 63,
+        "topk": 1,
+        "gross": 1.0,
+        "weighting": "inverse_vol",
+        "voltarget": 0.25,
+        "defensive_cash": false,
+        "entry_buffer": 0
+      },
+      "config_sha256": "0114accd3e9c5d696b5e848edf560ddcc60c68649f0e06415e83b017023ce19c",
+      "train": {
+        "start": "2016-10-24",
+        "end": "2020-12-31",
+        "valuation_start": "2016-10-21",
+        "initial": 1000000,
+        "final": 1573577.9283947214,
+        "profit": 573577.9283947214,
+        "return_": 0.5735779283947213,
+        "cagr": 0.11414286821867603,
+        "max_drawdown": -0.2972699588381472,
+        "volatility": 0.20454690935885278,
+        "sharpe": 0.6146914571592866,
+        "sortino": 0.8447314694525135,
+        "average_exposure": 0.85104931343543,
+        "turnover": 7.915202054992699,
+        "fees_jpy": 25915.041497144604,
+        "observations": 1091,
+        "excess_cagr": -0.02633746763988487
+      },
+      "validation": {
+        "start": "2021-01-04",
+        "end": "2024-10-23",
+        "valuation_start": "2020-12-31",
+        "initial": 1000000,
+        "final": 1937935.2659309215,
+        "profit": 937935.2659309214,
+        "return_": 0.9379352659309215,
+        "cagr": 0.18958531414787716,
+        "max_drawdown": -0.21658573505336653,
+        "volatility": 0.17237061327326392,
+        "sharpe": 1.063510458213598,
+        "sortino": 1.550739003553712,
+        "average_exposure": 0.7984725431315206,
+        "turnover": 11.994099493274284,
+        "fees_jpy": 33779.8287540419,
+        "observations": 990,
+        "excess_cagr": -0.043075392654801536
+      },
+      "audit": {
+        "start": "2024-10-24",
+        "end": "2026-10-23",
+        "valuation_start": "2024-10-23",
+        "initial": 1000000,
+        "final": 1213763.5565100645,
+        "profit": 213763.55651006463,
+        "return_": 0.21376355651006462,
+        "cagr": 0.10178247410405716,
+        "max_drawdown": -0.2706222509170676,
+        "volatility": 0.2416125068396778,
+        "sharpe": 0.5084964105971581,
+        "sortino": 0.7623623765547695,
+        "average_exposure": 0.824924722022562,
+        "turnover": 6.4238566760609475,
+        "fees_jpy": 13281.206936217804,
+        "observations": 520,
+        "excess_cagr": -0.07482083172532095
+      },
+      "passes_train": false,
+      "passes_validation": false,
+      "score": -0.1103905602380856
+    },
+    {
+      "id": "c13283",
+      "config": {
+        "trend": 150,
+        "momentum": 252,
+        "rebalance": 63,
+        "topk": 1,
+        "gross": 1.0,
+        "weighting": "inverse_vol",
+        "voltarget": 0.25,
+        "defensive_cash": false,
+        "entry_buffer": 0.01
+      },
+      "config_sha256": "6c63f343f15e4ec6c58a4202bfb5284d24e791aaeb40d5702984926dea2e55cd",
+      "train": {
+        "start": "2016-10-24",
+        "end": "2020-12-31",
+        "valuation_start": "2016-10-21",
+        "initial": 1000000,
+        "final": 1573577.9283947214,
+        "profit": 573577.9283947214,
+        "return_": 0.5735779283947213,
+        "cagr": 0.11414286821867603,
+        "max_drawdown": -0.2972699588381472,
+        "volatility": 0.20454690935885278,
+        "sharpe": 0.6146914571592866,
+        "sortino": 0.8447314694525135,
+        "average_exposure": 0.85104931343543,
+        "turnover": 7.915202054992699,
+        "fees_jpy": 25915.041497144604,
+        "observations": 1091,
+        "excess_cagr": -0.02633746763988487
+      },
+      "validation": {
+        "start": "2021-01-04",
+        "end": "2024-10-23",
+        "valuation_start": "2020-12-31",
+        "initial": 1000000,
+        "final": 1937935.2659309215,
+        "profit": 937935.2659309214,
+        "return_": 0.9379352659309215,
+        "cagr": 0.18958531414787716,
+        "max_drawdown": -0.21658573505336653,
+        "volatility": 0.17237061327326392,
+        "sharpe": 1.063510458213598,
+        "sortino": 1.550739003553712,
+        "average_exposure": 0.7984725431315206,
+        "turnover": 11.994099493274284,
+        "fees_jpy": 33779.8287540419,
+        "observations": 990,
+        "excess_cagr": -0.043075392654801536
+      },
+      "audit": {
+        "start": "2024-10-24",
+        "end": "2026-10-23",
+        "valuation_start": "2024-10-23",
+        "initial": 1000000,
+        "final": 1213763.5565100645,
+        "profit": 213763.55651006463,
+        "return_": 0.21376355651006462,
+        "cagr": 0.10178247410405716,
+        "max_drawdown": -0.2706222509170676,
+        "volatility": 0.2416125068396778,
+        "sharpe": 0.5084964105971581,
+        "sortino": 0.7623623765547695,
+        "average_exposure": 0.824924722022562,
+        "turnover": 6.4238566760609475,
+        "fees_jpy": 13281.206936217804,
+        "observations": 520,
+        "excess_cagr": -0.07482083172532095
+      },
+      "passes_train": false,
+      "passes_validation": false,
+      "score": -0.1103905602380856
+    },
+    {
+      "id": "c14393",
+      "config": {
+        "trend": 150,
+        "momentum": 252,
+        "rebalance": 63,
+        "topk": 1,
+        "gross": 1.0,
+        "weighting": "equal",
+        "voltarget": 0.25,
+        "defensive_cash": false,
+        "entry_buffer": 0.01
+      },
+      "config_sha256": "25214ad024019e685d9d8e1fcd48fd587a2256d619e438f742d0312151e35aa7",
+      "train": {
+        "start": "2016-10-24",
+        "end": "2020-12-31",
+        "valuation_start": "2016-10-21",
+        "initial": 1000000,
+        "final": 1573577.9283947214,
+        "profit": 573577.9283947214,
+        "return_": 0.5735779283947213,
+        "cagr": 0.11414286821867603,
+        "max_drawdown": -0.2972699588381472,
+        "volatility": 0.20454690935885278,
+        "sharpe": 0.6146914571592866,
+        "sortino": 0.8447314694525135,
+        "average_exposure": 0.85104931343543,
+        "turnover": 7.915202054992699,
+        "fees_jpy": 25915.041497144604,
+        "observations": 1091,
+        "excess_cagr": -0.02633746763988487
+      },
+      "validation": {
+        "start": "2021-01-04",
+        "end": "2024-10-23",
+        "valuation_start": "2020-12-31",
+        "initial": 1000000,
+        "final": 1937935.2659309215,
+        "profit": 937935.2659309214,
+        "return_": 0.9379352659309215,
+        "cagr": 0.18958531414787716,
+        "max_drawdown": -0.21658573505336653,
+        "volatility": 0.17237061327326392,
+        "sharpe": 1.063510458213598,
+        "sortino": 1.550739003553712,
+        "average_exposure": 0.7984725431315206,
+        "turnover": 11.994099493274284,
+        "fees_jpy": 33779.8287540419,
+        "observations": 990,
+        "excess_cagr": -0.043075392654801536
+      },
+      "audit": {
+        "start": "2024-10-24",
+        "end": "2026-10-23",
+        "valuation_start": "2024-10-23",
+        "initial": 1000000,
+        "final": 1213763.5565100645,
+        "profit": 213763.55651006463,
+        "return_": 0.21376355651006462,
+        "cagr": 0.10178247410405716,
+        "max_drawdown": -0.2706222509170676,
+        "volatility": 0.2416125068396778,
+        "sharpe": 0.5084964105971581,
+        "sortino": 0.7623623765547695,
+        "average_exposure": 0.824924722022562,
+        "turnover": 6.4238566760609475,
+        "fees_jpy": 13281.206936217804,
+        "observations": 520,
+        "excess_cagr": -0.07482083172532095
+      },
+      "passes_train": false,
+      "passes_validation": false,
+      "score": -0.1103905602380856
+    }
+  ],
+  "windows": [
+    {
+      "years": 1,
+      "start": "2025-10-24",
+      "end": "2026-10-23",
+      "diagnostic_only": true,
+      "selected": {
+        "start": "2025-10-24",
+        "end": "2026-10-23",
+        "valuation_start": "2025-10-23",
+        "initial": 1000000,
+        "final": 1243210.7562617236,
+        "profit": 243210.7562617236,
+        "return_": 0.24321075626172362,
+        "cagr": 0.24339614247336194,
+        "max_drawdown": -0.11748947868822956,
+        "volatility": 0.22250865591666066,
+        "sharpe": 1.0593347321773567,
+        "sortino": 1.595559587305655,
+        "average_exposure": 1.0,
+        "turnover": 3.565028114328065,
+        "fees_jpy": 6938.894562259537,
+        "observations": 260
+      },
+      "spy": {
+        "start": "2025-10-24",
+        "end": "2026-10-23",
+        "valuation_start": "2025-10-23",
+        "initial": 1000000,
+        "final": 1181611.6400841444,
+        "profit": 181611.6400841443,
+        "return_": 0.18161164008414432,
+        "cagr": 0.1817467070683938,
+        "max_drawdown": -0.08703484670640349,
+        "volatility": 0.1469559035969154,
+        "sharpe": 1.1742025741380182,
+        "sortino": 1.714968212020694,
+        "average_exposure": 1.0,
+        "turnover": 2.0,
+        "fees_jpy": 5461.432681915148,
+        "observations": 260
+      }
+    },
+    {
+      "years": 5,
+      "start": "2021-10-24",
+      "end": "2026-10-23",
+      "diagnostic_only": true,
+      "selected": {
+        "start": "2021-10-25",
+        "end": "2026-10-23",
+        "valuation_start": "2021-10-22",
+        "initial": 1000000,
+        "final": 2127769.203459257,
+        "profit": 1127769.2034592568,
+        "return_": 1.1277692034592568,
+        "cagr": 0.16294179938953013,
+        "max_drawdown": -0.18674783557487706,
+        "volatility": 0.16277083487746985,
+        "sharpe": 0.9808519759794365,
+        "sortino": 1.4266811682814002,
+        "average_exposure": 0.8223076923076923,
+        "turnover": 22.553148158778352,
+        "fees_jpy": 59771.24726360709,
+        "observations": 1300
+      },
+      "spy": {
+        "start": "2021-10-25",
+        "end": "2026-10-23",
+        "valuation_start": "2021-10-22",
+        "initial": 1000000,
+        "final": 2305863.4849466435,
+        "profit": 1305863.4849466432,
+        "return_": 1.3058634849466433,
+        "cagr": 0.1817807979381887,
+        "max_drawdown": -0.23409907706893196,
+        "volatility": 0.19278991289401837,
+        "sharpe": 0.9364626827843295,
+        "sortino": 1.3794596212483405,
+        "average_exposure": 1.0,
+        "turnover": 2.0,
+        "fees_jpy": 8279.106478563015,
+        "observations": 1300
+      }
+    },
+    {
+      "years": 10,
+      "start": "2016-10-24",
+      "end": "2026-10-23",
+      "diagnostic_only": true,
+      "selected": {
+        "start": "2016-10-24",
+        "end": "2026-10-23",
+        "valuation_start": "2016-10-21",
+        "initial": 1000000,
+        "final": 4246186.866784802,
+        "profit": 3246186.866784802,
+        "return_": 3.246186866784802,
+        "cagr": 0.15551112292351443,
+        "max_drawdown": -0.3049700508028417,
+        "volatility": 0.18107403851197315,
+        "sharpe": 0.8649243751628973,
+        "sortino": 1.2068030428222087,
+        "average_exposure": 0.8708189158016147,
+        "turnover": 50.98765171702859,
+        "fees_jpy": 235999.1356368697,
+        "observations": 2601
+      },
+      "spy": {
+        "start": "2016-10-24",
+        "end": "2026-10-23",
+        "valuation_start": "2016-10-21",
+        "initial": 1000000,
+        "final": 5384842.171343519,
+        "profit": 4384842.171343519,
+        "return_": 4.38484217134352,
+        "cagr": 0.18327934201923823,
+        "max_drawdown": -0.33862586722811716,
+        "volatility": 0.19738780663913597,
+        "sharpe": 0.9255928821290804,
+        "sortino": 1.3156436512203458,
+        "average_exposure": 1.0,
+        "turnover": 2.0,
+        "fees_jpy": 15995.845040961201,
+        "observations": 2601
+      }
+    }
+  ],
+  "curves": [
+    {
+      "date": "2016-01-18",
+      "selected": 1000000.0,
+      "spy": 1000657.67
+    },
+    {
+      "date": "2016-01-25",
+      "selected": 1000000.0,
+      "spy": 997392.16
+    },
+    {
+      "date": "2016-02-01",
+      "selected": 1000000.0,
+      "spy": 1038119.19
+    },
+    {
+      "date": "2016-02-08",
+      "selected": 1000000.0,
+      "spy": 976749.18
+    },
+    {
+      "date": "2016-02-15",
+      "selected": 1000000.0,
+      "spy": 946369.48
+    },
+    {
+      "date": "2016-02-22",
+      "selected": 1000000.0,
+      "spy": 994307.88
+    },
+    {
+      "date": "2016-02-29",
+      "selected": 1000000.0,
+      "spy": 986928.35
+    },
+    {
+      "date": "2016-03-07",
+      "selected": 1000000.0,
+      "spy": 1027764.08
+    },
+    {
+      "date": "2016-03-14",
+      "selected": 1000000.0,
+      "spy": 1030156.93
+    },
+    {
+      "date": "2016-03-21",
+      "selected": 1000000.0,
+      "spy": 1027265.53
+    },
+    {
+      "date": "2016-03-28",
+      "selected": 1000000.0,
+      "spy": 1033646.66
+    },
+    {
+      "date": "2016-04-04",
+      "selected": 1000000.0,
+      "spy": 1045701.16
+    },
+    {
+      "date": "2016-04-11",
+      "selected": 1000000.0,
+      "spy": 997122.5
+    },
+    {
+      "date": "2016-04-18",
+      "selected": 1009660.4,
+      "spy": 1031019.25
+    },
+    {
+      "date": "2016-04-25",
+      "selected": 990331.55,
+      "spy": 1029052.67
+    },
+    {
+      "date": "2016-05-02",
+      "selected": 957733.55,
+      "spy": 1013137.18
+    },
+    {
+      "date": "2016-05-09",
+      "selected": 943152.85,
+      "spy": 995570.67
+    },
+    {
+      "date": "2016-05-16",
+      "selected": 950145.77,
+      "spy": 1016884.4
+    },
+    {
+      "date": "2016-05-23",
+      "selected": 950145.77,
+      "spy": 1016387.79
+    },
+    {
+      "date": "2016-05-30",
+      "selected": 950145.77,
+      "spy": 1039708.88
+    },
+    {
+      "date": "2016-06-06",
+      "selected": 950145.77,
+      "spy": 1037072.0
+    },
+    {
+      "date": "2016-06-13",
+      "selected": 939023.37,
+      "spy": 1006211.11
+    },
+    {
+      "date": "2016-06-20",
+      "selected": 915800.0,
+      "spy": 981326.09
+    },
+    {
+      "date": "2016-06-27",
+      "selected": 880734.68,
+      "spy": 943751.83
+    },
+    {
+      "date": "2016-07-04",
+      "selected": 910173.79,
+      "spy": 975297.33
+    },
+    {
+      "date": "2016-07-11",
+      "selected": 904768.46,
+      "spy": 969505.25
+    },
+    {
+      "date": "2016-07-18",
+      "selected": 957594.24,
+      "spy": 1026110.75
+    },
+    {
+      "date": "2016-07-25",
+      "selected": 964306.49,
+      "spy": 1033303.26
+    },
+    {
+      "date": "2016-08-01",
+      "selected": 955869.39,
+      "spy": 1024262.48
+    },
+    {
+      "date": "2016-08-08",
+      "selected": 928234.94,
+      "spy": 994650.76
+    },
+    {
+      "date": "2016-08-15",
+      "selected": 937171.8,
+      "spy": 1005408.98
+    },
+    {
+      "date": "2016-08-22",
+      "selected": 919024.04,
+      "spy": 986133.04
+    },
+    {
+      "date": "2016-08-29",
+      "selected": 921199.98,
+      "spy": 989726.21
+    },
+    {
+      "date": "2016-09-05",
+      "selected": 946665.81,
+      "spy": 1016377.4
+    },
+    {
+      "date": "2016-09-12",
+      "selected": 930314.42,
+      "spy": 997645.47
+    },
+    {
+      "date": "2016-09-19",
+      "selected": 922664.64,
+      "spy": 981267.31
+    },
+    {
+      "date": "2016-09-26",
+      "selected": 915959.32,
+      "spy": 973717.47
+    },
+    {
+      "date": "2016-10-03",
+      "selected": 927278.89,
+      "spy": 984295.98
+    },
+    {
+      "date": "2016-10-10",
+      "selected": 952799.47,
+      "spy": 1011031.16
+    },
+    {
+      "date": "2016-10-17",
+      "selected": 927767.92,
+      "spy": 992939.58
+    },
+    {
+      "date": "2016-10-24",
+      "selected": 948489.02,
+      "spy": 1008423.13
+    },
+    {
+      "date": "2016-10-31",
+      "selected": 935214.86,
+      "spy": 1007980.94
+    },
+    {
+      "date": "2016-11-07",
+      "selected": 910176.08,
+      "spy": 990102.3
+    },
+    {
+      "date": "2016-11-14",
+      "selected": 944933.59,
+      "spy": 1043219.34
+    },
+    {
+      "date": "2016-11-21",
+      "selected": 999201.37,
+      "spy": 1094105.52
+    },
+    {
+      "date": "2016-11-28",
+      "selected": 1027476.04,
+      "spy": 1125917.96
+    },
+    {
+      "date": "2016-12-05",
+      "selected": 1026295.78,
+      "spy": 1134719.75
+    },
+    {
+      "date": "2016-12-12",
+      "selected": 1051471.18,
+      "spy": 1163368.68
+    },
+    {
+      "date": "2016-12-19",
+      "selected": 1087709.19,
+      "spy": 1202017.29
+    },
+    {
+      "date": "2016-12-26",
+      "selected": 1079213.06,
+      "spy": 1195865.13
+    },
+    {
+      "date": "2017-01-03",
+      "selected": 1064494.71,
+      "spy": 1180430.17
+    },
+    {
+      "date": "2017-01-10",
+      "selected": 1060680.91,
+      "spy": 1176595.77
+    },
+    {
+      "date": "2017-01-17",
+      "selected": 1049373.56,
+      "spy": 1169375.51
+    },
+    {
+      "date": "2017-01-24",
+      "selected": 1060767.64,
+      "spy": 1179594.94
+    },
+    {
+      "date": "2017-01-31",
+      "selected": 1053570.45,
+      "spy": 1173847.7
+    },
+    {
+      "date": "2017-02-07",
+      "selected": 1040400.46,
+      "spy": 1163929.69
+    },
+    {
+      "date": "2017-02-14",
+      "selected": 1068745.25,
+      "spy": 1194923.93
+    },
+    {
+      "date": "2017-02-21",
+      "selected": 1081314.2,
+      "spy": 1207814.34
+    },
+    {
+      "date": "2017-02-28",
+      "selected": 1065373.9,
+      "spy": 1201071.63
+    },
+    {
+      "date": "2017-03-07",
+      "selected": 1079770.18,
+      "spy": 1221497.14
+    },
+    {
+      "date": "2017-03-14",
+      "selected": 1087004.26,
+      "spy": 1229599.11
+    },
+    {
+      "date": "2017-03-21",
+      "selected": 1057419.31,
+      "spy": 1194086.97
+    },
+    {
+      "date": "2017-03-28",
+      "selected": 1049995.82,
+      "spy": 1177431.87
+    },
+    {
+      "date": "2017-04-04",
+      "selected": 1061530.33,
+      "spy": 1186426.67
+    },
+    {
+      "date": "2017-04-11",
+      "selected": 1051774.02,
+      "spy": 1174997.25
+    },
+    {
+      "date": "2017-04-18",
+      "selected": 1028827.41,
+      "spy": 1150115.73
+    },
+    {
+      "date": "2017-04-25",
+      "selected": 1064867.65,
+      "spy": 1176077.13
+    },
+    {
+      "date": "2017-05-02",
+      "selected": 1089660.32,
+      "spy": 1197083.35
+    },
+    {
+      "date": "2017-05-09",
+      "selected": 1103833.08,
+      "spy": 1214591.86
+    },
+    {
+      "date": "2017-05-16",
+      "selected": 1123292.43,
+      "spy": 1231603.46
+    },
+    {
+      "date": "2017-05-23",
+      "selected": 1093209.33,
+      "spy": 1205394.27
+    },
+    {
+      "date": "2017-05-30",
+      "selected": 1103265.87,
+      "spy": 1216256.74
+    },
+    {
+      "date": "2017-06-06",
+      "selected": 1112148.55,
+      "spy": 1221656.61
+    },
+    {
+      "date": "2017-06-13",
+      "selected": 1092189.63,
+      "spy": 1210993.0
+    },
+    {
+      "date": "2017-06-20",
+      "selected": 1103501.08,
+      "spy": 1215339.46
+    },
+    {
+      "date": "2017-06-27",
+      "selected": 1099204.84,
+      "spy": 1210614.23
+    },
+    {
+      "date": "2017-07-04",
+      "selected": 1089518.26,
+      "spy": 1222878.54
+    },
+    {
+      "date": "2017-07-11",
+      "selected": 1099371.37,
+      "spy": 1235222.67
+    },
+    {
+      "date": "2017-07-18",
+      "selected": 1081897.71,
+      "spy": 1255899.1
+    },
+    {
+      "date": "2017-07-25",
+      "selected": 1079138.92,
+      "spy": 1247800.02
+    },
+    {
+      "date": "2017-08-01",
+      "selected": 1077037.52,
+      "spy": 1238511.08
+    },
+    {
+      "date": "2017-08-08",
+      "selected": 1077432.23,
+      "spy": 1224869.63
+    },
+    {
+      "date": "2017-08-15",
+      "selected": 1067289.76,
+      "spy": 1212331.78
+    },
+    {
+      "date": "2017-08-22",
+      "selected": 1056671.89,
+      "spy": 1209525.63
+    },
+    {
+      "date": "2017-08-29",
+      "selected": 1057356.47,
+      "spy": 1208670.92
+    },
+    {
+      "date": "2017-09-05",
+      "selected": 1061588.24,
+      "spy": 1221464.97
+    },
+    {
+      "date": "2017-09-12",
+      "selected": 1073890.49,
+      "spy": 1220318.8
+    },
+    {
+      "date": "2017-09-19",
+      "selected": 1095799.54,
+      "spy": 1238508.44
+    },
+    {
+      "date": "2017-09-26",
+      "selected": 1099688.92,
+      "spy": 1262537.74
+    },
+    {
+      "date": "2017-10-03",
+      "selected": 1117762.36,
+      "spy": 1281868.78
+    },
+    {
+      "date": "2017-10-10",
+      "selected": 1126286.69,
+      "spy": 1294314.48
+    },
+    {
+      "date": "2017-10-17",
+      "selected": 1149709.12,
+      "spy": 1292474.57
+    },
+    {
+      "date": "2017-10-24",
+      "selected": 1173988.91,
+      "spy": 1303089.05
+    },
+    {
+      "date": "2017-10-31",
+      "selected": 1188322.61,
+      "spy": 1322823.25
+    },
+    {
+      "date": "2017-11-07",
+      "selected": 1185665.64,
+      "spy": 1329383.23
+    },
+    {
+      "date": "2017-11-14",
+      "selected": 1173705.34,
+      "spy": 1317105.63
+    },
+    {
+      "date": "2017-11-21",
+      "selected": 1197339.26,
+      "spy": 1324588.51
+    },
+    {
+      "date": "2017-11-28",
+      "selected": 1184628.98,
+      "spy": 1318241.43
+    },
+    {
+      "date": "2017-12-05",
+      "selected": 1181814.53,
+      "spy": 1335292.32
+    },
+    {
+      "date": "2017-12-12",
+      "selected": 1202343.53,
+      "spy": 1360925.63
+    },
+    {
+      "date": "2017-12-19",
+      "selected": 1205719.69,
+      "spy": 1353558.08
+    },
+    {
+      "date": "2017-12-26",
+      "selected": 1203800.24,
+      "spy": 1364823.75
+    },
+    {
+      "date": "2018-01-02",
+      "selected": 1205160.23,
+      "spy": 1367466.98
+    },
+    {
+      "date": "2018-01-09",
+      "selected": 1244886.67,
+      "spy": 1395685.57
+    },
+    {
+      "date": "2018-01-16",
+      "selected": 1239289.52,
+      "spy": 1389449.58
+    },
+    {
+      "date": "2018-01-23",
+      "selected": 1262426.86,
+      "spy": 1417732.41
+    },
+    {
+      "date": "2018-01-30",
+      "selected": 1230652.98,
+      "spy": 1393285.57
+    },
+    {
+      "date": "2018-02-06",
+      "selected": 1161636.96,
+      "spy": 1327215.87
+    },
+    {
+      "date": "2018-02-13",
+      "selected": 1138038.16,
+      "spy": 1301265.0
+    },
+    {
+      "date": "2018-02-20",
+      "selected": 1162718.35,
+      "spy": 1298101.21
+    },
+    {
+      "date": "2018-02-27",
+      "selected": 1184739.37,
+      "spy": 1321289.79
+    },
+    {
+      "date": "2018-03-06",
+      "selected": 1174817.44,
+      "spy": 1305819.7
+    },
+    {
+      "date": "2018-03-13",
+      "selected": 1196708.7,
+      "spy": 1327226.29
+    },
+    {
+      "date": "2018-03-20",
+      "selected": 1169107.49,
+      "spy": 1298367.13
+    },
+    {
+      "date": "2018-03-27",
+      "selected": 1103270.03,
+      "spy": 1233018.71
+    },
+    {
+      "date": "2018-04-03",
+      "selected": 1113635.13,
+      "spy": 1251583.62
+    },
+    {
+      "date": "2018-04-10",
+      "selected": 1142705.55,
+      "spy": 1279454.15
+    },
+    {
+      "date": "2018-04-17",
+      "selected": 1172244.54,
+      "spy": 1305844.58
+    },
+    {
+      "date": "2018-04-24",
+      "selected": 1144591.64,
+      "spy": 1273487.57
+    },
+    {
+      "date": "2018-05-01",
+      "selected": 1173854.42,
+      "spy": 1305484.14
+    },
+    {
+      "date": "2018-05-08",
+      "selected": 1183985.19,
+      "spy": 1312587.55
+    },
+    {
+      "date": "2018-05-15",
+      "selected": 1199857.75,
+      "spy": 1337297.52
+    },
+    {
+      "date": "2018-05-22",
+      "selected": 1210992.37,
+      "spy": 1361850.96
+    },
+    {
+      "date": "2018-05-29",
+      "selected": 1195718.66,
+      "spy": 1325533.44
+    },
+    {
+      "date": "2018-06-05",
+      "selected": 1224863.43,
+      "spy": 1348510.05
+    },
+    {
+      "date": "2018-06-12",
+      "selected": 1246238.11,
+      "spy": 1379116.21
+    },
+    {
+      "date": "2018-06-19",
+      "selected": 1262230.97,
+      "spy": 1374015.7
+    },
+    {
+      "date": "2018-06-26",
+      "selected": 1231472.64,
+      "spy": 1346081.13
+    },
+    {
+      "date": "2018-07-03",
+      "selected": 1228951.0,
+      "spy": 1349132.36
+    },
+    {
+      "date": "2018-07-10",
+      "selected": 1265148.27,
+      "spy": 1390143.03
+    },
+    {
+      "date": "2018-07-17",
+      "selected": 1293509.43,
+      "spy": 1424340.27
+    },
+    {
+      "date": "2018-07-24",
+      "selected": 1287385.59,
+      "spy": 1426296.07
+    },
+    {
+      "date": "2018-07-31",
+      "selected": 1257146.93,
+      "spy": 1409445.19
+    },
+    {
+      "date": "2018-08-07",
+      "selected": 1287916.96,
+      "spy": 1437740.09
+    },
+    {
+      "date": "2018-08-14",
+      "selected": 1281981.5,
+      "spy": 1421616.93
+    },
+    {
+      "date": "2018-08-21",
+      "selected": 1286984.88,
+      "spy": 1432712.16
+    },
+    {
+      "date": "2018-08-28",
+      "selected": 1310655.92,
+      "spy": 1455368.66
+    },
+    {
+      "date": "2018-09-04",
+      "selected": 1311545.95,
+      "spy": 1450009.16
+    },
+    {
+      "date": "2018-09-11",
+      "selected": 1291532.19,
+      "spy": 1439640.0
+    },
+    {
+      "date": "2018-09-18",
+      "selected": 1305332.55,
+      "spy": 1468796.15
+    },
+    {
+      "date": "2018-09-25",
+      "selected": 1314308.82,
+      "spy": 1474318.34
+    },
+    {
+      "date": "2018-10-02",
+      "selected": 1306969.42,
+      "spy": 1489754.15
+    },
+    {
+      "date": "2018-10-09",
+      "selected": 1278570.51,
+      "spy": 1475454.78
+    },
+    {
+      "date": "2018-10-16",
+      "selected": 1216281.36,
+      "spy": 1416590.88
+    },
+    {
+      "date": "2018-10-23",
+      "selected": 1189386.38,
+      "spy": 1383582.43
+    },
+    {
+      "date": "2018-10-30",
+      "selected": 1150047.1,
+      "spy": 1356042.45
+    },
+    {
+      "date": "2018-11-06",
+      "selected": 1185737.53,
+      "spy": 1397790.77
+    },
+    {
+      "date": "2018-11-13",
+      "selected": 1179332.97,
+      "spy": 1397425.86
+    },
+    {
+      "date": "2018-11-20",
+      "selected": 1133782.67,
+      "spy": 1351904.01
+    },
+    {
+      "date": "2018-11-27",
+      "selected": 1151224.38,
+      "spy": 1366830.57
+    },
+    {
+      "date": "2018-12-04",
+      "selected": 1166953.82,
+      "spy": 1381526.46
+    },
+    {
+      "date": "2018-12-11",
+      "selected": 1138009.87,
+      "spy": 1341644.91
+    },
+    {
+      "date": "2018-12-18",
+      "selected": 1135164.85,
+      "spy": 1305690.06
+    },
+    {
+      "date": "2018-12-25",
+      "selected": 1135164.85,
+      "spy": 1174292.36
+    },
+    {
+      "date": "2019-01-02",
+      "selected": 1135164.85,
+      "spy": 1244183.72
+    },
+    {
+      "date": "2019-01-09",
+      "selected": 1135164.85,
+      "spy": 1261901.1
+    },
+    {
+      "date": "2019-01-16",
+      "selected": 1135164.85,
+      "spy": 1275872.13
+    },
+    {
+      "date": "2019-01-23",
+      "selected": 1135164.85,
+      "spy": 1302035.4
+    },
+    {
+      "date": "2019-01-30",
+      "selected": 1135164.85,
+      "spy": 1319499.62
+    },
+    {
+      "date": "2019-02-06",
+      "selected": 1135164.85,
+      "spy": 1345411.99
+    },
+    {
+      "date": "2019-02-13",
+      "selected": 1135164.85,
+      "spy": 1361122.08
+    },
+    {
+      "date": "2019-02-20",
+      "selected": 1135164.85,
+      "spy": 1387512.5
+    },
+    {
+      "date": "2019-02-27",
+      "selected": 1135164.85,
+      "spy": 1394067.35
+    },
+    {
+      "date": "2019-03-06",
+      "selected": 1135164.85,
+      "spy": 1399306.01
+    },
+    {
+      "date": "2019-03-13",
+      "selected": 1139774.67,
+      "spy": 1408658.33
+    },
+    {
+      "date": "2019-03-20",
+      "selected": 1153176.58,
+      "spy": 1415814.03
+    },
+    {
+      "date": "2019-03-27",
+      "selected": 1128343.36,
+      "spy": 1387603.86
+    },
+    {
+      "date": "2019-04-03",
+      "selected": 1169806.09,
+      "spy": 1432996.4
+    },
+    {
+      "date": "2019-04-10",
+      "selected": 1186304.91,
+      "spy": 1451656.42
+    },
+    {
+      "date": "2019-04-17",
+      "selected": 1197067.09,
+      "spy": 1461633.43
+    },
+    {
+      "date": "2019-04-24",
+      "selected": 1209419.66,
+      "spy": 1474117.28
+    },
+    {
+      "date": "2019-05-01",
+      "selected": 1202848.38,
+      "spy": 1467828.93
+    },
+    {
+      "date": "2019-05-08",
+      "selected": 1173830.83,
+      "spy": 1433728.48
+    },
+    {
+      "date": "2019-05-15",
+      "selected": 1150373.21,
+      "spy": 1408961.3
+    },
+    {
+      "date": "2019-05-22",
+      "selected": 1151037.19,
+      "spy": 1418293.4
+    },
+    {
+      "date": "2019-05-29",
+      "selected": 1112728.29,
+      "spy": 1372227.06
+    },
+    {
+      "date": "2019-06-05",
+      "selected": 1111369.03,
+      "spy": 1380189.64
+    },
+    {
+      "date": "2019-06-12",
+      "selected": 1133372.85,
+      "spy": 1409756.4
+    },
+    {
+      "date": "2019-06-19",
+      "selected": 1153074.61,
+      "spy": 1434262.61
+    },
+    {
+      "date": "2019-06-26",
+      "selected": 1129578.99,
+      "spy": 1405037.37
+    },
+    {
+      "date": "2019-07-03",
+      "selected": 1173558.64,
+      "spy": 1459741.87
+    },
+    {
+      "date": "2019-07-10",
+      "selected": 1174986.55,
+      "spy": 1460051.89
+    },
+    {
+      "date": "2019-07-17",
+      "selected": 1165145.66,
+      "spy": 1447181.98
+    },
+    {
+      "date": "2019-07-24",
+      "selected": 1180826.03,
+      "spy": 1464867.13
+    },
+    {
+      "date": "2019-07-31",
+      "selected": 1170250.3,
+      "spy": 1456414.05
+    },
+    {
+      "date": "2019-08-07",
+      "selected": 1109625.0,
+      "spy": 1383404.13
+    },
+    {
+      "date": "2019-08-14",
+      "selected": 1084508.94,
+      "spy": 1348559.61
+    },
+    {
+      "date": "2019-08-21",
+      "selected": 1129220.04,
+      "spy": 1402988.21
+    },
+    {
+      "date": "2019-08-28",
+      "selected": 1095788.66,
+      "spy": 1365361.18
+    },
+    {
+      "date": "2019-09-04",
+      "selected": 1128666.42,
+      "spy": 1406613.28
+    },
+    {
+      "date": "2019-09-11",
+      "selected": 1161717.7,
+      "spy": 1447377.48
+    },
+    {
+      "date": "2019-09-18",
+      "selected": 1172660.02,
+      "spy": 1462604.17
+    },
+    {
+      "date": "2019-09-25",
+      "selected": 1157287.5,
+      "spy": 1444183.98
+    },
+    {
+      "date": "2019-10-02",
+      "selected": 1123365.1,
+      "spy": 1401586.07
+    },
+    {
+      "date": "2019-10-09",
+      "selected": 1126614.44,
+      "spy": 1401712.31
+    },
+    {
+      "date": "2019-10-16",
+      "selected": 1176001.6,
+      "spy": 1458823.39
+    },
+    {
+      "date": "2019-10-23",
+      "selected": 1176232.28,
+      "spy": 1465369.48
+    },
+    {
+      "date": "2019-10-30",
+      "selected": 1202336.34,
+      "spy": 1490655.36
+    },
+    {
+      "date": "2019-11-06",
+      "selected": 1210693.52,
+      "spy": 1498047.8
+    },
+    {
+      "date": "2019-11-13",
+      "selected": 1231409.51,
+      "spy": 1521820.21
+    },
+    {
+      "date": "2019-11-20",
+      "selected": 1230592.44,
+      "spy": 1522659.95
+    },
+    {
+      "date": "2019-11-27",
+      "selected": 1251937.07,
+      "spy": 1546178.26
+    },
+    {
+      "date": "2019-12-04",
+      "selected": 1242305.45,
+      "spy": 1537777.52
+    },
+    {
+      "date": "2019-12-11",
+      "selected": 1245413.66,
+      "spy": 1539523.33
+    },
+    {
+      "date": "2019-12-18",
+      "selected": 1278175.79,
+      "spy": 1575973.16
+    },
+    {
+      "date": "2019-12-25",
+      "selected": 1289436.12,
+      "spy": 1585493.92
+    },
+    {
+      "date": "2020-01-02",
+      "selected": 1301605.37,
+      "spy": 1594292.89
+    },
+    {
+      "date": "2020-01-09",
+      "selected": 1307649.81,
+      "spy": 1596152.12
+    },
+    {
+      "date": "2020-01-16",
+      "selected": 1345317.43,
+      "spy": 1640674.52
+    },
+    {
+      "date": "2020-01-23",
+      "selected": 1355744.21,
+      "spy": 1647347.17
+    },
+    {
+      "date": "2020-01-30",
+      "selected": 1325982.55,
+      "spy": 1608777.05
+    },
+    {
+      "date": "2020-02-06",
+      "selected": 1356556.89,
+      "spy": 1635070.93
+    },
+    {
+      "date": "2020-02-13",
+      "selected": 1388117.52,
+      "spy": 1667682.46
+    },
+    {
+      "date": "2020-02-20",
+      "selected": 1390884.12,
+      "spy": 1668110.36
+    },
+    {
+      "date": "2020-02-27",
+      "selected": 1235010.83,
+      "spy": 1486630.46
+    },
+    {
+      "date": "2020-03-05",
+      "selected": 1235448.41,
+      "spy": 1479053.71
+    },
+    {
+      "date": "2020-03-12",
+      "selected": 972752.79,
+      "spy": 1153165.9
+    },
+    {
+      "date": "2020-03-19",
+      "selected": 986044.9,
+      "spy": 1151048.77
+    },
+    {
+      "date": "2020-03-26",
+      "selected": 1114944.56,
+      "spy": 1304839.5
+    },
+    {
+      "date": "2020-04-02",
+      "selected": 1079472.29,
+      "spy": 1226338.24
+    },
+    {
+      "date": "2020-04-09",
+      "selected": 1079472.29,
+      "spy": 1368295.52
+    },
+    {
+      "date": "2020-04-16",
+      "selected": 1079472.29,
+      "spy": 1353951.97
+    },
+    {
+      "date": "2020-04-23",
+      "selected": 1079472.29,
+      "spy": 1354433.48
+    },
+    {
+      "date": "2020-04-30",
+      "selected": 1089607.61,
+      "spy": 1404706.08
+    },
+    {
+      "date": "2020-05-07",
+      "selected": 1098061.19,
+      "spy": 1383566.94
+    },
+    {
+      "date": "2020-05-14",
+      "selected": 1107054.32,
+      "spy": 1381695.95
+    },
+    {
+      "date": "2020-05-21",
+      "selected": 1140223.31,
+      "spy": 1427286.21
+    },
+    {
+      "date": "2020-05-28",
+      "selected": 1149068.32,
+      "spy": 1470622.5
+    },
+    {
+      "date": "2020-06-04",
+      "selected": 1172733.27,
+      "spy": 1509396.84
+    },
+    {
+      "date": "2020-06-11",
+      "selected": 1177041.92,
+      "spy": 1468950.09
+    },
+    {
+      "date": "2020-06-18",
+      "selected": 1217936.15,
+      "spy": 1510252.46
+    },
+    {
+      "date": "2020-06-25",
+      "selected": 1217964.59,
+      "spy": 1481021.73
+    },
+    {
+      "date": "2020-07-02",
+      "selected": 1250945.64,
+      "spy": 1514205.61
+    },
+    {
+      "date": "2020-07-09",
+      "selected": 1277653.63,
+      "spy": 1521358.94
+    },
+    {
+      "date": "2020-07-16",
+      "selected": 1281530.63,
+      "spy": 1551178.3
+    },
+    {
+      "date": "2020-07-23",
+      "selected": 1282034.16,
+      "spy": 1560506.62
+    },
+    {
+      "date": "2020-07-30",
+      "selected": 1268493.91,
+      "spy": 1537082.54
+    },
+    {
+      "date": "2020-08-06",
+      "selected": 1331437.96,
+      "spy": 1597873.52
+    },
+    {
+      "date": "2020-08-13",
+      "selected": 1330466.55,
+      "spy": 1609244.88
+    },
+    {
+      "date": "2020-08-20",
+      "selected": 1351794.51,
+      "spy": 1616218.31
+    },
+    {
+      "date": "2020-08-27",
+      "selected": 1398364.18,
+      "spy": 1664203.17
+    },
+    {
+      "date": "2020-09-03",
+      "selected": 1383957.45,
+      "spy": 1650328.25
+    },
+    {
+      "date": "2020-09-10",
+      "selected": 1328867.35,
+      "spy": 1599909.57
+    },
+    {
+      "date": "2020-09-17",
+      "selected": 1320848.49,
+      "spy": 1600321.83
+    },
+    {
+      "date": "2020-09-24",
+      "selected": 1270815.08,
+      "spy": 1526573.81
+    },
+    {
+      "date": "2020-10-01",
+      "selected": 1344877.17,
+      "spy": 1601755.89
+    },
+    {
+      "date": "2020-10-08",
+      "selected": 1362366.31,
+      "spy": 1638033.08
+    },
+    {
+      "date": "2020-10-15",
+      "selected": 1383565.93,
+      "spy": 1649993.75
+    },
+    {
+      "date": "2020-10-22",
+      "selected": 1366756.81,
+      "spy": 1638306.38
+    },
+    {
+      "date": "2020-10-29",
+      "selected": 1309075.57,
+      "spy": 1559264.6
+    },
+    {
+      "date": "2020-11-05",
+      "selected": 1390020.23,
+      "spy": 1653310.44
+    },
+    {
+      "date": "2020-11-12",
+      "selected": 1390876.95,
+      "spy": 1673889.86
+    },
+    {
+      "date": "2020-11-19",
+      "selected": 1401342.1,
+      "spy": 1685935.76
+    },
+    {
+      "date": "2020-11-26",
+      "selected": 1420064.16,
+      "spy": 1708669.85
+    },
+    {
+      "date": "2020-12-03",
+      "selected": 1442052.78,
+      "spy": 1723921.72
+    },
+    {
+      "date": "2020-12-10",
+      "selected": 1434510.78,
+      "spy": 1719134.11
+    },
+    {
+      "date": "2020-12-17",
+      "selected": 1463994.17,
+      "spy": 1745164.81
+    },
+    {
+      "date": "2020-12-24",
+      "selected": 1457147.8,
+      "spy": 1718830.77
+    },
+    {
+      "date": "2020-12-31",
+      "selected": 1460730.66,
+      "spy": 1747443.94
+    },
+    {
+      "date": "2021-01-08",
+      "selected": 1501813.77,
+      "spy": 1764562.21
+    },
+    {
+      "date": "2021-01-15",
+      "selected": 1512223.01,
+      "spy": 1757017.13
+    },
+    {
+      "date": "2021-01-22",
+      "selected": 1562974.39,
+      "spy": 1793097.98
+    },
+    {
+      "date": "2021-01-29",
+      "selected": 1498788.92,
+      "spy": 1728202.06
+    },
+    {
+      "date": "2021-02-05",
+      "selected": 1618282.88,
+      "spy": 1835483.15
+    },
+    {
+      "date": "2021-02-12",
+      "selected": 1643670.77,
+      "spy": 1850805.28
+    },
+    {
+      "date": "2021-02-19",
+      "selected": 1645335.61,
+      "spy": 1865365.65
+    },
+    {
+      "date": "2021-02-26",
+      "selected": 1564026.61,
+      "spy": 1805058.89
+    },
+    {
+      "date": "2021-03-05",
+      "selected": 1568689.42,
+      "spy": 1846083.42
+    },
+    {
+      "date": "2021-03-12",
+      "selected": 1666910.38,
+      "spy": 1928583.8
+    },
+    {
+      "date": "2021-03-19",
+      "selected": 1645247.94,
+      "spy": 1914103.92
+    },
+    {
+      "date": "2021-03-26",
+      "selected": 1623765.16,
+      "spy": 1936963.1
+    },
+    {
+      "date": "2021-04-02",
+      "selected": 1685310.16,
+      "spy": 1991843.82
+    },
+    {
+      "date": "2021-04-09",
+      "selected": 1708383.94,
+      "spy": 2036442.9
+    },
+    {
+      "date": "2021-04-16",
+      "selected": 1715263.27,
+      "spy": 2048654.27
+    },
+    {
+      "date": "2021-04-23",
+      "selected": 1700032.96,
+      "spy": 2031242.41
+    },
+    {
+      "date": "2021-04-30",
+      "selected": 1702823.72,
+      "spy": 2045577.56
+    },
+    {
+      "date": "2021-05-07",
+      "selected": 1703693.09,
+      "spy": 2080221.7
+    },
+    {
+      "date": "2021-05-14",
+      "selected": 1657781.98,
+      "spy": 2041390.88
+    },
+    {
+      "date": "2021-05-21",
+      "selected": 1657982.19,
+      "spy": 2036216.01
+    },
+    {
+      "date": "2021-05-28",
+      "selected": 1695112.24,
+      "spy": 2059993.54
+    },
+    {
+      "date": "2021-06-04",
+      "selected": 1717136.35,
+      "spy": 2085711.1
+    },
+    {
+      "date": "2021-06-11",
+      "selected": 1747300.52,
+      "spy": 2093691.72
+    },
+    {
+      "date": "2021-06-18",
+      "selected": 1727903.61,
+      "spy": 2058860.38
+    },
+    {
+      "date": "2021-06-25",
+      "selected": 1791042.97,
+      "spy": 2127827.63
+    },
+    {
+      "date": "2021-07-02",
+      "selected": 1804712.24,
+      "spy": 2160964.3
+    },
+    {
+      "date": "2021-07-09",
+      "selected": 1802955.79,
+      "spy": 2171247.72
+    },
+    {
+      "date": "2021-07-16",
+      "selected": 1753294.57,
+      "spy": 2150272.7
+    },
+    {
+      "date": "2021-07-23",
+      "selected": 1787986.46,
+      "spy": 2179758.99
+    },
+    {
+      "date": "2021-07-30",
+      "selected": 1781460.96,
+      "spy": 2170420.56
+    },
+    {
+      "date": "2021-08-06",
+      "selected": 1785923.14,
+      "spy": 2173864.1
+    },
+    {
+      "date": "2021-08-13",
+      "selected": 1807300.31,
+      "spy": 2223015.8
+    },
+    {
+      "date": "2021-08-20",
+      "selected": 1768758.24,
+      "spy": 2189049.89
+    },
+    {
+      "date": "2021-08-27",
+      "selected": 1831277.56,
+      "spy": 2226985.69
+    },
+    {
+      "date": "2021-09-03",
+      "selected": 1857987.82,
+      "spy": 2247640.84
+    },
+    {
+      "date": "2021-09-10",
+      "selected": 1826790.42,
+      "spy": 2214559.14
+    },
+    {
+      "date": "2021-09-17",
+      "selected": 1811631.19,
+      "spy": 2182993.71
+    },
+    {
+      "date": "2021-09-24",
+      "selected": 1802489.72,
+      "spy": 2184001.91
+    },
+    {
+      "date": "2021-10-01",
+      "selected": 1799275.72,
+      "spy": 2182991.49
+    },
+    {
+      "date": "2021-10-08",
+      "selected": 1799390.26,
+      "spy": 2200380.55
+    },
+    {
+      "date": "2021-10-15",
+      "selected": 1858471.87,
+      "spy": 2281471.81
+    },
+    {
+      "date": "2021-10-22",
+      "selected": 1901131.25,
+      "spy": 2339484.06
+    },
+    {
+      "date": "2021-10-29",
+      "selected": 1912966.34,
+      "spy": 2363784.92
+    },
+    {
+      "date": "2021-11-05",
+      "selected": 1977420.15,
+      "spy": 2406776.55
+    },
+    {
+      "date": "2021-11-12",
+      "selected": 1936599.54,
+      "spy": 2378188.7
+    },
+    {
+      "date": "2021-11-19",
+      "selected": 1972415.77,
+      "spy": 2428535.42
+    },
+    {
+      "date": "2021-11-26",
+      "selected": 1904876.73,
+      "spy": 2382059.5
+    },
+    {
+      "date": "2021-12-03",
+      "selected": 1823150.69,
+      "spy": 2315608.25
+    },
+    {
+      "date": "2021-12-10",
+      "selected": 1901618.01,
+      "spy": 2408856.47
+    },
+    {
+      "date": "2021-12-17",
+      "selected": 1852696.55,
+      "spy": 2357751.62
+    },
+    {
+      "date": "2021-12-24",
+      "selected": 1906769.65,
+      "spy": 2418088.81
+    },
+    {
+      "date": "2021-12-31",
+      "selected": 1931503.65,
+      "spy": 2457169.32
+    },
+    {
+      "date": "2022-01-07",
+      "selected": 1894953.31,
+      "spy": 2440714.89
+    },
+    {
+      "date": "2022-01-14",
+      "selected": 1878394.4,
+      "spy": 2415882.12
+    },
+    {
+      "date": "2022-01-21",
+      "selected": 1744611.94,
+      "spy": 2261532.66
+    },
+    {
+      "date": "2022-01-28",
+      "selected": 1743462.09,
+      "spy": 2268505.59
+    },
+    {
+      "date": "2022-02-04",
+      "selected": 1785148.83,
+      "spy": 2320566.93
+    },
+    {
+      "date": "2022-02-11",
+      "selected": 1755201.23,
+      "spy": 2293735.33
+    },
+    {
+      "date": "2022-02-18",
+      "selected": 1730568.09,
+      "spy": 2263327.82
+    },
+    {
+      "date": "2022-02-25",
+      "selected": 1739625.36,
+      "spy": 2271039.57
+    },
+    {
+      "date": "2022-03-04",
+      "selected": 1704937.05,
+      "spy": 2236967.39
+    },
+    {
+      "date": "2022-03-11",
+      "selected": 1700674.71,
+      "spy": 2191169.22
+    },
+    {
+      "date": "2022-03-18",
+      "selected": 1700674.71,
+      "spy": 2370199.93
+    },
+    {
+      "date": "2022-03-25",
+      "selected": 1700674.71,
+      "spy": 2475957.55
+    },
+    {
+      "date": "2022-04-01",
+      "selected": 1700674.71,
+      "spy": 2513657.3
+    },
+    {
+      "date": "2022-04-08",
+      "selected": 1688083.31,
+      "spy": 2494677.88
+    },
+    {
+      "date": "2022-04-15",
+      "selected": 1674698.02,
+      "spy": 2474896.86
+    },
+    {
+      "date": "2022-04-22",
+      "selected": 1680650.56,
+      "spy": 2483693.63
+    },
+    {
+      "date": "2022-04-29",
+      "selected": 1599290.36,
+      "spy": 2363458.16
+    },
+    {
+      "date": "2022-05-06",
+      "selected": 1657161.23,
+      "spy": 2412514.59
+    },
+    {
+      "date": "2022-05-13",
+      "selected": 1657161.23,
+      "spy": 2360348.49
+    },
+    {
+      "date": "2022-05-20",
+      "selected": 1657161.23,
+      "spy": 2273558.66
+    },
+    {
+      "date": "2022-05-27",
+      "selected": 1657161.23,
+      "spy": 2372856.52
+    },
+    {
+      "date": "2022-06-03",
+      "selected": 1657161.23,
+      "spy": 2382285.38
+    },
+    {
+      "date": "2022-06-10",
+      "selected": 1657161.23,
+      "spy": 2334166.79
+    },
+    {
+      "date": "2022-06-17",
+      "selected": 1657161.23,
+      "spy": 2231165.48
+    },
+    {
+      "date": "2022-06-24",
+      "selected": 1657161.23,
+      "spy": 2396012.29
+    },
+    {
+      "date": "2022-07-01",
+      "selected": 1657161.23,
+      "spy": 2337898.88
+    },
+    {
+      "date": "2022-07-08",
+      "selected": 1657161.23,
+      "spy": 2374247.19
+    },
+    {
+      "date": "2022-07-15",
+      "selected": 1657161.23,
+      "spy": 2373541.17
+    },
+    {
+      "date": "2022-07-22",
+      "selected": 1657161.23,
+      "spy": 2461014.02
+    },
+    {
+      "date": "2022-07-29",
+      "selected": 1657161.23,
+      "spy": 2543609.49
+    },
+    {
+      "date": "2022-08-05",
+      "selected": 1657161.23,
+      "spy": 2485820.52
+    },
+    {
+      "date": "2022-08-12",
+      "selected": 1657161.23,
+      "spy": 2602572.34
+    },
+    {
+      "date": "2022-08-19",
+      "selected": 1657161.23,
+      "spy": 2555032.57
+    },
+    {
+      "date": "2022-08-26",
+      "selected": 1657161.23,
+      "spy": 2498037.64
+    },
+    {
+      "date": "2022-09-02",
+      "selected": 1657161.23,
+      "spy": 2452861.75
+    },
+    {
+      "date": "2022-09-09",
+      "selected": 1657161.23,
+      "spy": 2623614.86
+    },
+    {
+      "date": "2022-09-16",
+      "selected": 1657161.23,
+      "spy": 2509629.01
+    },
+    {
+      "date": "2022-09-23",
+      "selected": 1657161.23,
+      "spy": 2381703.19
+    },
+    {
+      "date": "2022-09-30",
+      "selected": 1657161.23,
+      "spy": 2329522.65
+    },
+    {
+      "date": "2022-10-07",
+      "selected": 1657161.23,
+      "spy": 2351328.25
+    },
+    {
+      "date": "2022-10-14",
+      "selected": 1657161.23,
+      "spy": 2351463.44
+    },
+    {
+      "date": "2022-10-21",
+      "selected": 1657161.23,
+      "spy": 2517338.2
+    },
+    {
+      "date": "2022-10-28",
+      "selected": 1657161.23,
+      "spy": 2594855.87
+    },
+    {
+      "date": "2022-11-04",
+      "selected": 1657161.23,
+      "spy": 2509241.37
+    },
+    {
+      "date": "2022-11-11",
+      "selected": 1657161.23,
+      "spy": 2609926.1
+    },
+    {
+      "date": "2022-11-18",
+      "selected": 1657161.23,
+      "spy": 2480686.13
+    },
+    {
+      "date": "2022-11-25",
+      "selected": 1653752.59,
+      "spy": 2559864.5
+    },
+    {
+      "date": "2022-12-02",
+      "selected": 1611368.3,
+      "spy": 2544802.05
+    },
+    {
+      "date": "2022-12-09",
+      "selected": 1616831.72,
+      "spy": 2426605.69
+    },
+    {
+      "date": "2022-12-16",
+      "selected": 1602959.22,
+      "spy": 2342348.81
+    },
+    {
+      "date": "2022-12-23",
+      "selected": 1543961.49,
+      "spy": 2276425.67
+    },
+    {
+      "date": "2022-12-30",
+      "selected": 1541645.54,
+      "spy": 2301049.45
+    },
+    {
+      "date": "2023-01-09",
+      "selected": 1541645.54,
+      "spy": 2330592.08
+    },
+    {
+      "date": "2023-01-16",
+      "selected": 1541645.54,
+      "spy": 2320251.24
+    },
+    {
+      "date": "2023-01-23",
+      "selected": 1541645.54,
+      "spy": 2318170.15
+    },
+    {
+      "date": "2023-01-30",
+      "selected": 1546134.25,
+      "spy": 2343759.88
+    },
+    {
+      "date": "2023-02-06",
+      "selected": 1542733.66,
+      "spy": 2378350.17
+    },
+    {
+      "date": "2023-02-13",
+      "selected": 1541222.29,
+      "spy": 2447361.01
+    },
+    {
+      "date": "2023-02-20",
+      "selected": 1558980.92,
+      "spy": 2461243.96
+    },
+    {
+      "date": "2023-02-27",
+      "selected": 1554642.52,
+      "spy": 2413582.17
+    },
+    {
+      "date": "2023-03-06",
+      "selected": 1593744.05,
+      "spy": 2492350.02
+    },
+    {
+      "date": "2023-03-13",
+      "selected": 1568296.08,
+      "spy": 2369209.11
+    },
+    {
+      "date": "2023-03-20",
+      "selected": 1515090.33,
+      "spy": 2367006.58
+    },
+    {
+      "date": "2023-03-27",
+      "selected": 1536600.41,
+      "spy": 2338805.29
+    },
+    {
+      "date": "2023-04-03",
+      "selected": 1536600.41,
+      "spy": 2467373.01
+    },
+    {
+      "date": "2023-04-10",
+      "selected": 1536600.41,
+      "spy": 2431041.69
+    },
+    {
+      "date": "2023-04-17",
+      "selected": 1536600.41,
+      "spy": 2472002.9
+    },
+    {
+      "date": "2023-04-24",
+      "selected": 1535662.56,
+      "spy": 2492246.3
+    },
+    {
+      "date": "2023-05-01",
+      "selected": 1566132.62,
+      "spy": 2506007.78
+    },
+    {
+      "date": "2023-05-08",
+      "selected": 1559439.5,
+      "spy": 2496315.17
+    },
+    {
+      "date": "2023-05-15",
+      "selected": 1594000.19,
+      "spy": 2503886.97
+    },
+    {
+      "date": "2023-05-22",
+      "selected": 1656607.44,
+      "spy": 2616739.58
+    },
+    {
+      "date": "2023-05-29",
+      "selected": 1655589.84,
+      "spy": 2650873.69
+    },
+    {
+      "date": "2023-06-05",
+      "selected": 1703407.36,
+      "spy": 2671127.54
+    },
+    {
+      "date": "2023-06-12",
+      "selected": 1717529.5,
+      "spy": 2715278.7
+    },
+    {
+      "date": "2023-06-19",
+      "selected": 1760891.89,
+      "spy": 2778537.59
+    },
+    {
+      "date": "2023-06-26",
+      "selected": 1730760.42,
+      "spy": 2781543.51
+    },
+    {
+      "date": "2023-07-03",
+      "selected": 1798241.94,
+      "spy": 2896172.34
+    },
+    {
+      "date": "2023-07-10",
+      "selected": 1739512.27,
+      "spy": 2852791.1
+    },
+    {
+      "date": "2023-07-17",
+      "selected": 1738488.0,
+      "spy": 2805923.28
+    },
+    {
+      "date": "2023-07-24",
+      "selected": 1742315.88,
+      "spy": 2863461.8
+    },
+    {
+      "date": "2023-07-31",
+      "selected": 1767391.96,
+      "spy": 2865459.59
+    },
+    {
+      "date": "2023-08-07",
+      "selected": 1743940.75,
+      "spy": 2897003.07
+    },
+    {
+      "date": "2023-08-14",
+      "selected": 1740359.11,
+      "spy": 2925859.3
+    },
+    {
+      "date": "2023-08-21",
+      "selected": 1710222.99,
+      "spy": 2885628.03
+    },
+    {
+      "date": "2023-08-28",
+      "selected": 1743029.28,
+      "spy": 2915135.96
+    },
+    {
+      "date": "2023-09-04",
+      "selected": 1793341.73,
+      "spy": 2958558.75
+    },
+    {
+      "date": "2023-09-11",
+      "selected": 1796605.46,
+      "spy": 2978149.33
+    },
+    {
+      "date": "2023-09-18",
+      "selected": 1813068.15,
+      "spy": 2949159.27
+    },
+    {
+      "date": "2023-09-25",
+      "selected": 1771751.75,
+      "spy": 2876530.78
+    },
+    {
+      "date": "2023-10-02",
+      "selected": 1763308.94,
+      "spy": 2876396.86
+    },
+    {
+      "date": "2023-10-09",
+      "selected": 1749723.7,
+      "spy": 2892888.77
+    },
+    {
+      "date": "2023-10-16",
+      "selected": 1766339.4,
+      "spy": 2944065.4
+    },
+    {
+      "date": "2023-10-23",
+      "selected": 1722465.76,
+      "spy": 2839099.46
+    },
+    {
+      "date": "2023-10-30",
+      "selected": 1712351.81,
+      "spy": 2816780.7
+    },
+    {
+      "date": "2023-11-06",
+      "selected": 1806536.62,
+      "spy": 2955586.9
+    },
+    {
+      "date": "2023-11-13",
+      "selected": 1819230.15,
+      "spy": 3003018.73
+    },
+    {
+      "date": "2023-11-20",
+      "selected": 1860650.78,
+      "spy": 3085819.26
+    },
+    {
+      "date": "2023-11-28",
+      "selected": 1855438.94,
+      "spy": 3068428.83
+    },
+    {
+      "date": "2023-12-05",
+      "selected": 1825114.97,
+      "spy": 3046021.65
+    },
+    {
+      "date": "2023-12-12",
+      "selected": 1832705.51,
+      "spy": 3018213.8
+    },
+    {
+      "date": "2023-12-19",
+      "selected": 1840499.89,
+      "spy": 3045274.4
+    },
+    {
+      "date": "2023-12-26",
+      "selected": 1844315.16,
+      "spy": 3045988.16
+    },
+    {
+      "date": "2024-01-03",
+      "selected": 1815712.38,
+      "spy": 2978433.37
+    },
+    {
+      "date": "2024-01-10",
+      "selected": 1890485.77,
+      "spy": 3108654.51
+    },
+    {
+      "date": "2024-01-17",
+      "selected": 1911863.82,
+      "spy": 3090018.83
+    },
+    {
+      "date": "2024-01-24",
+      "selected": 1993619.51,
+      "spy": 3240751.96
+    },
+    {
+      "date": "2024-01-31",
+      "selected": 1975254.95,
+      "spy": 3224407.14
+    },
+    {
+      "date": "2024-02-07",
+      "selected": 2006589.58,
+      "spy": 3334143.28
+    },
+    {
+      "date": "2024-02-14",
+      "selected": 2058731.4,
+      "spy": 3352256.48
+    },
+    {
+      "date": "2024-02-21",
+      "selected": 2065229.46,
+      "spy": 3363820.56
+    },
+    {
+      "date": "2024-02-28",
+      "selected": 2116490.24,
+      "spy": 3434335.09
+    },
+    {
+      "date": "2024-03-06",
+      "selected": 2147873.75,
+      "spy": 3448980.14
+    },
+    {
+      "date": "2024-03-13",
+      "selected": 2088309.8,
+      "spy": 3413594.07
+    },
+    {
+      "date": "2024-03-20",
+      "selected": 2147668.23,
+      "spy": 3494599.69
+    },
+    {
+      "date": "2024-03-27",
+      "selected": 2188482.65,
+      "spy": 3568078.41
+    },
+    {
+      "date": "2024-04-03",
+      "selected": 2153109.15,
+      "spy": 3544612.14
+    },
+    {
+      "date": "2024-04-10",
+      "selected": 2149504.34,
+      "spy": 3515278.73
+    },
+    {
+      "date": "2024-04-17",
+      "selected": 2084027.59,
+      "spy": 3458436.24
+    },
+    {
+      "date": "2024-04-24",
+      "selected": 2107085.54,
+      "spy": 3522929.77
+    },
+    {
+      "date": "2024-05-01",
+      "selected": 2112502.62,
+      "spy": 3568490.78
+    },
+    {
+      "date": "2024-05-08",
+      "selected": 2126147.62,
+      "spy": 3580003.82
+    },
+    {
+      "date": "2024-05-15",
+      "selected": 2167649.77,
+      "spy": 3720930.02
+    },
+    {
+      "date": "2024-05-22",
+      "selected": 2175738.57,
+      "spy": 3719752.76
+    },
+    {
+      "date": "2024-05-29",
+      "selected": 2185081.09,
+      "spy": 3720030.3
+    },
+    {
+      "date": "2024-06-05",
+      "selected": 2207549.08,
+      "spy": 3788099.52
+    },
+    {
+      "date": "2024-06-12",
+      "selected": 2259585.75,
+      "spy": 3827030.24
+    },
+    {
+      "date": "2024-06-19",
+      "selected": 2310096.65,
+      "spy": 3895062.36
+    },
+    {
+      "date": "2024-06-26",
+      "selected": 2326502.7,
+      "spy": 3930823.48
+    },
+    {
+      "date": "2024-07-03",
+      "selected": 2379180.65,
+      "spy": 3999698.71
+    },
+    {
+      "date": "2024-07-10",
+      "selected": 2418263.31,
+      "spy": 4064406.38
+    },
+    {
+      "date": "2024-07-17",
+      "selected": 2341451.91,
+      "spy": 3974324.41
+    },
+    {
+      "date": "2024-07-24",
+      "selected": 2242054.7,
+      "spy": 3840480.6
+    },
+    {
+      "date": "2024-07-31",
+      "selected": 2240764.35,
+      "spy": 3826949.1
+    },
+    {
+      "date": "2024-08-07",
+      "selected": 1976439.87,
+      "spy": 3403570.04
+    },
+    {
+      "date": "2024-08-14",
+      "selected": 2101886.79,
+      "spy": 3603952.07
+    },
+    {
+      "date": "2024-08-21",
+      "selected": 2191458.76,
+      "spy": 3738862.2
+    },
+    {
+      "date": "2024-08-28",
+      "selected": 2106117.61,
+      "spy": 3623835.07
+    },
+    {
+      "date": "2024-09-04",
+      "selected": 2103731.38,
+      "spy": 3635257.76
+    },
+    {
+      "date": "2024-09-11",
+      "selected": 2070550.3,
+      "spy": 3560814.58
+    },
+    {
+      "date": "2024-09-18",
+      "selected": 2065761.83,
+      "spy": 3562726.86
+    },
+    {
+      "date": "2024-09-25",
+      "selected": 2159398.64,
+      "spy": 3700140.17
+    },
+    {
+      "date": "2024-10-02",
+      "selected": 2131091.99,
+      "spy": 3661172.7
+    },
+    {
+      "date": "2024-10-09",
+      "selected": 2261965.42,
+      "spy": 3871513.88
+    },
+    {
+      "date": "2024-10-16",
+      "selected": 2276611.15,
+      "spy": 3919618.43
+    },
+    {
+      "date": "2024-10-23",
+      "selected": 2265983.02,
+      "spy": 3897536.95
+    },
+    {
+      "date": "2024-10-30",
+      "selected": 2337941.9,
+      "spy": 3998793.25
+    },
+    {
+      "date": "2024-11-06",
+      "selected": 2404789.13,
+      "spy": 4057121.46
+    },
+    {
+      "date": "2024-11-13",
+      "selected": 2418249.11,
+      "spy": 4115946.38
+    },
+    {
+      "date": "2024-11-20",
+      "selected": 2411369.19,
+      "spy": 4116683.29
+    },
+    {
+      "date": "2024-11-27",
+      "selected": 2469071.58,
+      "spy": 4160773.96
+    },
+    {
+      "date": "2024-12-04",
+      "selected": 2423780.54,
+      "spy": 4105771.42
+    },
+    {
+      "date": "2024-12-11",
+      "selected": 2439209.81,
+      "spy": 4108034.86
+    },
+    {
+      "date": "2024-12-18",
+      "selected": 2418479.35,
+      "spy": 4055260.95
+    },
+    {
+      "date": "2024-12-25",
+      "selected": 2530780.69,
+      "spy": 4242632.65
+    },
+    {
+      "date": "2025-01-02",
+      "selected": 2457030.52,
+      "spy": 4137258.5
+    },
+    {
+      "date": "2025-01-09",
+      "selected": 2490951.67,
+      "spy": 4191455.25
+    },
+    {
+      "date": "2025-01-16",
+      "selected": 2485245.11,
+      "spy": 4196635.34
+    },
+    {
+      "date": "2025-01-23",
+      "selected": 2535103.22,
+      "spy": 4266963.36
+    },
+    {
+      "date": "2025-01-30",
+      "selected": 2498375.13,
+      "spy": 4224730.65
+    },
+    {
+      "date": "2025-02-06",
+      "selected": 2520937.64,
+      "spy": 4243725.89
+    },
+    {
+      "date": "2025-02-13",
+      "selected": 2484451.3,
+      "spy": 4170905.27
+    },
+    {
+      "date": "2025-02-20",
+      "selected": 2483481.02,
+      "spy": 4166685.14
+    },
+    {
+      "date": "2025-02-27",
+      "selected": 2326058.26,
+      "spy": 3952106.17
+    },
+    {
+      "date": "2025-03-06",
+      "selected": 2265418.32,
+      "spy": 3854316.96
+    },
+    {
+      "date": "2025-03-13",
+      "selected": 2145178.13,
+      "spy": 3655459.31
+    },
+    {
+      "date": "2025-03-20",
+      "selected": 2232414.6,
+      "spy": 3807612.78
+    },
+    {
+      "date": "2025-03-27",
+      "selected": 2261635.25,
+      "spy": 3853977.01
+    },
+    {
+      "date": "2025-04-03",
+      "selected": 2225262.64,
+      "spy": 3626679.66
+    },
+    {
+      "date": "2025-04-10",
+      "selected": 2225262.64,
+      "spy": 3494557.34
+    },
+    {
+      "date": "2025-04-17",
+      "selected": 2225262.64,
+      "spy": 3398357.8
+    },
+    {
+      "date": "2025-04-24",
+      "selected": 2225262.64,
+      "spy": 3471494.48
+    },
+    {
+      "date": "2025-05-01",
+      "selected": 2225262.64,
+      "spy": 3579072.7
+    },
+    {
+      "date": "2025-05-08",
+      "selected": 2225262.64,
+      "spy": 3658900.68
+    },
+    {
+      "date": "2025-05-15",
+      "selected": 2225262.64,
+      "spy": 3947291.86
+    },
+    {
+      "date": "2025-05-22",
+      "selected": 2225262.64,
+      "spy": 3810369.23
+    },
+    {
+      "date": "2025-05-29",
+      "selected": 2225262.64,
+      "spy": 3794146.65
+    },
+    {
+      "date": "2025-06-05",
+      "selected": 2232236.57,
+      "spy": 3808010.63
+    },
+    {
+      "date": "2025-06-12",
+      "selected": 2304608.23,
+      "spy": 3933539.24
+    },
+    {
+      "date": "2025-06-19",
+      "selected": 2285345.3,
+      "spy": 3897518.49
+    },
+    {
+      "date": "2025-06-26",
+      "selected": 2369043.16,
+      "spy": 4024723.8
+    },
+    {
+      "date": "2025-07-03",
+      "selected": 2381759.34,
+      "spy": 4053343.75
+    },
+    {
+      "date": "2025-07-10",
+      "selected": 2415801.06,
+      "spy": 4115468.0
+    },
+    {
+      "date": "2025-07-17",
+      "selected": 2465073.05,
+      "spy": 4183854.29
+    },
+    {
+      "date": "2025-07-24",
+      "selected": 2478470.06,
+      "spy": 4215403.55
+    },
+    {
+      "date": "2025-07-31",
+      "selected": 2491566.07,
+      "spy": 4230341.41
+    },
+    {
+      "date": "2025-08-07",
+      "selected": 2472505.43,
+      "spy": 4183429.89
+    },
+    {
+      "date": "2025-08-14",
+      "selected": 2543393.87,
+      "spy": 4306185.47
+    },
+    {
+      "date": "2025-08-21",
+      "selected": 2485514.25,
+      "spy": 4237436.3
+    },
+    {
+      "date": "2025-08-28",
+      "selected": 2540223.43,
+      "spy": 4323829.43
+    },
+    {
+      "date": "2025-09-04",
+      "selected": 2524932.3,
+      "spy": 4303568.61
+    },
+    {
+      "date": "2025-09-11",
+      "selected": 2574829.95,
+      "spy": 4368288.66
+    },
+    {
+      "date": "2025-09-18",
+      "selected": 2604856.64,
+      "spy": 4400267.26
+    },
+    {
+      "date": "2025-09-25",
+      "selected": 2608754.59,
+      "spy": 4381786.52
+    },
+    {
+      "date": "2025-10-02",
+      "selected": 2631064.33,
+      "spy": 4482408.21
+    },
+    {
+      "date": "2025-10-09",
+      "selected": 2755321.2,
+      "spy": 4547920.76
+    },
+    {
+      "date": "2025-10-16",
+      "selected": 2742105.78,
+      "spy": 4539259.91
+    },
+    {
+      "date": "2025-10-23",
+      "selected": 2760639.09,
+      "spy": 4565400.92
+    },
+    {
+      "date": "2025-10-30",
+      "selected": 2886173.08,
+      "spy": 4679020.38
+    },
+    {
+      "date": "2025-11-06",
+      "selected": 2856210.27,
+      "spy": 4659181.56
+    },
+    {
+      "date": "2025-11-13",
+      "selected": 2856857.56,
+      "spy": 4669449.37
+    },
+    {
+      "date": "2025-11-20",
+      "selected": 2776071.72,
+      "spy": 4567039.27
+    },
+    {
+      "date": "2025-11-27",
+      "selected": 2816759.88,
+      "spy": 4808101.94
+    },
+    {
+      "date": "2025-12-04",
+      "selected": 2851310.92,
+      "spy": 4798787.9
+    },
+    {
+      "date": "2025-12-11",
+      "selected": 2814390.45,
+      "spy": 4841219.08
+    },
+    {
+      "date": "2025-12-18",
+      "selected": 2789330.67,
+      "spy": 4726727.42
+    },
+    {
+      "date": "2025-12-25",
+      "selected": 2846140.71,
+      "spy": 4881865.28
+    },
+    {
+      "date": "2026-01-02",
+      "selected": 2844502.75,
+      "spy": 4816592.66
+    },
+    {
+      "date": "2026-01-09",
+      "selected": 2934912.84,
+      "spy": 4901794.87
+    },
+    {
+      "date": "2026-01-16",
+      "selected": 3025294.9,
+      "spy": 4962685.24
+    },
+    {
+      "date": "2026-01-23",
+      "selected": 3010650.68,
+      "spy": 4913654.64
+    },
+    {
+      "date": "2026-01-30",
+      "selected": 2971392.63,
+      "spy": 4755120.69
+    },
+    {
+      "date": "2026-02-06",
+      "selected": 3051626.41,
+      "spy": 4850004.21
+    },
+    {
+      "date": "2026-02-13",
+      "selected": 3175911.09,
+      "spy": 4747241.52
+    },
+    {
+      "date": "2026-02-20",
+      "selected": 3166700.58,
+      "spy": 4759295.35
+    },
+    {
+      "date": "2026-02-27",
+      "selected": 3276420.68,
+      "spy": 4819994.05
+    },
+    {
+      "date": "2026-03-06",
+      "selected": 3095429.03,
+      "spy": 4781737.96
+    },
+    {
+      "date": "2026-03-13",
+      "selected": 3009534.39,
+      "spy": 4720161.06
+    },
+    {
+      "date": "2026-03-20",
+      "selected": 2988731.39,
+      "spy": 4645035.38
+    },
+    {
+      "date": "2026-03-27",
+      "selected": 3005873.08,
+      "spy": 4536442.64
+    },
+    {
+      "date": "2026-04-03",
+      "selected": 3024245.14,
+      "spy": 4687866.8
+    },
+    {
+      "date": "2026-04-10",
+      "selected": 3162256.28,
+      "spy": 4860970.0
+    },
+    {
+      "date": "2026-04-17",
+      "selected": 3220399.95,
+      "spy": 5082892.64
+    },
+    {
+      "date": "2026-04-24",
+      "selected": 3223311.18,
+      "spy": 5128788.38
+    },
+    {
+      "date": "2026-05-01",
+      "selected": 3224340.35,
+      "spy": 5182806.28
+    },
+    {
+      "date": "2026-05-08",
+      "selected": 3348592.3,
+      "spy": 5242510.97
+    },
+    {
+      "date": "2026-05-15",
+      "selected": 3339339.21,
+      "spy": 5253327.44
+    },
+    {
+      "date": "2026-05-22",
+      "selected": 3394768.36,
+      "spy": 5345154.25
+    },
+    {
+      "date": "2026-05-29",
+      "selected": 3493440.28,
+      "spy": 5429953.28
+    },
+    {
+      "date": "2026-06-05",
+      "selected": 3504976.93,
+      "spy": 5318178.31
+    },
+    {
+      "date": "2026-06-12",
+      "selected": 3460409.11,
+      "spy": 5362371.72
+    },
+    {
+      "date": "2026-06-19",
+      "selected": 3662646.34,
+      "spy": 5399624.32
+    },
+    {
+      "date": "2026-06-26",
+      "selected": 3579984.83,
+      "spy": 5310049.19
+    },
+    {
+      "date": "2026-07-03",
+      "selected": 3640332.99,
+      "spy": 5459610.66
+    },
+    {
+      "date": "2026-07-10",
+      "selected": 3607327.75,
+      "spy": 5525143.91
+    },
+    {
+      "date": "2026-07-17",
+      "selected": 3413867.47,
+      "spy": 5433912.25
+    },
+    {
+      "date": "2026-07-24",
+      "selected": 3473673.03,
+      "spy": 5435312.48
+    },
+    {
+      "date": "2026-07-31",
+      "selected": 3463173.06,
+      "spy": 5517723.34
+    },
+    {
+      "date": "2026-08-07",
+      "selected": 3533402.8,
+      "spy": 5496339.22
+    },
+    {
+      "date": "2026-08-14",
+      "selected": 3655978.72,
+      "spy": 5573277.09
+    },
+    {
+      "date": "2026-08-21",
+      "selected": 3536021.38,
+      "spy": 5506873.54
+    },
+    {
+      "date": "2026-08-28",
+      "selected": 3581259.2,
+      "spy": 5521639.89
+    },
+    {
+      "date": "2026-09-04",
+      "selected": 3535551.23,
+      "spy": 5561447.67
+    },
+    {
+      "date": "2026-09-11",
+      "selected": 3475203.62,
+      "spy": 5287405.27
+    },
+    {
+      "date": "2026-09-18",
+      "selected": 3532297.59,
+      "spy": 5330806.9
+    },
+    {
+      "date": "2026-09-25",
+      "selected": 3578309.8,
+      "spy": 5474835.5
+    },
+    {
+      "date": "2026-10-02",
+      "selected": 3621319.9,
+      "spy": 5460617.24
+    },
+    {
+      "date": "2026-10-09",
+      "selected": 3651553.55,
+      "spy": 5555279.8
+    },
+    {
+      "date": "2026-10-16",
+      "selected": 3549246.88,
+      "spy": 5446862.48
+    },
+    {
+      "date": "2026-10-23",
+      "selected": 3438947.15,
+      "spy": 5408051.0
+    }
+  ],
+  "latest_decision_at": "2026-10-23T23:59:59Z",
+  "latest_targets": [
+    {
+      "id": "1346.T",
+      "weight": 0.3843030032093388
+    },
+    {
+      "id": "1348.T",
+      "weight": 0.6156969967906611
+    },
+    {
+      "id": "IWM",
+      "weight": 0.0
+    },
+    {
+      "id": "QQQ",
+      "weight": 0.0
+    },
+    {
+      "id": "SPY",
+      "weight": 0.0
+    }
+  ],
+  "diagnostics": {
+    "cost2x": {
+      "train": {
+        "selected": {
+          "start": "2016-10-24",
+          "end": "2020-12-31",
+          "valuation_start": "2016-10-21",
+          "initial": 1000000,
+          "final": 1662322.2714256716,
+          "profit": 662322.2714256715,
+          "return_": 0.6623222714256716,
+          "cagr": 0.12881185955223584,
+          "max_drawdown": -0.3049700508028419,
+          "volatility": 0.18049696823642436,
+          "sharpe": 0.7413549002944761,
+          "sortino": 1.0035288524718748,
+          "average_exposure": 0.9037580201649863,
+          "turnover": 22.82355022945987,
+          "fees_jpy": 124865.00113672206,
+          "observations": 1091
+        },
+        "spy": {
+          "start": "2016-10-24",
+          "end": "2020-12-31",
+          "valuation_start": "2016-10-21",
+          "initial": 1000000,
+          "final": 1726906.0410364054,
+          "profit": 726906.0410364055,
+          "return_": 0.7269060410364054,
+          "cagr": 0.13911650235311224,
+          "max_drawdown": -0.33862586722811705,
+          "volatility": 0.21136593484295918,
+          "sharpe": 0.7035907095774433,
+          "sortino": 0.9626881347828764,
+          "average_exposure": 1.0,
+          "turnover": 2.0,
+          "fees_jpy": 13677.91980420304,
+          "observations": 1091
+        }
+      },
+      "validation": {
+        "selected": {
+          "start": "2021-01-04",
+          "end": "2024-10-23",
+          "valuation_start": "2020-12-31",
+          "initial": 1000000,
+          "final": 1853138.8646067095,
+          "profit": 853138.8646067096,
+          "return_": 0.8531388646067095,
+          "cagr": 0.17570122645163933,
+          "max_drawdown": -0.18678416456629143,
+          "volatility": 0.1531817710016162,
+          "sharpe": 1.1020238172150105,
+          "sortino": 1.5872662351522668,
+          "average_exposure": 0.8090909090909091,
+          "turnover": 15.20954008603546,
+          "fees_jpy": 88564.19373312147,
+          "observations": 990
+        },
+        "spy": {
+          "start": "2021-01-04",
+          "end": "2024-10-23",
+          "valuation_start": "2020-12-31",
+          "initial": 1000000,
+          "final": 2208173.2867900985,
+          "profit": 1208173.2867900988,
+          "return_": 1.2081732867900987,
+          "cagr": 0.23103848397065363,
+          "max_drawdown": -0.16420781299732945,
+          "volatility": 0.18918316835297702,
+          "sharpe": 1.1608703486460805,
+          "sortino": 1.691074403401457,
+          "average_exposure": 1.0,
+          "turnover": 2.0,
+          "fees_jpy": 16096.348174824616,
+          "observations": 990
+        }
+      },
+      "audit": {
+        "selected": {
+          "start": "2024-10-24",
+          "end": "2026-10-23",
+          "valuation_start": "2024-10-23",
+          "initial": 1000000,
+          "final": 1286175.8041009926,
+          "profit": 286175.8041009925,
+          "return_": 0.2861758041009925,
+          "cagr": 0.13419466269893765,
+          "max_drawdown": -0.26223030820177906,
+          "volatility": 0.20375065950484914,
+          "sharpe": 0.7006309458779757,
+          "sortino": 0.9890883717590585,
+          "average_exposure": 0.9596153846153846,
+          "turnover": 12.398589038775103,
+          "fees_jpy": 53652.801146161386,
+          "observations": 520
+        },
+        "spy": {
+          "start": "2024-10-24",
+          "end": "2026-10-23",
+          "valuation_start": "2024-10-23",
+          "initial": 1000000,
+          "final": 1377158.0783643888,
+          "profit": 377158.07836438884,
+          "return_": 0.37715807836438886,
+          "cagr": 0.17365240811740335,
+          "max_drawdown": -0.2340990770689323,
+          "volatility": 0.1824550922102101,
+          "sharpe": 0.9407425099148314,
+          "sortino": 1.4266556821087968,
+          "average_exposure": 1.0,
+          "turnover": 2.0,
+          "fees_jpy": 11920.392353589894,
+          "observations": 520
+        }
+      }
+    },
+    "neighbors": [
+      {
+        "dimension": "trend",
+        "config": {
+          "trend": 200,
+          "momentum": 252,
+          "rebalance": 21,
+          "topk": 2,
+          "gross": 1.0,
+          "weighting": "inverse_vol",
+          "voltarget": 0,
+          "defensive_cash": false,
+          "entry_buffer": 0
+        },
+        "train": {
+          "start": "2016-10-24",
+          "end": "2020-12-31",
+          "valuation_start": "2016-10-21",
+          "initial": 1000000,
+          "final": 1768117.98505173,
+          "profit": 768117.98505173,
+          "return_": 0.7681179850517299,
+          "cagr": 0.14553959544754758,
+          "max_drawdown": -0.3049700508028419,
+          "volatility": 0.18138410943635952,
+          "sharpe": 0.8171995874743497,
+          "sortino": 1.1121591789505705,
+          "average_exposure": 0.9037580201649863,
+          "turnover": 22.787483089678467,
+          "fees_jpy": 65741.88531964741,
+          "observations": 1091,
+          "excess_cagr": 0.005059259588986675
+        },
+        "validation": {
+          "start": "2021-01-04",
+          "end": "2024-10-23",
+          "valuation_start": "2020-12-31",
+          "initial": 1000000,
+          "final": 1813348.824741266,
+          "profit": 813348.8247412659,
+          "return_": 0.8133488247412659,
+          "cagr": 0.16902420145436237,
+          "max_drawdown": -0.18674783557487695,
+          "volatility": 0.15318076489580135,
+          "sharpe": 1.0659445736420723,
+          "sortino": 1.5300981760747854,
+          "average_exposure": 0.8090909090909091,
+          "turnover": 17.209540086035464,
+          "fees_jpy": 47065.61150226868,
+          "observations": 990,
+          "excess_cagr": -0.06363650534831633
+        },
+        "score": -0.11032346424203557
+      },
+      {
+        "dimension": "momentum",
+        "config": {
+          "trend": 252,
+          "momentum": 189,
+          "rebalance": 21,
+          "topk": 2,
+          "gross": 1.0,
+          "weighting": "inverse_vol",
+          "voltarget": 0,
+          "defensive_cash": false,
+          "entry_buffer": 0
+        },
+        "train": {
+          "start": "2016-10-24",
+          "end": "2020-12-31",
+          "valuation_start": "2016-10-21",
+          "initial": 1000000,
+          "final": 1589404.047370545,
+          "profit": 589404.0473705451,
+          "return_": 0.5894040473705451,
+          "cagr": 0.11680421737981939,
+          "max_drawdown": -0.304970050802842,
+          "volatility": 0.1857261481584579,
+          "sharpe": 0.6698585241022,
+          "sortino": 0.9040170285040579,
+          "average_exposure": 0.8845096241979835,
+          "turnover": 32.68967094966925,
+          "fees_jpy": 90035.7274190615,
+          "observations": 1091,
+          "excess_cagr": -0.023676118478741515
+        },
+        "validation": {
+          "start": "2021-01-04",
+          "end": "2024-10-23",
+          "valuation_start": "2020-12-31",
+          "initial": 1000000,
+          "final": 1552457.8162124522,
+          "profit": 552457.8162124522,
+          "return_": 0.5524578162124523,
+          "cagr": 0.12233398964759745,
+          "max_drawdown": -0.20379620314708613,
+          "volatility": 0.1574690247137349,
+          "sharpe": 0.7899049546615649,
+          "sortino": 1.1299909875476863,
+          "average_exposure": 0.8515151515151516,
+          "turnover": 28.023485095411207,
+          "fees_jpy": 73561.19352034605,
+          "observations": 990,
+          "excess_cagr": -0.11032671715508124
+        },
+        "score": -0.17311382718122353
+      },
+      {
+        "dimension": "rebalance",
+        "config": {
+          "trend": 252,
+          "momentum": 252,
+          "rebalance": 5,
+          "topk": 2,
+          "gross": 1.0,
+          "weighting": "inverse_vol",
+          "voltarget": 0,
+          "defensive_cash": false,
+          "entry_buffer": 0
+        },
+        "train": {
+          "start": "2016-10-24",
+          "end": "2020-12-31",
+          "valuation_start": "2016-10-21",
+          "initial": 1000000,
+          "final": 1291142.4228684518,
+          "profit": 291142.4228684518,
+          "return_": 0.2911424228684518,
+          "cagr": 0.06281523999714134,
+          "max_drawdown": -0.34033659690882545,
+          "volatility": 0.1944845240316261,
+          "sharpe": 0.4019399334062875,
+          "sortino": 0.5267516088821032,
+          "average_exposure": 0.9129239230064161,
+          "turnover": 55.38653978417646,
+          "fees_jpy": 143806.20984636756,
+          "observations": 1091,
+          "excess_cagr": -0.07766509586141956
+        },
+        "validation": {
+          "start": "2021-01-04",
+          "end": "2024-10-23",
+          "valuation_start": "2020-12-31",
+          "initial": 1000000,
+          "final": 1517761.8996742163,
+          "profit": 517761.8996742164,
+          "return_": 0.5177618996742164,
+          "cagr": 0.1156974255755443,
+          "max_drawdown": -0.23261208847471504,
+          "volatility": 0.14442121989153164,
+          "sharpe": 0.8078370431272819,
+          "sortino": 1.1382334259846403,
+          "average_exposure": 0.7828282828282829,
+          "turnover": 41.24643234954843,
+          "fees_jpy": 102685.92282904345,
+          "observations": 990,
+          "excess_cagr": -0.1169632812271344
+        },
+        "score": -0.21394885127652294
+      },
+      {
+        "dimension": "rebalance",
+        "config": {
+          "trend": 252,
+          "momentum": 252,
+          "rebalance": 63,
+          "topk": 2,
+          "gross": 1.0,
+          "weighting": "inverse_vol",
+          "voltarget": 0,
+          "defensive_cash": false,
+          "entry_buffer": 0
+        },
+        "train": {
+          "start": "2016-10-24",
+          "end": "2020-12-31",
+          "valuation_start": "2016-10-21",
+          "initial": 1000000,
+          "final": 1340633.79245845,
+          "profit": 340633.79245844996,
+          "return_": 0.34063379245844994,
+          "cagr": 0.07238937983113058,
+          "max_drawdown": -0.310420576288192,
+          "volatility": 0.17813191181888025,
+          "sharpe": 0.4698359087198347,
+          "sortino": 0.6282385340422391,
+          "average_exposure": 0.8845096241979835,
+          "turnover": 12.244930689017231,
+          "fees_jpy": 33856.044842743846,
+          "observations": 1091,
+          "excess_cagr": -0.06809095602743032
+        },
+        "validation": {
+          "start": "2021-01-04",
+          "end": "2024-10-23",
+          "valuation_start": "2020-12-31",
+          "initial": 1000000,
+          "final": 1814192.7772927051,
+          "profit": 814192.7772927051,
+          "return_": 0.8141927772927051,
+          "cagr": 0.1691669384777541,
+          "max_drawdown": -0.23325803100274078,
+          "volatility": 0.17744961793416567,
+          "sharpe": 0.944211742031724,
+          "sortino": 1.2982703862113811,
+          "average_exposure": 0.8727272727272727,
+          "turnover": 12.638285952552733,
+          "fees_jpy": 36136.65956925833,
+          "observations": 990,
+          "excess_cagr": -0.0634937683249246
+        },
+        "score": -0.15585375408932495
+      },
+      {
+        "dimension": "topk",
+        "config": {
+          "trend": 252,
+          "momentum": 252,
+          "rebalance": 21,
+          "topk": 1,
+          "gross": 1.0,
+          "weighting": "inverse_vol",
+          "voltarget": 0,
+          "defensive_cash": false,
+          "entry_buffer": 0
+        },
+        "train": {
+          "start": "2016-10-24",
+          "end": "2020-12-31",
+          "valuation_start": "2016-10-21",
+          "initial": 1000000,
+          "final": 2290243.046340628,
+          "profit": 1290243.046340628,
+          "return_": 1.290243046340628,
+          "cagr": 0.21843045882852752,
+          "max_drawdown": -0.2972699588381472,
+          "volatility": 0.20804936782348155,
+          "sharpe": 1.0248236332535026,
+          "sortino": 1.423411776582942,
+          "average_exposure": 0.9037580201649863,
+          "turnover": 12.0,
+          "fees_jpy": 39655.17240281943,
+          "observations": 1091,
+          "excess_cagr": 0.07795012296996662
+        },
+        "validation": {
+          "start": "2021-01-04",
+          "end": "2024-10-23",
+          "valuation_start": "2020-12-31",
+          "initial": 1000000,
+          "final": 1694645.6946137631,
+          "profit": 694645.6946137631,
+          "return_": 0.6946456946137631,
+          "cagr": 0.14844057865894267,
+          "max_drawdown": -0.21658573505336665,
+          "volatility": 0.17758984200258496,
+          "sharpe": 0.8450359770631697,
+          "sortino": 1.2177133955227009,
+          "average_exposure": 0.8090909090909091,
+          "turnover": 22.0,
+          "fees_jpy": 60139.29381255032,
+          "observations": 990,
+          "excess_cagr": -0.08422012814373603
+        },
+        "score": -0.1383665619070777
+      },
+      {
+        "dimension": "topk",
+        "config": {
+          "trend": 252,
+          "momentum": 252,
+          "rebalance": 21,
+          "topk": 3,
+          "gross": 1.0,
+          "weighting": "inverse_vol",
+          "voltarget": 0,
+          "defensive_cash": false,
+          "entry_buffer": 0
+        },
+        "train": {
+          "start": "2016-10-24",
+          "end": "2020-12-31",
+          "valuation_start": "2016-10-21",
+          "initial": 1000000,
+          "final": 1660313.466877758,
+          "profit": 660313.4668777579,
+          "return_": 0.6603134668777579,
+          "cagr": 0.128486491112749,
+          "max_drawdown": -0.268251650824903,
+          "volatility": 0.15504915028898955,
+          "sharpe": 0.8335147409211293,
+          "sortino": 1.1277887128674327,
+          "average_exposure": 0.9037580201649863,
+          "turnover": 23.99461592313696,
+          "fees_jpy": 69052.34209560935,
+          "observations": 1091,
+          "excess_cagr": -0.011993844745811888
+        },
+        "validation": {
+          "start": "2021-01-04",
+          "end": "2024-10-23",
+          "valuation_start": "2020-12-31",
+          "initial": 1000000,
+          "final": 1861686.4316898447,
+          "profit": 861686.4316898447,
+          "return_": 0.8616864316898447,
+          "cagr": 0.17712173900903871,
+          "max_drawdown": -0.20085258585557897,
+          "volatility": 0.14288533253170788,
+          "sharpe": 1.1793604694335433,
+          "sortino": 1.662945672959753,
+          "average_exposure": 0.8090909090909091,
+          "turnover": 13.968155691476008,
+          "fees_jpy": 38959.598260615836,
+          "observations": 990,
+          "excess_cagr": -0.05553896779363998
+        },
+        "score": -0.11174903663044067
+      },
+      {
+        "dimension": "gross",
+        "config": {
+          "trend": 252,
+          "momentum": 252,
+          "rebalance": 21,
+          "topk": 2,
+          "gross": 0.75,
+          "weighting": "inverse_vol",
+          "voltarget": 0,
+          "defensive_cash": false,
+          "entry_buffer": 0
+        },
+        "train": {
+          "start": "2016-10-24",
+          "end": "2020-12-31",
+          "valuation_start": "2016-10-21",
+          "initial": 1000000,
+          "final": 1545225.8956339092,
+          "profit": 545225.8956339092,
+          "return_": 0.5452258956339091,
+          "cagr": 0.10932372873528928,
+          "max_drawdown": -0.2291876873754899,
+          "volatility": 0.13287656827770747,
+          "sharpe": 0.8233475914131466,
+          "sortino": 1.1159235942507997,
+          "average_exposure": 0.6786400740141914,
+          "turnover": 17.1079421748355,
+          "fees_jpy": 44967.146153461494,
+          "observations": 1091,
+          "excess_cagr": -0.031156607123271618
+        },
+        "validation": {
+          "start": "2021-01-04",
+          "end": "2024-10-23",
+          "valuation_start": "2020-12-31",
+          "initial": 1000000,
+          "final": 1636085.406459344,
+          "profit": 636085.4064593442,
+          "return_": 0.6360854064593442,
+          "cagr": 0.137891957562414,
+          "max_drawdown": -0.14183047914057645,
+          "volatility": 0.11448008197136308,
+          "sharpe": 1.1521484915654496,
+          "sortino": 1.6630525048924143,
+          "average_exposure": 0.607836332841586,
+          "turnover": 11.465085100861325,
+          "fees_jpy": 30806.892608376358,
+          "observations": 990,
+          "excess_cagr": -0.09476874924026468
+        },
+        "score": -0.1458046725870446
+      },
+      {
+        "dimension": "weighting",
+        "config": {
+          "trend": 252,
+          "momentum": 252,
+          "rebalance": 21,
+          "topk": 2,
+          "gross": 1.0,
+          "weighting": "equal",
+          "voltarget": 0,
+          "defensive_cash": false,
+          "entry_buffer": 0
+        },
+        "train": {
+          "start": "2016-10-24",
+          "end": "2020-12-31",
+          "valuation_start": "2016-10-21",
+          "initial": 1000000,
+          "final": 1773334.068946597,
+          "profit": 773334.0689465968,
+          "return_": 0.7733340689465968,
+          "cagr": 0.14634439474358407,
+          "max_drawdown": -0.30425082338476406,
+          "volatility": 0.18174763391911397,
+          "sharpe": 0.8196676187927702,
+          "sortino": 1.115567276424165,
+          "average_exposure": 0.9037580201649863,
+          "turnover": 20.317583396836326,
+          "fees_jpy": 56784.47250447858,
+          "observations": 1091,
+          "excess_cagr": 0.005864058885023171
+        },
+        "validation": {
+          "start": "2021-01-04",
+          "end": "2024-10-23",
+          "valuation_start": "2020-12-31",
+          "initial": 1000000,
+          "final": 1908181.457618993,
+          "profit": 908181.457618993,
+          "return_": 0.908181457618993,
+          "cagr": 0.1847655691979,
+          "max_drawdown": -0.18998543718449445,
+          "volatility": 0.15419927857933577,
+          "sharpe": 1.144112800710843,
+          "sortino": 1.6511746993939802,
+          "average_exposure": 0.8090909090909091,
+          "turnover": 14.336610538746886,
+          "fees_jpy": 42305.46643571169,
+          "observations": 990,
+          "excess_cagr": -0.047895137604778704
+        },
+        "score": -0.09539149690090232
+      },
+      {
+        "dimension": "voltarget",
+        "config": {
+          "trend": 252,
+          "momentum": 252,
+          "rebalance": 21,
+          "topk": 2,
+          "gross": 1.0,
+          "weighting": "inverse_vol",
+          "voltarget": 0.15,
+          "defensive_cash": false,
+          "entry_buffer": 0
+        },
+        "train": {
+          "start": "2016-10-24",
+          "end": "2020-12-31",
+          "valuation_start": "2016-10-21",
+          "initial": 1000000,
+          "final": 1466257.8222392849,
+          "profit": 466257.8222392848,
+          "return_": 0.4662578222392848,
+          "cagr": 0.09553648497708034,
+          "max_drawdown": -0.3049700508028418,
+          "volatility": 0.1661941150616972,
+          "sharpe": 0.6156068889499328,
+          "sortino": 0.8290779527274101,
+          "average_exposure": 0.8453636178187467,
+          "turnover": 21.62344225121394,
+          "fees_jpy": 58773.47998263711,
+          "observations": 1091,
+          "excess_cagr": -0.04494385088148056
+        },
+        "validation": {
+          "start": "2021-01-04",
+          "end": "2024-10-23",
+          "valuation_start": "2020-12-31",
+          "initial": 1000000,
+          "final": 1831468.856294324,
+          "profit": 831468.856294324,
+          "return_": 0.831468856294324,
+          "cagr": 0.17207812287023194,
+          "max_drawdown": -0.18674783557487729,
+          "volatility": 0.1463745964720149,
+          "sharpe": 1.1258532185536618,
+          "sortino": 1.6153936512670926,
+          "average_exposure": 0.7780213854834516,
+          "turnover": 14.763413396121017,
+          "fees_jpy": 42315.30880100109,
+          "observations": 990,
+          "excess_cagr": -0.060582583932446754
+        },
+        "score": -0.12974146826690636
+      },
+      {
+        "dimension": "defensive_cash",
+        "config": {
+          "trend": 252,
+          "momentum": 252,
+          "rebalance": 21,
+          "topk": 2,
+          "gross": 1.0,
+          "weighting": "inverse_vol",
+          "voltarget": 0,
+          "defensive_cash": true,
+          "entry_buffer": 0
+        },
+        "train": {
+          "start": "2016-10-24",
+          "end": "2020-12-31",
+          "valuation_start": "2016-10-21",
+          "initial": 1000000,
+          "final": 1428461.74574317,
+          "profit": 428461.74574316986,
+          "return_": 0.42846174574316986,
+          "cagr": 0.08873659487596153,
+          "max_drawdown": -0.3049700508028417,
+          "volatility": 0.17300627353904913,
+          "sharpe": 0.5633036873741986,
+          "sortino": 0.7522028437851683,
+          "average_exposure": 0.8652612282309807,
+          "turnover": 21.8197906637024,
+          "fees_jpy": 59158.26528721642,
+          "observations": 1091,
+          "excess_cagr": -0.05174374098259937
+        },
+        "validation": {
+          "start": "2021-01-04",
+          "end": "2024-10-23",
+          "valuation_start": "2020-12-31",
+          "initial": 1000000,
+          "final": 1873511.9875240652,
+          "profit": 873511.9875240651,
+          "return_": 0.8735119875240651,
+          "cagr": 0.17907910723413378,
+          "max_drawdown": -0.18674783557487717,
+          "volatility": 0.1487048330324091,
+          "sharpe": 1.1493687943908169,
+          "sortino": 1.6680900905867824,
+          "average_exposure": 0.7454545454545455,
+          "turnover": 16.98102986210333,
+          "fees_jpy": 51189.24802779727,
+          "observations": 990,
+          "excess_cagr": -0.05358159956854491
+        },
+        "score": -0.1261404289535639
+      },
+      {
+        "dimension": "entry_buffer",
+        "config": {
+          "trend": 252,
+          "momentum": 252,
+          "rebalance": 21,
+          "topk": 2,
+          "gross": 1.0,
+          "weighting": "inverse_vol",
+          "voltarget": 0,
+          "defensive_cash": false,
+          "entry_buffer": 0.01
+        },
+        "train": {
+          "start": "2016-10-24",
+          "end": "2020-12-31",
+          "valuation_start": "2016-10-21",
+          "initial": 1000000,
+          "final": 1745066.5379225458,
+          "profit": 745066.5379225458,
+          "return_": 0.7450665379225458,
+          "cagr": 0.14196113835951607,
+          "max_drawdown": -0.3049700508028417,
+          "volatility": 0.18031507819597536,
+          "sharpe": 0.8041589919762789,
+          "sortino": 1.0918000438306392,
+          "average_exposure": 0.9037580201649863,
+          "turnover": 22.82355022945987,
+          "fees_jpy": 63965.603586253485,
+          "observations": 1091,
+          "excess_cagr": 0.0014808025009551695
+        },
+        "validation": {
+          "start": "2021-01-04",
+          "end": "2024-10-23",
+          "valuation_start": "2020-12-31",
+          "initial": 1000000,
+          "final": 1817871.9118326984,
+          "profit": 817871.9118326985,
+          "return_": 0.8178719118326985,
+          "cagr": 0.16978861603798312,
+          "max_drawdown": -0.18674783557487729,
+          "volatility": 0.15122762267128254,
+          "sharpe": 1.0819392447697807,
+          "sortino": 1.5545431064300663,
+          "average_exposure": 0.7878787878787878,
+          "turnover": 15.20954008603546,
+          "fees_jpy": 43296.70641101378,
+          "observations": 990,
+          "excess_cagr": -0.06287209076469558
+        },
+        "score": -0.1095590496584149
+      }
+    ],
+    "training_only_leader": {
+      "id": "c01681",
+      "config": {
+        "trend": 252,
+        "momentum": 252,
+        "rebalance": 21,
+        "topk": 1,
+        "gross": 1.0,
+        "weighting": "equal",
+        "voltarget": 0,
+        "defensive_cash": false,
+        "entry_buffer": 0
+      },
+      "folds": [
+        {
+          "year": 2021,
+          "selected_id": "c01681",
+          "selected": {
+            "start": "2021-01-04",
+            "end": "2021-12-31",
+            "valuation_start": "2020-12-31",
+            "initial": 1000000,
+            "final": 1150501.2527028383,
+            "profit": 150501.25270283822,
+            "return_": 0.1505012527028382,
+            "cagr": 0.15061173585100907,
+            "max_drawdown": -0.09875631484725611,
+            "volatility": 0.21965828689617228,
+            "sharpe": 0.7282368500377466,
+            "sortino": 1.0581537665894776,
+            "average_exposure": 1.0,
+            "turnover": 8.0,
+            "fees_jpy": 21973.777331574543,
+            "observations": 260
+          },
+          "spy": {
+            "start": "2021-01-04",
+            "end": "2021-12-31",
+            "valuation_start": "2020-12-31",
+            "initial": 1000000,
+            "final": 1399128.6253494436,
+            "profit": 399128.6253494437,
+            "return_": 0.3991286253494437,
+            "cagr": 0.39945050951707484,
+            "max_drawdown": -0.04929959192315714,
+            "volatility": 0.14598617371347505,
+            "sharpe": 2.3039657476633235,
+            "sortino": 3.4688607194337373,
+            "average_exposure": 1.0,
+            "turnover": 2.0,
+            "fees_jpy": 6006.588033457252,
+            "observations": 260
+          }
+        },
+        {
+          "year": 2022,
+          "selected_id": "c01681",
+          "selected": {
+            "start": "2022-01-03",
+            "end": "2022-12-30",
+            "valuation_start": "2021-12-31",
+            "initial": 1000000,
+            "final": 811608.7348333027,
+            "profit": -188391.26516669735,
+            "return_": -0.18839126516669735,
+            "cagr": -0.18897283107987473,
+            "max_drawdown": -0.1961463023624107,
+            "volatility": 0.121283495874822,
+            "sharpe": -1.606990913926966,
+            "sortino": -2.0738234194647993,
+            "average_exposure": 0.3230769230769231,
+            "turnover": 8.0,
+            "fees_jpy": 16023.01078212488,
+            "observations": 260
+          },
+          "spy": {
+            "start": "2022-01-03",
+            "end": "2022-12-30",
+            "valuation_start": "2021-12-31",
+            "initial": 1000000,
+            "final": 931787.0641893143,
+            "profit": -68212.93581068577,
+            "return_": -0.06821293581068577,
+            "cagr": -0.06843897862438675,
+            "max_drawdown": -0.15398756840707672,
+            "volatility": 0.2616538117513645,
+            "sharpe": -0.13134276366256245,
+            "sortino": -0.18692027617775014,
+            "average_exposure": 1.0,
+            "turnover": 2.0,
+            "fees_jpy": 4835.305925286501,
+            "observations": 260
+          }
+        },
+        {
+          "year": 2023,
+          "selected_id": "c01681",
+          "selected": {
+            "start": "2023-01-03",
+            "end": "2023-12-29",
+            "valuation_start": "2022-12-30",
+            "initial": 1000000,
+            "final": 1278419.6228866423,
+            "profit": 278419.62288664223,
+            "return_": 0.27841962288664224,
+            "cagr": 0.2794984135350109,
+            "max_drawdown": -0.07327686846703019,
+            "volatility": 0.13985555072521857,
+            "sharpe": 1.7859301358751785,
+            "sortino": 2.654642078634385,
+            "average_exposure": 0.9186046511627907,
+            "turnover": 10.0,
+            "fees_jpy": 21994.480354611744,
+            "observations": 258
+          },
+          "spy": {
+            "start": "2023-01-03",
+            "end": "2023-12-29",
+            "valuation_start": "2022-12-30",
+            "initial": 1000000,
+            "final": 1319809.0504263493,
+            "profit": 319809.05042634933,
+            "return_": 0.31980905042634933,
+            "cagr": 0.3210673076042605,
+            "max_drawdown": -0.06877165810447128,
+            "volatility": 0.155492504838198,
+            "sharpe": 1.8213857876521264,
+            "sortino": 2.8231920720597237,
+            "average_exposure": 1.0,
+            "turnover": 2.0,
+            "fees_jpy": 5807.792106331703,
+            "observations": 258
+          }
+        },
+        {
+          "year": 2024,
+          "selected_id": "c01681",
+          "selected": {
+            "start": "2024-01-02",
+            "end": "2024-10-23",
+            "valuation_start": "2023-12-29",
+            "initial": 1000000,
+            "final": 1176113.280634059,
+            "profit": 176113.28063405908,
+            "return_": 0.17611328063405907,
+            "cagr": 0.21915439160020433,
+            "max_drawdown": -0.21658573505336653,
+            "volatility": 0.21590123162184252,
+            "sharpe": 1.0012541550046328,
+            "sortino": 1.3949703407714076,
+            "average_exposure": 1.0,
+            "turnover": 6.0,
+            "fees_jpy": 14367.030918494525,
+            "observations": 212
+          },
+          "spy": {
+            "start": "2024-01-02",
+            "end": "2024-10-23",
+            "valuation_start": "2023-12-29",
+            "initial": 1000000,
+            "final": 1270588.1596874967,
+            "profit": 270588.15968749684,
+            "return_": 0.27058815968749683,
+            "cagr": 0.3398289165174808,
+            "max_drawdown": -0.16420781299732934,
+            "volatility": 0.16615873528815495,
+            "sharpe": 1.7971842463171706,
+            "sortino": 2.5717157912061404,
+            "average_exposure": 1.0,
+            "turnover": 2.0,
+            "fees_jpy": 5684.431477913526,
+            "observations": 212
+          }
+        }
+      ],
+      "note": "Single training-only selection, fixed across validation-year diagnostic folds; no annual retuning. Validation folds are already seen."
+    }
+  },
+  "forward_observation": {
+    "status": "awaiting_new_data",
+    "frozen_through": "2026-10-24",
+    "days": 0,
+    "initial": 1000000,
+    "executable": false
+  }
+}
