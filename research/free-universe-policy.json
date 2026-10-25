@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "seed": "20261025",
+  "pool_per_market": 1000,
+  "targets": [200, 250, 300],
+  "start": "2025-01-01",
+  "end_exclusive": "2026-10-24",
+  "required_last_session": "2026-10-23",
+  "minimum_bars": 252,
+  "liquidity_window": 60,
+  "minimum_positive_volume_fraction": 0.9,
+  "minimum_median_turnover_proxy": {"JP": 100000000, "US": 1000000},
+  "jp_sector_cap": 50,
+  "maximum_recent_gap_calendar_days": 14,
+  "exclude_splits_in_liquidity_window": true,
+  "ranking": "descending_median_close_times_volume_then_symbol",
+  "historical_pit_complete": false,
+  "adoption_approved": false
+}
