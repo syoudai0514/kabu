@@ -1,0 +1,220 @@
+{
+  "mode": "current_sampled_universe_provisional",
+  "historical_pit_complete": false,
+  "adoption_approved": false,
+  "broker_orders_enabled": false,
+  "policy_sha256": "2e5dd756476bde603a9e85eb4bf886010869c42eabb331271f227c850319f385",
+  "pool_sha256": "99821c47547705841ecfc9a4582934ee344f39b28b719dada71c77c0fe90c5e9",
+  "available_candidates": {
+    "JP": 3695,
+    "US": 5111
+  },
+  "snapshots": [
+    {
+      "source": "jpx_listings",
+      "batch_id": 5,
+      "observed_at": "2026-10-24T23:55:31.848912+00:00",
+      "raw_sha256": "a26fdf4420cb6a152a1811ce0c6e293e642c8a99f1cc2ad9c47a5d55f2722c82"
+    },
+    {
+      "source": "nasdaq_listed",
+      "batch_id": 6,
+      "observed_at": "2026-10-24T23:55:32.842359+00:00",
+      "raw_sha256": "59ac9b74ff663c6de40f5c93a54d5e12eb3fbef74f82e8a7cfc1456ad9f969ec"
+    },
+    {
+      "source": "other_listed",
+      "batch_id": 7,
+      "observed_at": "2026-10-24T23:55:33.522518+00:00",
+      "raw_sha256": "94335ed3f4abc4bbd58a4415d105d453184f5484eaf6a2884d1bfb0120d850c9"
+    }
+  ],
+  "markets": {
+    "JP": {
+      "pool": 1000,
+      "processed": 1000,
+      "eligible": 399,
+      "rejection_reason_counts": {
+        "low_turnover_proxy": 571,
+        "insufficient_history": 20,
+        "recent_split_turnover_review": 22,
+        "insufficient_liquidity_history": 9,
+        "too_many_zero_volume_days": 26,
+        "fetch_or_validation_failed": 3,
+        "stale_or_missing_final_session": 4,
+        "price_discontinuity_review": 2
+      },
+      "selections": {
+        "200": {
+          "count": 200,
+          "shortfall": 0,
+          "sectors": {
+            "電気機器": 23,
+            "小売業": 16,
+            "輸送用機器": 6,
+            "非鉄金属": 2,
+            "精密機器": 6,
+            "銀行業": 12,
+            "医薬品": 8,
+            "機械": 20,
+            "その他金融業": 6,
+            "卸売業": 8,
+            "食料品": 9,
+            "化学": 19,
+            "建設業": 7,
+            "陸運業": 6,
+            "鉄鋼": 5,
+            "サービス業": 13,
+            "ガラス・土石製品": 4,
+            "情報・通信業": 11,
+            "空運業": 2,
+            "ゴム製品": 2,
+            "電気・ガス業": 1,
+            "不動産業": 3,
+            "その他製品": 2,
+            "石油・石炭製品": 1,
+            "金属製品": 4,
+            "繊維製品": 1,
+            "パルプ・紙": 1,
+            "証券、商品先物取引業": 1,
+            "倉庫・運輸関連業": 1
+          },
+          "members_sha256": "bf665a589788dd60361b90a78786b43ed2bd0f2936963618a0006297707ad3ad"
+        },
+        "250": {
+          "count": 250,
+          "shortfall": 0,
+          "sectors": {
+            "電気機器": 25,
+            "小売業": 21,
+            "輸送用機器": 8,
+            "非鉄金属": 2,
+            "精密機器": 8,
+            "銀行業": 13,
+            "医薬品": 8,
+            "機械": 22,
+            "その他金融業": 8,
+            "卸売業": 11,
+            "食料品": 11,
+            "化学": 23,
+            "建設業": 10,
+            "陸運業": 6,
+            "鉄鋼": 7,
+            "サービス業": 17,
+            "ガラス・土石製品": 4,
+            "情報・通信業": 17,
+            "空運業": 2,
+            "ゴム製品": 3,
+            "電気・ガス業": 1,
+            "不動産業": 5,
+            "その他製品": 4,
+            "石油・石炭製品": 1,
+            "金属製品": 4,
+            "繊維製品": 5,
+            "パルプ・紙": 1,
+            "証券、商品先物取引業": 2,
+            "倉庫・運輸関連業": 1
+          },
+          "members_sha256": "ccc55e7939c81484b1ac4ee55d45b964e1d0a4066d10939153a9534853cf0755"
+        },
+        "300": {
+          "count": 300,
+          "shortfall": 0,
+          "sectors": {
+            "電気機器": 31,
+            "小売業": 26,
+            "輸送用機器": 9,
+            "非鉄金属": 2,
+            "精密機器": 8,
+            "銀行業": 14,
+            "医薬品": 10,
+            "機械": 24,
+            "その他金融業": 9,
+            "卸売業": 20,
+            "食料品": 11,
+            "化学": 25,
+            "建設業": 11,
+            "陸運業": 7,
+            "鉄鋼": 9,
+            "サービス業": 20,
+            "ガラス・土石製品": 4,
+            "情報・通信業": 21,
+            "空運業": 2,
+            "ゴム製品": 4,
+            "電気・ガス業": 1,
+            "不動産業": 8,
+            "その他製品": 6,
+            "石油・石炭製品": 1,
+            "金属製品": 4,
+            "繊維製品": 5,
+            "パルプ・紙": 1,
+            "証券、商品先物取引業": 6,
+            "倉庫・運輸関連業": 1
+          },
+          "members_sha256": "fd349449b63d67e1a7514ed51a6600141663d2cdc3790d75c40bec3eff3555d6"
+        }
+      }
+    },
+    "US": {
+      "pool": 1000,
+      "processed": 1000,
+      "eligible": 583,
+      "rejection_reason_counts": {
+        "low_turnover_proxy": 335,
+        "price_discontinuity_review": 153,
+        "insufficient_history": 80,
+        "insufficient_liquidity_history": 16,
+        "too_many_zero_volume_days": 59,
+        "recent_split_turnover_review": 28,
+        "fetch_or_validation_failed": 3
+      },
+      "selections": {
+        "200": {
+          "count": 200,
+          "shortfall": 0,
+          "sectors": {
+            "unknown": 200
+          },
+          "members_sha256": "9a7b47c729a1488e6f880c3cadc74c2224aee313d67e16351c51fb4634824319"
+        },
+        "250": {
+          "count": 250,
+          "shortfall": 0,
+          "sectors": {
+            "unknown": 250
+          },
+          "members_sha256": "4693049d473e331a1c6f422c0c0711729e9f71012048c0b33575acdc23c72146"
+        },
+        "300": {
+          "count": 300,
+          "shortfall": 0,
+          "sectors": {
+            "unknown": 300
+          },
+          "members_sha256": "8c1b2488e7a1d4a9448ae25325ee0603c6fbd42192951fb0a8c0a2a6b8ad7a45"
+        }
+      }
+    }
+  },
+  "limitations": [
+    "current_survivor_bias",
+    "sample_not_whole_market",
+    "revised_price_turnover_proxy",
+    "US_sector_and_size_unverified",
+    "large_mid_quotas_not_applied",
+    "permanent_ids_lots_actions_and_Rakuten_tradability_unverified"
+  ],
+  "collection_complete": true,
+  "engine_sha256": "f2753c0aef4334561c41b5e67aca62dada7ea8e65a1e4e75236e74d689aff13d",
+  "data_subscription_cost_jpy": 0,
+  "external_llm_calls": 0,
+  "processed": 2000,
+  "price_success": 1994,
+  "usable_daily_bars": 850214,
+  "cache_replay_matches": true,
+  "original_engine_sha256": "6b5fcd834844d4b7d94f3f3d96a1e20db68a140b2fa87b5dc3127da84d833bee",
+  "first_retrieved_at": "2026-10-25T00:12:45.801101+00:00",
+  "last_retrieved_at": "2026-10-25T00:23:45.451827+00:00",
+  "inherited_failures": 6,
+  "source_kind_note": "Frozen pre-fix name heuristic admitted three warrant names; all failed retrieval, none selected. Future listing parsing excludes plural warrants/preference/funds."
+}

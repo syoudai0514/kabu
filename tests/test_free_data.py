@@ -45,7 +45,7 @@ class FreeDataTest(unittest.TestCase):
         self.assertTrue(rows[0]['common_stock_candidate'])
         self.assertEqual(rows[0]['source_round_lot'], '100')
         self.assertIsNone(rows[0]['historical_lot'])
-        for name in ['Example Preferred Common Stock', 'Example Depositary Common Shares', 'Example Units', 'Example Warrant']:
+        for name in ['Example Preferred Common Stock', 'Example Depositary Common Shares', 'Example Units', 'Example Warrant', 'Example Common Stock Warrants', 'Example Preference Common Shares', 'Example Funds Common Shares']:
             self.assertFalse(f.parse_us(directory(name), 'nasdaq_listed')[0][0]['common_stock_candidate'])
         with self.assertRaises(ValueError):
             f.parse_us(directory().split(b'File Creation Time:')[0], 'nasdaq_listed')

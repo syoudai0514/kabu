@@ -155,7 +155,7 @@ def parse_us(raw, source):
             raise ValueError('Empty security identity')
         # A screening hint only. Names do not constitute an authoritative security master.
         candidate = bool(re.search(r'\b(common stock|ordinary shares|common shares)\b', name, re.I))
-        candidate &= not bool(re.search(r'\b(preferred|depositary|warrant|units?|rights?|fund|ETF)\b', name, re.I))
+        candidate &= not bool(re.search(r'\b(preferred|preference|depositary|warrants?|units?|rights?|funds?|ETF)\b', name, re.I))
         candidate &= row['Test Issue'] == 'N' and row['ETF'] == 'N'
         records.append(dict(key=symbol, market='US', symbol=symbol, name=name,
                             exchange=row.get('Exchange', 'NASDAQ'), test_issue=row['Test Issue'], etf=row['ETF'],
