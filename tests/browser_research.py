@@ -12,6 +12,7 @@ with sync_playwright() as p:
     errors=[]
     page.on('pageerror', lambda error: errors.append(str(error)))
     page.goto(os.environ.get('KABU_TEST_URL','http://127.0.0.1:8000')+'/#research', wait_until='networkidle')
+    page.locator('#research-dataset').select_option('etfs')
     page.get_by_role('heading',name='アルゴリズム研究室').wait_for()
     page.get_by_text(trial_text, exact=True).wait_for()
     assert '研究用・運用採用は保留' in page.inner_text('main')
@@ -37,6 +38,7 @@ with sync_playwright() as p:
             assert amount in detail.inner_text()
         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
     page.reload(wait_until='networkidle')
+    page.locator('#research-dataset').select_option('etfs')
     page.get_by_text(trial_text,exact=True).wait_for()
     Path('test-results').mkdir(exist_ok=True)
     page.screenshot(path='test-results/research-mobile.png',full_page=True)
@@ -45,6 +47,7 @@ with sync_playwright() as p:
     page.screenshot(path='test-results/research-desktop.png',full_page=True)
     page.route('**/src/research-families-results.json',lambda route: route.fulfill(status=503,body='unavailable'))
     page.reload(wait_until='networkidle')
+    page.locator('#research-dataset').select_option('etfs')
     page.get_by_role('heading',name='研究結果を読み込めませんでした').wait_for()
     page.unroute('**/src/research-families-results.json')
     page.get_by_role('button',name='再読み込み').click()

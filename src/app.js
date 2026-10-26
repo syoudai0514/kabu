@@ -1,4 +1,5 @@
 import {researchPage,researchChoice} from './research.js';
+import {equityResearchPage,equityChoice} from './equity-research.js';
 import {PRESETS,demoData,parseCSV,calendar,barAt,signal,newAccount,equity,queueOrder,advance,strategyOrders,automaticStep,metrics,backtest,monteCarlo,tradesCSV,validNumber} from './engine.js';
 const $=s=>document.querySelector(s), KEY='kabu-lab-v1';
 const yen=v=>new Intl.NumberFormat('ja-JP',{style:'currency',currency:'JPY',maximumFractionDigits:0}).format(v);
@@ -9,8 +10,10 @@ const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'
 let data=demoData(),dates=calendar(data),account=newAccount(1000000,'high',dates[179]),costs={feeBps:10,slipBps:5,fxBps:10},route='overview',market='ALL',bt=null,mc=null,storageWarning='',toastTimer;
 let btMarket='ALL';
 let researchResult=null, researchError=false, researchFamily=null;
+let equityResult=null, equityError=false, equityFamily=null, researchDataset='equities';
+async function loadEquityResearch(){equityError=false;try{const response=await fetch('./src/equity-screen-results.json',{cache:'no-store'});if(!response.ok)throw new Error('missing');const result=await response.json();if(result.schema_version!==1||result.mode!=='current_survivor_exploratory'||!Array.isArray(result.selected)||result.selected.length!==8)throw new Error('invalid');equityResult=result;}catch{equityResult=null;equityError=true;}if(route==='research')render();}
 async function loadResearch(){researchError=false;try{const response=await fetch('./src/research-families-results.json',{cache:'no-store'});if(!response.ok)throw new Error('missing');const result=await response.json();if(result.schema_version!==1||!result.overall_selected||!Array.isArray(result.families)||!result.families.length)throw new Error('invalid');researchResult=result;}catch{researchError=true;}if(route==='research')render();}
-function research(){return researchPage(researchResult,researchError,chart,researchFamily);}
+function research(){const menu=`<section class="panel"><label>比較する実験<select id="research-dataset"><option value="equities" ${researchDataset==='equities'?'selected':''}>日米500候補 / 8系統・1年</option><option value="etfs" ${researchDataset==='etfs'?'selected':''}>固定5ETF / 9系統・10年参考値</option></select></label></section>`;return menu+(researchDataset==='equities'?equityResearchPage(equityResult,equityError,chart,equityFamily):researchPage(researchResult,researchError,chart,researchFamily));}
 let autoRunning=false, autoTimer=null, autoDays=0, autoLimit=Infinity, autoRelease=null, autoStarting=false, autoSummary='';
 let mcInputs={initial:1000000,monthly:0,mu:12,vol:35};
 try{const raw=localStorage.getItem(KEY);if(raw){const saved=JSON.parse(raw);if(saved.version!==1||!saved.data?.assets?.length||!Number.isFinite(saved.account?.cash)||saved.account.cash<0||!PRESETS[saved.account.risk]||!Array.isArray(saved.account.trades)||!Array.isArray(saved.account.orders))throw new Error('Invalid saved state');data=saved.data;dates=calendar(data);account=saved.account;if(!dates.includes(account.date))throw new Error('Invalid date');costs=saved.costs;Object.values(costs).forEach(v=>validNumber(v,0,1000,'コスト'));}}catch{data=demoData();dates=calendar(data);account=newAccount(1000000,'high',dates[179]);costs={feeBps:10,slipBps:5,fxBps:10};storageWarning='保存データを読み込めませんでした。初期データを表示しています。';}
@@ -101,6 +104,11 @@ function estimate(){const s=data.assets.find(s=>s.symbol===$('#order-symbol').va
 function on(selector,event,fn){$(selector)?.addEventListener(event,async e=>{try{await fn(e);}catch(err){toast(err.message||'処理に失敗しました。');}});}
 function bind(){
   on('#research-refresh','click',loadResearch);
+  on('#research-dataset','change',event=>{researchDataset=event.target.value;render();});
+  on('#equity-refresh','click',loadEquityResearch);
+  on('#equity-family','change',event=>{equityFamily=event.target.value;render();});
+  on('#equity-export','click',()=>download('kabu-equity-research.json',JSON.stringify(equityResult,null,2),'application/json'));
+  on('#equity-config','click',()=>download('kabu-equity-candidate.json',JSON.stringify({executable:false,status:'research_only',candidate:equityChoice(equityResult,equityFamily),provenance:equityResult.provenance},null,2),'application/json'));
   on('#research-family','change',event=>{researchFamily=event.target.value;render();});
   on('#research-export','click',()=>download('kabu-research-results.json',JSON.stringify(researchResult,null,2),'application/json'));
   on('#research-config','click',()=>download('kabu-research-candidate.json',JSON.stringify({schema_version:1,executable:false,status:'research_only',candidate:researchChoice(researchResult,researchFamily),provenance:researchResult.provenance},null,2),'application/json'));
@@ -137,4 +145,4 @@ window.addEventListener('storage',event=>{
   stopAuto('別のタブの操作を反映します。',false);
   location.reload();
 });
-window.addEventListener('hashchange',go);go();loadResearch();
+window.addEventListener('hashchange',go);go();loadResearch();loadEquityResearch();

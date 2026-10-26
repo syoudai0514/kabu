@@ -21,6 +21,7 @@ jobs:
       - run: python -m unittest discover -s tests -p 'test_*.py' -v
       - run: python scripts/analyze-research.py
       - run: python scripts/analyze-families.py
+      - run: python scripts/analyze-equity-screen.py --published-only
       - run: npm run check
       - run: npm test
       - run: npm run build

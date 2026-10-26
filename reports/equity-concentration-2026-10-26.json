@@ -1,0 +1,468 @@
+{
+  "schema_version": 1,
+  "posthoc_diagnostic": true,
+  "used_for_selection": false,
+  "adoption_approved": false,
+  "historical_pit_complete": false,
+  "winner_id": "short_reversal-7a31d80180bd",
+  "unchanged_config": {
+    "family": "short_reversal",
+    "gross": 1.0,
+    "lookback": 21,
+    "rebalance": 21,
+    "topk": 5,
+    "trend": 126
+  },
+  "config_sha256": "7a31d80180bd34be8be49e3404b756e6d3ee695be89ca7d6df36c14c5aacb0dc",
+  "source_sha256": "328fb79f14f2dd9b9ff764828f1dfece7d0a6fd5ff4432550674904b91dee6ed",
+  "engine_sha256": "f52aa36ea24cfc078a46870505112cc8c3bf72f3c9f39f457627a30d88853c68",
+  "space_sha256": "ef404a88ecddfa4566e611a7a0f62e710cd514d6820bc9e0f7b54f535ecc885a",
+  "input_sha256": "aa1087848be500cb114721820724fb93f2f91d18d0c91303f2152ce1e7fdd97d",
+  "original_summary_sha256": "c6203c9b15392fd8287bb439a9974294d68de88f2385e2da19aa9dff9d868001",
+  "contribution_method": "Sum of post-return marked holdings times r/(1+r), no terminal liquidation; fees reported separately. Peak weights are end-of-day marked weights.",
+  "original_concentration": {
+    "development": {
+      "liquidate": false,
+      "capital_gains_jpy": 1668859.3932211117,
+      "fees_jpy": 44082.939227037474,
+      "net_gain_jpy": 1624776.4539940755,
+      "reconciliation_error_jpy": -1.1641532182693481e-09,
+      "assets": [
+        {
+          "symbol": "7746.T",
+          "capital_gain_jpy": 388232.7472617806,
+          "fraction_of_net_gain": 0.23894533079145436,
+          "peak_weight": 0.23965633864742256,
+          "peak_marked_holdings_jpy": 534279.1810604292
+        },
+        {
+          "symbol": "4082.T",
+          "capital_gain_jpy": 201546.46743503123,
+          "fraction_of_net_gain": 0.12404565990575718,
+          "peak_weight": 0.18891599711863502,
+          "peak_marked_holdings_jpy": 440957.40624691074
+        },
+        {
+          "symbol": "TE",
+          "capital_gain_jpy": 183402.4188297419,
+          "fraction_of_net_gain": 0.11287855531072992,
+          "peak_weight": 0.20728997338942545,
+          "peak_marked_holdings_jpy": 304322.45254466037
+        },
+        {
+          "symbol": "SNEX",
+          "capital_gain_jpy": 112967.33596284255,
+          "fraction_of_net_gain": 0.06952792532483024,
+          "peak_weight": 0.12963057925714652,
+          "peak_marked_holdings_jpy": 334192.8945913457
+        },
+        {
+          "symbol": "6330.T",
+          "capital_gain_jpy": 102862.23243583352,
+          "fraction_of_net_gain": 0.06330854449729033,
+          "peak_weight": 0.17634759359553803,
+          "peak_marked_holdings_jpy": 391265.56801267836
+        },
+        {
+          "symbol": "6227.T",
+          "capital_gain_jpy": 84236.35023539771,
+          "fraction_of_net_gain": 0.0518448861246883,
+          "peak_weight": 0.10206602336470838,
+          "peak_marked_holdings_jpy": 210322.6085841239
+        },
+        {
+          "symbol": "ALGM",
+          "capital_gain_jpy": 79100.24357133528,
+          "fraction_of_net_gain": 0.0486837702361384,
+          "peak_weight": 0.11297814541166866,
+          "peak_marked_holdings_jpy": 298898.8313433437
+        },
+        {
+          "symbol": "TECK",
+          "capital_gain_jpy": 67276.3792968854,
+          "fraction_of_net_gain": 0.04140654496284983,
+          "peak_weight": 0.11397661216236182,
+          "peak_marked_holdings_jpy": 287558.9133055479
+        },
+        {
+          "symbol": "5214.T",
+          "capital_gain_jpy": 56012.0737198686,
+          "fraction_of_net_gain": 0.03447371088015092,
+          "peak_weight": 0.11354880016613403,
+          "peak_marked_holdings_jpy": 284743.77867436915
+        },
+        {
+          "symbol": "2492.T",
+          "capital_gain_jpy": 53532.952223393666,
+          "fraction_of_net_gain": 0.03294788774898683,
+          "peak_weight": 0.1242585402449158,
+          "peak_marked_holdings_jpy": 296256.2242362812
+        }
+      ]
+    },
+    "diagnostic": {
+      "liquidate": false,
+      "capital_gains_jpy": 32736.240665945577,
+      "fees_jpy": 27127.25923227739,
+      "net_gain_jpy": 5608.981433669058,
+      "reconciliation_error_jpy": -8.694769348949194e-10,
+      "assets": [
+        {
+          "symbol": "DAVE",
+          "capital_gain_jpy": 37808.14286749602,
+          "fraction_of_net_gain": 6.740643254859949,
+          "peak_weight": 0.12492961667119222,
+          "peak_marked_holdings_jpy": 139337.31622811564
+        },
+        {
+          "symbol": "ONTO",
+          "capital_gain_jpy": 34653.838661622016,
+          "fraction_of_net_gain": 6.178276585763908,
+          "peak_weight": 0.11847077365235834,
+          "peak_marked_holdings_jpy": 135017.5555911535
+        },
+        {
+          "symbol": "6227.T",
+          "capital_gain_jpy": 31021.512505491537,
+          "fraction_of_net_gain": 5.530685539317097,
+          "peak_weight": 0.12560369011180747,
+          "peak_marked_holdings_jpy": 138352.62796566816
+        },
+        {
+          "symbol": "SEDG",
+          "capital_gain_jpy": 30902.078214225225,
+          "fraction_of_net_gain": 5.509392138246203,
+          "peak_weight": 0.13193754128837817,
+          "peak_marked_holdings_jpy": 132772.33745082628
+        },
+        {
+          "symbol": "RLAY",
+          "capital_gain_jpy": 29633.703396681976,
+          "fraction_of_net_gain": 5.2832593131436685,
+          "peak_weight": 0.11232823221570498,
+          "peak_marked_holdings_jpy": 129997.42032621345
+        },
+        {
+          "symbol": "UMC",
+          "capital_gain_jpy": 27091.395213849537,
+          "fraction_of_net_gain": 4.830002654533299,
+          "peak_weight": 0.130847538240986,
+          "peak_marked_holdings_jpy": 135088.8990321962
+        },
+        {
+          "symbol": "5208.T",
+          "capital_gain_jpy": 22000.583568812363,
+          "fraction_of_net_gain": 3.92238480889763,
+          "peak_weight": 0.10573260243779355,
+          "peak_marked_holdings_jpy": 122364.30049834381
+        },
+        {
+          "symbol": "CCC",
+          "capital_gain_jpy": 18759.58506562014,
+          "fraction_of_net_gain": 3.3445618045750507,
+          "peak_weight": 0.11848106309844639,
+          "peak_marked_holdings_jpy": 124739.86493490914
+        },
+        {
+          "symbol": "LASR",
+          "capital_gain_jpy": 18628.163524596708,
+          "fraction_of_net_gain": 3.3211312508145148,
+          "peak_weight": 0.12194327505411269,
+          "peak_marked_holdings_jpy": 133893.80835648274
+        },
+        {
+          "symbol": "4680.T",
+          "capital_gain_jpy": 16224.773854770909,
+          "fraction_of_net_gain": 2.8926417472838093,
+          "peak_weight": 0.11601104385945604,
+          "peak_marked_holdings_jpy": 119054.1716903698
+        }
+      ]
+    },
+    "one_year": {
+      "liquidate": false,
+      "capital_gains_jpy": 2113951.406831179,
+      "fees_jpy": 108925.45059302877,
+      "net_gain_jpy": 2005025.9562381525,
+      "reconciliation_error_jpy": -2.3283064365386963e-09,
+      "assets": [
+        {
+          "symbol": "7746.T",
+          "capital_gain_jpy": 407693.91832545504,
+          "fraction_of_net_gain": 0.20333598029342922,
+          "peak_weight": 0.23965633864742256,
+          "peak_marked_holdings_jpy": 534279.1810604292
+        },
+        {
+          "symbol": "4082.T",
+          "capital_gain_jpy": 183988.85286261427,
+          "fraction_of_net_gain": 0.09176382594458567,
+          "peak_weight": 0.18891599711863502,
+          "peak_marked_holdings_jpy": 440957.40624691074
+        },
+        {
+          "symbol": "TE",
+          "capital_gain_jpy": 183402.4188297419,
+          "fraction_of_net_gain": 0.09147134392905473,
+          "peak_weight": 0.20728997338942545,
+          "peak_marked_holdings_jpy": 304322.45254466037
+        },
+        {
+          "symbol": "UMAC",
+          "capital_gain_jpy": 170509.6452867502,
+          "fraction_of_net_gain": 0.08504111617919496,
+          "peak_weight": 0.17577631792652146,
+          "peak_marked_holdings_jpy": 498742.65659102175
+        },
+        {
+          "symbol": "NBIS",
+          "capital_gain_jpy": 145395.6307951174,
+          "fraction_of_net_gain": 0.07251558531836165,
+          "peak_weight": 0.13882454875666966,
+          "peak_marked_holdings_jpy": 393896.7721231606
+        },
+        {
+          "symbol": "6227.T",
+          "capital_gain_jpy": 134238.43329203603,
+          "fraction_of_net_gain": 0.06695097032254653,
+          "peak_weight": 0.11166777788489503,
+          "peak_marked_holdings_jpy": 323269.28115687094
+        },
+        {
+          "symbol": "SNEX",
+          "capital_gain_jpy": 112967.33596284255,
+          "fraction_of_net_gain": 0.05634208156326957,
+          "peak_weight": 0.12963057925714652,
+          "peak_marked_holdings_jpy": 334192.8945913457
+        },
+        {
+          "symbol": "RLAY",
+          "capital_gain_jpy": 112782.38249988008,
+          "fraction_of_net_gain": 0.056249836641258946,
+          "peak_weight": 0.12580526312836543,
+          "peak_marked_holdings_jpy": 348317.8014403981
+        },
+        {
+          "symbol": "4461.T",
+          "capital_gain_jpy": 103510.22987733547,
+          "fraction_of_net_gain": 0.05162538148460795,
+          "peak_weight": 0.1201379051959496,
+          "peak_marked_holdings_jpy": 360776.2803849628
+        },
+        {
+          "symbol": "PENG",
+          "capital_gain_jpy": 101469.39181911651,
+          "fraction_of_net_gain": 0.05060752031833757,
+          "peak_weight": 0.14732832745193425,
+          "peak_marked_holdings_jpy": 445590.78930933686
+        }
+      ]
+    }
+  },
+  "exclusions": {
+    "exclude_development_top3": {
+      "excluded_symbols": [
+        "7746.T",
+        "4082.T",
+        "TE"
+      ],
+      "results": {
+        "1x": {
+          "development": {
+            "start": "2025-10-24",
+            "end": "2026-04-23",
+            "valuation_start": "2025-10-23",
+            "initial": 1000000,
+            "final": 1771100.0602805105,
+            "return_": 0.7711000602805105,
+            "cagr": 2.149134153317604,
+            "max_drawdown": -0.10260735729963266,
+            "turnover": 12.948807915830798,
+            "fees_jpy": 36869.31839424103,
+            "unliquidated_jpy": 0.0,
+            "observations": 129,
+            "excess_cagr_vs_spy": 1.9261098702356836
+          },
+          "diagnostic": {
+            "start": "2026-04-24",
+            "end": "2026-10-23",
+            "valuation_start": "2026-04-23",
+            "initial": 1000000,
+            "final": 1003585.4808431221,
+            "return_": 0.0035854808431221574,
+            "cagr": 0.0071690437801641416,
+            "max_drawdown": -0.24627014067062036,
+            "turnover": 13.80017435732092,
+            "fees_jpy": 29150.759822824402,
+            "unliquidated_jpy": 0.0,
+            "observations": 131,
+            "excess_cagr_vs_spy": -0.12358087166450304
+          },
+          "one_year": {
+            "start": "2025-10-24",
+            "end": "2026-10-23",
+            "valuation_start": "2025-10-23",
+            "initial": 1000000,
+            "final": 2008097.256027679,
+            "return_": 1.0080972560276789,
+            "cagr": 1.0090564032213893,
+            "max_drawdown": -0.30035757096744664,
+            "turnover": 24.615237654675273,
+            "fees_jpy": 80788.27549632832,
+            "unliquidated_jpy": 0.0,
+            "observations": 260,
+            "excess_cagr_vs_spy": 0.8273023051310213
+          }
+        },
+        "2x": {
+          "development": {
+            "start": "2025-10-24",
+            "end": "2026-04-23",
+            "valuation_start": "2025-10-23",
+            "initial": 1000000,
+            "final": 1724545.617286019,
+            "return_": 0.724545617286019,
+            "cagr": 1.9852099904734932,
+            "max_drawdown": -0.10612966989289196,
+            "turnover": 12.924620217294109,
+            "fees_jpy": 72647.18234622042,
+            "unliquidated_jpy": 0.0,
+            "observations": 129,
+            "excess_cagr_vs_spy": 1.774396760368002
+          },
+          "diagnostic": {
+            "start": "2026-04-24",
+            "end": "2026-10-23",
+            "valuation_start": "2026-04-23",
+            "initial": 1000000,
+            "final": 976076.8628529124,
+            "return_": -0.023923137147087603,
+            "cagr": -0.04717940698951095,
+            "max_drawdown": -0.2523004913734619,
+            "turnover": 13.774571982731784,
+            "fees_jpy": 57502.755359082286,
+            "unliquidated_jpy": 0.0,
+            "observations": 131,
+            "excess_cagr_vs_spy": -0.16670095063919643
+          },
+          "one_year": {
+            "start": "2025-10-24",
+            "end": "2026-10-23",
+            "valuation_start": "2025-10-23",
+            "initial": 1000000,
+            "final": 1909977.776521997,
+            "return_": 0.909977776521997,
+            "cagr": 0.9108244919460271,
+            "max_drawdown": -0.3031499251336517,
+            "turnover": 24.567686061162956,
+            "fees_jpy": 157163.57522775177,
+            "unliquidated_jpy": 0.0,
+            "observations": 260,
+            "excess_cagr_vs_spy": 0.7349685297198363
+          }
+        }
+      }
+    },
+    "exclude_7746_T": {
+      "excluded_symbols": [
+        "7746.T"
+      ],
+      "results": {
+        "1x": {
+          "development": {
+            "start": "2025-10-24",
+            "end": "2026-04-23",
+            "valuation_start": "2025-10-23",
+            "initial": 1000000,
+            "final": 2205747.1205425058,
+            "return_": 1.2057471205425059,
+            "cagr": 3.891826303269263,
+            "max_drawdown": -0.11577545505482423,
+            "turnover": 12.755013295009338,
+            "fees_jpy": 43310.38476249158,
+            "unliquidated_jpy": 0.0,
+            "observations": 129,
+            "excess_cagr_vs_spy": 3.668802020187343
+          },
+          "diagnostic": {
+            "start": "2026-04-24",
+            "end": "2026-10-23",
+            "valuation_start": "2026-04-23",
+            "initial": 1000000,
+            "final": 1003585.4808431221,
+            "return_": 0.0035854808431221574,
+            "cagr": 0.0071690437801641416,
+            "max_drawdown": -0.24627014067062036,
+            "turnover": 13.80017435732092,
+            "fees_jpy": 29150.759822824402,
+            "unliquidated_jpy": 0.0,
+            "observations": 131,
+            "excess_cagr_vs_spy": -0.12358087166450304
+          },
+          "one_year": {
+            "start": "2025-10-24",
+            "end": "2026-10-23",
+            "valuation_start": "2025-10-23",
+            "initial": 1000000,
+            "final": 2498812.9879092937,
+            "return_": 1.498812987909294,
+            "cagr": 1.5003809128006687,
+            "max_drawdown": -0.30035757096744653,
+            "turnover": 24.42144073445314,
+            "fees_jpy": 97959.12631802264,
+            "unliquidated_jpy": 0.0,
+            "observations": 260,
+            "excess_cagr_vs_spy": 1.3186268147103006
+          }
+        },
+        "2x": {
+          "development": {
+            "start": "2025-10-24",
+            "end": "2026-04-23",
+            "valuation_start": "2025-10-23",
+            "initial": 1000000,
+            "final": 2148419.3669742467,
+            "return_": 1.1484193669742466,
+            "cagr": 3.640012546155413,
+            "max_drawdown": -0.11920108386906936,
+            "turnover": 12.730702351489443,
+            "fees_jpy": 85305.63109238184,
+            "unliquidated_jpy": 0.0,
+            "observations": 129,
+            "excess_cagr_vs_spy": 3.429199316049922
+          },
+          "diagnostic": {
+            "start": "2026-04-24",
+            "end": "2026-10-23",
+            "valuation_start": "2026-04-23",
+            "initial": 1000000,
+            "final": 976076.8628529124,
+            "return_": -0.023923137147087603,
+            "cagr": -0.04717940698951095,
+            "max_drawdown": -0.2523004913734619,
+            "turnover": 13.774571982731784,
+            "fees_jpy": 57502.755359082286,
+            "unliquidated_jpy": 0.0,
+            "observations": 131,
+            "excess_cagr_vs_spy": -0.16670095063919643
+          },
+          "one_year": {
+            "start": "2025-10-24",
+            "end": "2026-10-23",
+            "valuation_start": "2025-10-23",
+            "initial": 1000000,
+            "final": 2377374.447035888,
+            "return_": 1.3773744470358884,
+            "cagr": 1.3787850012451277,
+            "max_drawdown": -0.303149925133652,
+            "turnover": 24.373763922272257,
+            "fees_jpy": 190498.983978676,
+            "unliquidated_jpy": 0.0,
+            "observations": 260,
+            "excess_cagr_vs_spy": 1.2029290390189369
+          }
+        }
+      }
+    }
+  }
+}
