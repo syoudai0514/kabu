@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-26",
+  "scope": "planned_research_not_trading_signals",
+  "baseline_commit": "6a9985f",
+  "adoption_approved": false,
+  "items": [
+    {
+      "id": "R1",
+      "title": "[P0][R1] 今回の利益と損失を購入前の情報で監査する",
+      "status": "planned",
+      "priority": "P0",
+      "dependencies": [],
+      "issue_url": null,
+      "protocol_commit": null,
+      "last_review": null,
+      "next_review_trigger": "必要なデータと事前固定条件が揃った時。以後は四半期・新開示・技術変化・データ訂正。",
+      "adoption_approved": false
+    },
+    {
+      "id": "R2",
+      "title": "[P0][R2] 当時の銘柄集合・企業行動・配当と無料データの不足を整える",
+      "status": "planned",
+      "priority": "P0",
+      "dependencies": [],
+      "issue_url": null,
+      "protocol_commit": null,
+      "last_review": null,
+      "next_review_trigger": "必要なデータと事前固定条件が揃った時。以後は四半期・新開示・技術変化・データ訂正。",
+      "adoption_approved": false
+    },
+    {
+      "id": "R3",
+      "title": "[P0][R3] 時刻付き財務・開示と根拠付き抽出を保存する",
+      "status": "planned",
+      "priority": "P0",
+      "dependencies": [],
+      "issue_url": null,
+      "protocol_commit": null,
+      "last_review": null,
+      "next_review_trigger": "必要なデータと事前固定条件が揃った時。以後は四半期・新開示・技術変化・データ訂正。",
+      "adoption_approved": false
+    },
+    {
+      "id": "R4",
+      "title": "[P1][R4] AIの5シナリオを証拠・反証付きで追跡する",
+      "status": "planned",
+      "priority": "P1",
+      "dependencies": [
+        "R3"
+      ],
+      "issue_url": null,
+      "protocol_commit": null,
+      "last_review": null,
+      "next_review_trigger": "必要なデータと事前固定条件が揃った時。以後は四半期・新開示・技術変化・データ訂正。",
+      "adoption_approved": false
+    },
+    {
+      "id": "R5",
+      "title": "[P1][R5] 株価が要求する成長をシナリオで評価する",
+      "status": "planned",
+      "priority": "P1",
+      "dependencies": [
+        "R2",
+        "R3"
+      ],
+      "issue_url": null,
+      "protocol_commit": null,
+      "last_review": null,
+      "next_review_trigger": "必要なデータと事前固定条件が揃った時。以後は四半期・新開示・技術変化・データ訂正。",
+      "adoption_approved": false
+    },
+    {
+      "id": "H1",
+      "title": "[P1][H1] 業績改善＋押し目買いの追加効果を検証する",
+      "status": "planned",
+      "priority": "P1",
+      "dependencies": [
+        "R2",
+        "R3",
+        "R8"
+      ],
+      "issue_url": null,
+      "protocol_commit": null,
+      "last_review": null,
+      "next_review_trigger": "必要なデータと事前固定条件が揃った時。以後は四半期・新開示・技術変化・データ訂正。",
+      "adoption_approved": false
+    },
+    {
+      "id": "H2",
+      "title": "[P1][H2] 業績修正後の順張りを時刻と約定遅延込みで検証する",
+      "status": "planned",
+      "priority": "P1",
+      "dependencies": [
+        "R2",
+        "R3",
+        "R8"
+      ],
+      "issue_url": null,
+      "protocol_commit": null,
+      "last_review": null,
+      "next_review_trigger": "必要なデータと事前固定条件が揃った時。以後は四半期・新開示・技術変化・データ訂正。",
+      "adoption_approved": false
+    },
+    {
+      "id": "H3",
+      "title": "[P1][H3] AI導入による生産性改善と株式成績を検証する",
+      "status": "planned",
+      "priority": "P1",
+      "dependencies": [
+        "R2",
+        "R3",
+        "R4",
+        "R8"
+      ],
+      "issue_url": null,
+      "protocol_commit": null,
+      "last_review": null,
+      "next_review_trigger": "必要なデータと事前固定条件が揃った時。以後は四半期・新開示・技術変化・データ訂正。",
+      "adoption_approved": false
+    },
+    {
+      "id": "R8",
+      "title": "[P0][R8] 時間順検証・多数試行・採否基準を事前固定する",
+      "status": "planned",
+      "priority": "P0",
+      "dependencies": [],
+      "issue_url": null,
+      "protocol_commit": null,
+      "last_review": null,
+      "next_review_trigger": "必要なデータと事前固定条件が揃った時。以後は四半期・新開示・技術変化・データ訂正。",
+      "adoption_approved": false
+    },
+    {
+      "id": "R9",
+      "title": "[P1][R9] 100万円・単元・集中・実際の約定条件で候補を再評価する",
+      "status": "planned",
+      "priority": "P1",
+      "dependencies": [
+        "R2",
+        "R8"
+      ],
+      "issue_url": null,
+      "protocol_commit": null,
+      "last_review": null,
+      "next_review_trigger": "必要なデータと事前固定条件が揃った時。以後は四半期・新開示・技術変化・データ訂正。",
+      "adoption_approved": false
+    },
+    {
+      "id": "R10",
+      "title": "[P2][R10] 候補固定後のペーパー観察と再評価履歴を残す",
+      "status": "planned",
+      "priority": "P2",
+      "dependencies": [
+        "R8",
+        "R9",
+        "H1",
+        "H2",
+        "H3"
+      ],
+      "issue_url": null,
+      "protocol_commit": null,
+      "last_review": null,
+      "next_review_trigger": "必要なデータと事前固定条件が揃った時。以後は四半期・新開示・技術変化・データ訂正。",
+      "adoption_approved": false
+    },
+    {
+      "id": "T1",
+      "status": "planned",
+      "owner_work_item": "R4",
+      "issue_url": null,
+      "adoption_approved": false
+    },
+    {
+      "id": "T2",
+      "status": "planned",
+      "owner_work_item": "R4",
+      "issue_url": null,
+      "adoption_approved": false
+    },
+    {
+      "id": "T3",
+      "status": "planned",
+      "owner_work_item": "R4",
+      "issue_url": null,
+      "adoption_approved": false
+    },
+    {
+      "id": "T4",
+      "status": "planned",
+      "owner_work_item": "R4",
+      "issue_url": null,
+      "adoption_approved": false
+    },
+    {
+      "id": "T5",
+      "status": "planned",
+      "owner_work_item": "R4",
+      "issue_url": null,
+      "adoption_approved": false
+    },
+    {
+      "id": "V1",
+      "status": "planned",
+      "owner_work_item": "R5",
+      "issue_url": null,
+      "adoption_approved": false
+    }
+  ]
+}

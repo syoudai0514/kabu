@@ -6,6 +6,8 @@
 
 アプリは本人のChatGPTアカウントで開く非公開Sitesです。スマホでも同じアカウントでサインインしてください。
 
+**次の研究と再評価：** [AI時代の検討資料](docs/ai-research-review.md) / [Issue一覧](docs/research-issues.md) / [再評価テンプレート](docs/templates/research-review.md)。仮説・必要情報・反証・採否条件を記録し、検証済みの結果と分けて管理します。
+
 **アルゴリズム研究室：** https://kabu-lab-0514.azurespoon512.chatgpt.site/#research
 
 **最新（2026-10-26）：日米各250候補・8系統1,488設定の比較を実行しました。** 前半で選んだ8代表はすべて後半6か月でSPYを下回り、運用採用は保留です。スマホの研究室で各系統・費用増・基準運用と比較できます。現在の生存銘柄による参考試験で、500候補の5年・10年は未評価。[分析報告](reports/equity-screen-2026-10-26.md) / [再計算と照合](docs/equity-screen-runbook.md)。
