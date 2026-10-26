@@ -1,0 +1,276 @@
+{
+  "schema_version": 1,
+  "initial": 1000000,
+  "minimum_history": 126,
+  "max_stale_days": 7,
+  "fees": {
+    "JP": 0.0015,
+    "US": 0.0025
+  },
+  "source_start": "2025-01-01",
+  "source_end": "2026-10-23",
+  "periods": {
+    "development": {
+      "start": "2025-10-24",
+      "end": "2026-04-23"
+    },
+    "diagnostic": {
+      "start": "2026-04-24",
+      "end": "2026-10-23"
+    },
+    "one_year": {
+      "start": "2025-10-24",
+      "end": "2026-10-23"
+    }
+  },
+  "selection": "development_excess_cagr_minus_0.5_abs_max_drawdown_then_id",
+  "families": {
+    "momentum_rank": {
+      "dimensions": {
+        "topk": [
+          5,
+          10,
+          20,
+          40
+        ],
+        "rebalance": [
+          5,
+          10,
+          21
+        ],
+        "gross": [
+          0.8,
+          1.0
+        ],
+        "trend": [
+          0,
+          126
+        ],
+        "lookback": [
+          21,
+          63,
+          126
+        ]
+      }
+    },
+    "short_reversal": {
+      "dimensions": {
+        "topk": [
+          5,
+          10,
+          20,
+          40
+        ],
+        "rebalance": [
+          5,
+          10,
+          21
+        ],
+        "gross": [
+          0.8,
+          1.0
+        ],
+        "trend": [
+          0,
+          126
+        ],
+        "lookback": [
+          5,
+          10,
+          21
+        ]
+      }
+    },
+    "low_vol": {
+      "dimensions": {
+        "topk": [
+          5,
+          10,
+          20,
+          40
+        ],
+        "rebalance": [
+          5,
+          10,
+          21
+        ],
+        "gross": [
+          0.8,
+          1.0
+        ],
+        "trend": [
+          0,
+          126
+        ],
+        "vol_window": [
+          21,
+          42,
+          63
+        ]
+      }
+    },
+    "rsi_reversal": {
+      "dimensions": {
+        "topk": [
+          5,
+          10,
+          20,
+          40
+        ],
+        "rebalance": [
+          5,
+          10,
+          21
+        ],
+        "gross": [
+          0.8,
+          1.0
+        ],
+        "trend": [
+          0,
+          126
+        ],
+        "rsi_window": [
+          5,
+          10,
+          14
+        ],
+        "threshold": [
+          20,
+          35,
+          45
+        ]
+      }
+    },
+    "donchian_breakout": {
+      "dimensions": {
+        "topk": [
+          5,
+          10,
+          20,
+          40
+        ],
+        "rebalance": [
+          5,
+          10,
+          21
+        ],
+        "gross": [
+          0.8,
+          1.0
+        ],
+        "trend": [
+          0,
+          126
+        ],
+        "entry_window": [
+          21,
+          42,
+          63
+        ],
+        "exit_window": [
+          10,
+          21
+        ]
+      }
+    },
+    "dual_momentum": {
+      "dimensions": {
+        "topk": [
+          5,
+          10,
+          20,
+          40
+        ],
+        "rebalance": [
+          5,
+          10,
+          21
+        ],
+        "gross": [
+          0.8,
+          1.0
+        ],
+        "trend": [
+          0,
+          126
+        ],
+        "short_window": [
+          21,
+          42,
+          63
+        ],
+        "long_window": [
+          126
+        ]
+      }
+    },
+    "spy_core_satellite": {
+      "dimensions": {
+        "topk": [
+          5,
+          10,
+          20,
+          40
+        ],
+        "rebalance": [
+          5,
+          10,
+          21
+        ],
+        "gross": [
+          0.8,
+          1.0
+        ],
+        "trend": [
+          0,
+          126
+        ],
+        "core": [
+          0.5,
+          0.8
+        ],
+        "lookback": [
+          63,
+          126
+        ]
+      }
+    },
+    "multi_strategy_ensemble": {
+      "dimensions": {
+        "topk": [
+          5,
+          10,
+          20,
+          40
+        ],
+        "rebalance": [
+          5,
+          10,
+          21
+        ],
+        "gross": [
+          0.8,
+          1.0
+        ],
+        "trend": [
+          0,
+          126
+        ]
+      }
+    }
+  },
+  "adoption_approved": false,
+  "historical_pit_complete": false,
+  "expected_counts": {
+    "momentum_rank": 144,
+    "short_reversal": 144,
+    "low_vol": 144,
+    "rsi_reversal": 432,
+    "donchian_breakout": 240,
+    "dual_momentum": 144,
+    "spy_core_satellite": 192,
+    "multi_strategy_ensemble": 48
+  },
+  "expected_trials": 1488
+}
