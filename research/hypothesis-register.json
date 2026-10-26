@@ -11,11 +11,12 @@
       "status": "planned",
       "priority": "P0",
       "dependencies": [],
-      "issue_url": null,
+      "issue_url": "https://github.com/syoudai0514/kabu/issues/2",
       "protocol_commit": null,
       "last_review": null,
       "next_review_trigger": "必要なデータと事前固定条件が揃った時。以後は四半期・新開示・技術変化・データ訂正。",
-      "adoption_approved": false
+      "adoption_approved": false,
+      "issue_number": 2
     },
     {
       "id": "R2",
@@ -23,11 +24,12 @@
       "status": "planned",
       "priority": "P0",
       "dependencies": [],
-      "issue_url": null,
+      "issue_url": "https://github.com/syoudai0514/kabu/issues/3",
       "protocol_commit": null,
       "last_review": null,
       "next_review_trigger": "必要なデータと事前固定条件が揃った時。以後は四半期・新開示・技術変化・データ訂正。",
-      "adoption_approved": false
+      "adoption_approved": false,
+      "issue_number": 3
     },
     {
       "id": "R3",
@@ -35,11 +37,12 @@
       "status": "planned",
       "priority": "P0",
       "dependencies": [],
-      "issue_url": null,
+      "issue_url": "https://github.com/syoudai0514/kabu/issues/4",
       "protocol_commit": null,
       "last_review": null,
       "next_review_trigger": "必要なデータと事前固定条件が揃った時。以後は四半期・新開示・技術変化・データ訂正。",
-      "adoption_approved": false
+      "adoption_approved": false,
+      "issue_number": 4
     },
     {
       "id": "R4",
@@ -49,11 +52,12 @@
       "dependencies": [
         "R3"
       ],
-      "issue_url": null,
+      "issue_url": "https://github.com/syoudai0514/kabu/issues/6",
       "protocol_commit": null,
       "last_review": null,
       "next_review_trigger": "必要なデータと事前固定条件が揃った時。以後は四半期・新開示・技術変化・データ訂正。",
-      "adoption_approved": false
+      "adoption_approved": false,
+      "issue_number": 6
     },
     {
       "id": "R5",
@@ -64,11 +68,12 @@
         "R2",
         "R3"
       ],
-      "issue_url": null,
+      "issue_url": "https://github.com/syoudai0514/kabu/issues/7",
       "protocol_commit": null,
       "last_review": null,
       "next_review_trigger": "必要なデータと事前固定条件が揃った時。以後は四半期・新開示・技術変化・データ訂正。",
-      "adoption_approved": false
+      "adoption_approved": false,
+      "issue_number": 7
     },
     {
       "id": "H1",
@@ -80,11 +85,12 @@
         "R3",
         "R8"
       ],
-      "issue_url": null,
+      "issue_url": "https://github.com/syoudai0514/kabu/issues/8",
       "protocol_commit": null,
       "last_review": null,
       "next_review_trigger": "必要なデータと事前固定条件が揃った時。以後は四半期・新開示・技術変化・データ訂正。",
-      "adoption_approved": false
+      "adoption_approved": false,
+      "issue_number": 8
     },
     {
       "id": "H2",
@@ -96,11 +102,12 @@
         "R3",
         "R8"
       ],
-      "issue_url": null,
+      "issue_url": "https://github.com/syoudai0514/kabu/issues/9",
       "protocol_commit": null,
       "last_review": null,
       "next_review_trigger": "必要なデータと事前固定条件が揃った時。以後は四半期・新開示・技術変化・データ訂正。",
-      "adoption_approved": false
+      "adoption_approved": false,
+      "issue_number": 9
     },
     {
       "id": "H3",
@@ -113,11 +120,12 @@
         "R4",
         "R8"
       ],
-      "issue_url": null,
+      "issue_url": "https://github.com/syoudai0514/kabu/issues/10",
       "protocol_commit": null,
       "last_review": null,
       "next_review_trigger": "必要なデータと事前固定条件が揃った時。以後は四半期・新開示・技術変化・データ訂正。",
-      "adoption_approved": false
+      "adoption_approved": false,
+      "issue_number": 10
     },
     {
       "id": "R8",
@@ -125,11 +133,12 @@
       "status": "planned",
       "priority": "P0",
       "dependencies": [],
-      "issue_url": null,
+      "issue_url": "https://github.com/syoudai0514/kabu/issues/5",
       "protocol_commit": null,
       "last_review": null,
       "next_review_trigger": "必要なデータと事前固定条件が揃った時。以後は四半期・新開示・技術変化・データ訂正。",
-      "adoption_approved": false
+      "adoption_approved": false,
+      "issue_number": 5
     },
     {
       "id": "R9",
@@ -140,11 +149,12 @@
         "R2",
         "R8"
       ],
-      "issue_url": null,
+      "issue_url": "https://github.com/syoudai0514/kabu/issues/11",
       "protocol_commit": null,
       "last_review": null,
       "next_review_trigger": "必要なデータと事前固定条件が揃った時。以後は四半期・新開示・技術変化・データ訂正。",
-      "adoption_approved": false
+      "adoption_approved": false,
+      "issue_number": 11
     },
     {
       "id": "R10",
@@ -158,53 +168,61 @@
         "H2",
         "H3"
       ],
-      "issue_url": null,
+      "issue_url": "https://github.com/syoudai0514/kabu/issues/12",
       "protocol_commit": null,
       "last_review": null,
       "next_review_trigger": "必要なデータと事前固定条件が揃った時。以後は四半期・新開示・技術変化・データ訂正。",
-      "adoption_approved": false
+      "adoption_approved": false,
+      "issue_number": 12
     },
     {
       "id": "T1",
       "status": "planned",
       "owner_work_item": "R4",
-      "issue_url": null,
-      "adoption_approved": false
+      "issue_url": "https://github.com/syoudai0514/kabu/issues/6",
+      "adoption_approved": false,
+      "issue_number": 6
     },
     {
       "id": "T2",
       "status": "planned",
       "owner_work_item": "R4",
-      "issue_url": null,
-      "adoption_approved": false
+      "issue_url": "https://github.com/syoudai0514/kabu/issues/6",
+      "adoption_approved": false,
+      "issue_number": 6
     },
     {
       "id": "T3",
       "status": "planned",
       "owner_work_item": "R4",
-      "issue_url": null,
-      "adoption_approved": false
+      "issue_url": "https://github.com/syoudai0514/kabu/issues/6",
+      "adoption_approved": false,
+      "issue_number": 6
     },
     {
       "id": "T4",
       "status": "planned",
       "owner_work_item": "R4",
-      "issue_url": null,
-      "adoption_approved": false
+      "issue_url": "https://github.com/syoudai0514/kabu/issues/6",
+      "adoption_approved": false,
+      "issue_number": 6
     },
     {
       "id": "T5",
       "status": "planned",
       "owner_work_item": "R4",
-      "issue_url": null,
-      "adoption_approved": false
+      "issue_url": "https://github.com/syoudai0514/kabu/issues/6",
+      "adoption_approved": false,
+      "issue_number": 6
     },
     {
       "id": "V1",
       "status": "planned",
       "owner_work_item": "R5",
-      "issue_url": null,
-      "adoption_approved": false
+      "issue_url": "https://github.com/syoudai0514/kabu/issues/7",
+      "adoption_approved": false,
+      "issue_number": 7
     }
-  ]
+  ],
+  "tracker_issue_url": "https://github.com/syoudai0514/kabu/issues/1"
 }
