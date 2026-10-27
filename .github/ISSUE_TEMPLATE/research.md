@@ -4,7 +4,7 @@ about: 検証前の条件と検証後の証拠を残す
 title: '[研究] '
 ---
 
-<!-- 詳細は docs/ai-research-review.md と docs/templates/research-review.md。 -->
+<!-- 詳細は docs/ai-research-review.md、docs/research-to-live-plan.md、docs/templates/research-review.md。 -->
 
 ## 仮説と現在の証拠
 
@@ -18,6 +18,8 @@ title: '[研究] '
 - ルール、比較基準、期間、探索回数：
 - 採用候補／保留／棄却条件（数値は実行前に固定）：
 - 依存する作業：
+- 段階G0〜G5／最終的な実行経路／移行時に必要な証拠：
+- リスク制約・単純案との比較・売却／再参入・不採用時の扱い：
 
 ## 完了条件
 

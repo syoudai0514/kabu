@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "id": "research-to-live-2026-10-27-draft",
+  "status": "draft_not_executable",
+  "scope": "review_contract_not_runtime_configuration",
+  "last_reviewed_at": "2026-10-27",
+  "objective": "Select a feasible, robust strategy using predeclared out-of-sample net-of-cost benchmark comparisons, then validate operations before bounded live deployment.",
+  "current_baseline": {
+    "code_commit": "6a9985f",
+    "equity_trials": 1488,
+    "mode": "current_survivor_exploratory",
+    "historical_pit_complete": false,
+    "five_and_ten_year_equity_results_available": false,
+    "broker_connected": false,
+    "live_enabled": false
+  },
+  "owner_work_items": [
+    "R11",
+    "R8",
+    "R13",
+    "R14",
+    "R15"
+  ],
+  "stages": [
+    {
+      "id": "G0",
+      "name": "data_and_broker_feasibility",
+      "status": "not_passed"
+    },
+    {
+      "id": "G1",
+      "name": "frozen_research_and_out_of_sample_evaluation",
+      "status": "not_passed"
+    },
+    {
+      "id": "G2",
+      "name": "execution_replay_and_fault_checks",
+      "status": "not_passed"
+    },
+    {
+      "id": "G3",
+      "name": "frozen_forward_paper_and_shadow_observation",
+      "status": "not_passed"
+    },
+    {
+      "id": "G4",
+      "name": "bounded_live_deployment",
+      "status": "not_passed"
+    },
+    {
+      "id": "G5",
+      "name": "review_scale_or_reduce",
+      "status": "not_passed"
+    }
+  ],
+  "proposed_hard_gate_requirements": {
+    "duplicate_order_intents_executed_in_fault_tests": 0,
+    "unexplained_position_or_cash_reconciliation_differences": 0,
+    "unresolved_order_outcomes_at_activation": 0,
+    "broker_product_and_order_type_verified": true,
+    "data_timing_and_coverage_review_completed": true,
+    "frozen_model_and_risk_limits_identified": true,
+    "stop_and_restart_procedures_verified": true,
+    "authenticated_mobile_status_and_controls_verified": true
+  },
+  "hard_gate_requirements_are_not_observed_results": true,
+  "required_before_research_freeze": {
+    "primary_metric_and_selection_rule": null,
+    "initial_capital_and_cash_flow_policy": {
+      "initial_jpy": 1000000,
+      "contributions_jpy": 0,
+      "withdrawals_jpy": 0,
+      "basis": "research_baseline_from_prior_simulations_not_live_account_capital"
+    },
+    "maximum_drawdown_and_concentration_limits": null,
+    "currency_dividend_fee_and_tax_assumptions": null,
+    "time_splits_and_label_overlap_handling": null,
+    "trial_budget_and_multiple_testing_method": null,
+    "minimum_evidence_and_uncertainty_thresholds": null,
+    "robustness_acceptance_thresholds": null,
+    "available_instruments_and_execution_assumptions": null
+  },
+  "required_before_live_activation": {
+    "account_reference_and_supported_markets_without_secrets": null,
+    "frozen_strategy_and_code_hashes": null,
+    "paper_duration_and_minimum_observation_counts": null,
+    "paper_result_and_fault_evidence": null,
+    "capital_order_daily_loss_and_exposure_limits": null,
+    "freshness_latency_and_reconciliation_tolerances": null,
+    "authenticated_runtime_and_heartbeat_policy": null,
+    "recovery_backup_and_stop_runbook": null,
+    "activation_scope_and_record": null
+  },
+  "missing_values_block_promotion": true,
+  "adoption_approved": false,
+  "live_enabled": false,
+  "automatic_spy_purchase_on_research_failure": false,
+  "automatic_reoptimization_or_limit_increase": false,
+  "additional_paid_data_api_or_cloud_contracts": false
+}

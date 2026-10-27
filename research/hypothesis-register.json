@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-26",
-  "scope": "planned_research_not_trading_signals",
+  "scope": "planned_research_and_execution_design_not_trading_signals",
   "baseline_commit": "6a9985f",
   "adoption_approved": false,
   "items": [
@@ -57,7 +57,8 @@
       "last_review": null,
       "next_review_trigger": "必要なデータと事前固定条件が揃った時。以後は四半期・新開示・技術変化・データ訂正。",
       "adoption_approved": false,
-      "issue_number": 6
+      "issue_number": 6,
+      "design_updated_at": "2026-10-27"
     },
     {
       "id": "R5",
@@ -73,7 +74,8 @@
       "last_review": null,
       "next_review_trigger": "必要なデータと事前固定条件が揃った時。以後は四半期・新開示・技術変化・データ訂正。",
       "adoption_approved": false,
-      "issue_number": 7
+      "issue_number": 7,
+      "design_updated_at": "2026-10-27"
     },
     {
       "id": "H1",
@@ -132,13 +134,16 @@
       "title": "[P0][R8] 時間順検証・多数試行・採否基準を事前固定する",
       "status": "planned",
       "priority": "P0",
-      "dependencies": [],
+      "dependencies": [
+        "R11"
+      ],
       "issue_url": "https://github.com/syoudai0514/kabu/issues/5",
       "protocol_commit": null,
       "last_review": null,
       "next_review_trigger": "必要なデータと事前固定条件が揃った時。以後は四半期・新開示・技術変化・データ訂正。",
       "adoption_approved": false,
-      "issue_number": 5
+      "issue_number": 5,
+      "design_updated_at": "2026-10-27"
     },
     {
       "id": "R9",
@@ -147,14 +152,16 @@
       "priority": "P1",
       "dependencies": [
         "R2",
-        "R8"
+        "R8",
+        "R13"
       ],
       "issue_url": "https://github.com/syoudai0514/kabu/issues/11",
       "protocol_commit": null,
       "last_review": null,
       "next_review_trigger": "必要なデータと事前固定条件が揃った時。以後は四半期・新開示・技術変化・データ訂正。",
       "adoption_approved": false,
-      "issue_number": 11
+      "issue_number": 11,
+      "design_updated_at": "2026-10-27"
     },
     {
       "id": "R10",
@@ -164,16 +171,16 @@
       "dependencies": [
         "R8",
         "R9",
-        "H1",
-        "H2",
-        "H3"
+        "R12"
       ],
       "issue_url": "https://github.com/syoudai0514/kabu/issues/12",
       "protocol_commit": null,
       "last_review": null,
       "next_review_trigger": "必要なデータと事前固定条件が揃った時。以後は四半期・新開示・技術変化・データ訂正。",
       "adoption_approved": false,
-      "issue_number": 12
+      "issue_number": 12,
+      "candidate_prerequisite": "事前固定の検証を通った少なくとも1候補。H1〜H5または適格な価格基準。全仮説の完成・成功は不要。",
+      "design_updated_at": "2026-10-27"
     },
     {
       "id": "T1",
@@ -222,7 +229,132 @@
       "issue_url": "https://github.com/syoudai0514/kabu/issues/7",
       "adoption_approved": false,
       "issue_number": 7
+    },
+    {
+      "id": "R11",
+      "title": "[P0][R11] 最適候補の目的・制約・選別規則と不採用条件を固定する",
+      "status": "planned",
+      "priority": "P0",
+      "dependencies": [],
+      "issue_url": "https://github.com/syoudai0514/kabu/issues/13",
+      "issue_number": 13,
+      "protocol_commit": null,
+      "last_review": null,
+      "next_review_trigger": "必要条件と数値の判定基準が固定された時。以後は各段階の証拠・新開示・障害・仕様変更を確認。",
+      "adoption_approved": false,
+      "created_at": "2026-10-27"
+    },
+    {
+      "id": "R13",
+      "title": "[P0][R13] 楽天の国内・米国の発注経路と無料実行環境を確認する",
+      "status": "planned",
+      "priority": "P0",
+      "dependencies": [],
+      "issue_url": "https://github.com/syoudai0514/kabu/issues/14",
+      "issue_number": 14,
+      "protocol_commit": null,
+      "last_review": null,
+      "next_review_trigger": "必要条件と数値の判定基準が固定された時。以後は各段階の証拠・新開示・障害・仕様変更を確認。",
+      "adoption_approved": false,
+      "created_at": "2026-10-27"
+    },
+    {
+      "id": "H4",
+      "title": "[P1][H4] 相場局面・固定戦略合成と単一戦略を比較する",
+      "status": "planned",
+      "priority": "P1",
+      "dependencies": [
+        "R2",
+        "R8"
+      ],
+      "issue_url": "https://github.com/syoudai0514/kabu/issues/15",
+      "issue_number": 15,
+      "protocol_commit": null,
+      "last_review": null,
+      "next_review_trigger": "必要条件と数値の判定基準が固定された時。以後は各段階の証拠・新開示・障害・仕様変更を確認。",
+      "adoption_approved": false,
+      "created_at": "2026-10-27"
+    },
+    {
+      "id": "H5",
+      "title": "[P1][H5] 長期成長の保有継続・売却・再参入条件を比較する",
+      "status": "planned",
+      "priority": "P1",
+      "dependencies": [
+        "R2",
+        "R8"
+      ],
+      "issue_url": "https://github.com/syoudai0514/kabu/issues/16",
+      "issue_number": 16,
+      "protocol_commit": null,
+      "last_review": null,
+      "next_review_trigger": "必要条件と数値の判定基準が固定された時。以後は各段階の証拠・新開示・障害・仕様変更を確認。",
+      "adoption_approved": false,
+      "created_at": "2026-10-27",
+      "conditional_dependencies": [
+        {
+          "id": "R3",
+          "when": "業績に基づく保有・退出条件を使う版"
+        }
+      ]
+    },
+    {
+      "id": "R12",
+      "title": "[P1][R12] 研究・ペーパー・実発注の判断と注文台帳を共通化する",
+      "status": "planned",
+      "priority": "P1",
+      "dependencies": [
+        "R9",
+        "R13"
+      ],
+      "issue_url": "https://github.com/syoudai0514/kabu/issues/17",
+      "issue_number": 17,
+      "protocol_commit": null,
+      "last_review": null,
+      "next_review_trigger": "必要条件と数値の判定基準が固定された時。以後は各段階の証拠・新開示・障害・仕様変更を確認。",
+      "adoption_approved": false,
+      "created_at": "2026-10-27"
+    },
+    {
+      "id": "R15",
+      "title": "[P1][R15] スマホの本人操作・停止確認と無料での常駐運用を設計する",
+      "status": "planned",
+      "priority": "P1",
+      "dependencies": [
+        "R13",
+        "R12"
+      ],
+      "issue_url": "https://github.com/syoudai0514/kabu/issues/18",
+      "issue_number": 18,
+      "protocol_commit": null,
+      "last_review": null,
+      "next_review_trigger": "必要条件と数値の判定基準が固定された時。以後は各段階の証拠・新開示・障害・仕様変更を確認。",
+      "adoption_approved": false,
+      "created_at": "2026-10-27"
+    },
+    {
+      "id": "R14",
+      "title": "[P2][R14] ペーパーから限定実運用・拡大への条件と停止復旧を固定する",
+      "status": "planned",
+      "priority": "P2",
+      "dependencies": [
+        "R10",
+        "R12",
+        "R13",
+        "R15"
+      ],
+      "issue_url": "https://github.com/syoudai0514/kabu/issues/19",
+      "issue_number": 19,
+      "protocol_commit": null,
+      "last_review": null,
+      "next_review_trigger": "必要条件と数値の判定基準が固定された時。以後は各段階の証拠・新開示・障害・仕様変更を確認。",
+      "adoption_approved": false,
+      "created_at": "2026-10-27"
     }
   ],
-  "tracker_issue_url": "https://github.com/syoudai0514/kabu/issues/1"
+  "tracker_issue_url": "https://github.com/syoudai0514/kabu/issues/1",
+  "updated_at": "2026-10-27",
+  "execution_plan": "docs/research-to-live-plan.md",
+  "promotion_policy_draft": "research/promotion-policy.draft.json",
+  "design_review_note": "追加設計のみ。新しいシミュレーション・接続・実売買は未実施。"
 }

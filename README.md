@@ -6,6 +6,8 @@
 
 アプリは本人のChatGPTアカウントで開く非公開Sitesです。スマホでも同じアカウントでサインインしてください。
 
+**実売買までの追加設計（2026-10-27）：** [選別・検証・実行・段階移行の計画](docs/research-to-live-plan.md)。研究エンジンと注文処理の共通化、売却条件、スマホ監視、楽天の対応範囲を検討。RSSの公式対応は国内株式等で、米国株の自動発注経路は別途確認が必要です。実接続・実発注は未実装。
+
 **次の研究と再評価：** [AI時代の検討資料](docs/ai-research-review.md) / [Issue一覧](docs/research-issues.md) / [再評価テンプレート](docs/templates/research-review.md)。仮説・必要情報・反証・採否条件を記録し、検証済みの結果と分けて管理します。
 
 **アルゴリズム研究室：** https://kabu-lab-0514.azurespoon512.chatgpt.site/#research
